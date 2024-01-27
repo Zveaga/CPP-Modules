@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 19:25:24 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/24 21:19:08 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/27 14:15:42 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static std::string get_option(void)
 	
 	while(true)
 	{
-		std::cout << "Enter option: ";
+		std::cout << "Enter option (add/search/exit): ";
 		std::cin >> option;
 		if (option != "add" && option != "search" && option != "exit")
 		{
@@ -31,26 +31,23 @@ static std::string get_option(void)
 	return (option);
 }
 
-static void	add_contact(int i)
-{
-	
-	std::cout << "ADD CONTACT...\n";		
-	
-}
 
-static void	display_contact(int i)
-{
-	std::cout << "DISPLAY CONTACT...\n";
-}
+
+// static void	display_contact(int i)
+// {
+// 	std::cout << "DISPLAY CONTACT...\n";
+// }
 
 static void welcome_message(void)
 {
 	std::cout << "\nWelcome to my basic phonebook entry program\n";
 	std::cout << "\nYou can choose between these 3 options:\
-	\n1. add-> save a new contact'\
-	\n2. search-> display a specific contact'\
+	\n1. add-> save a new contact\
+	\n2. search-> display a specific contact\
 	\n3. exit-> exit program'\n";
 }
+
+
 
 int	main(void)
 {
@@ -65,15 +62,18 @@ int	main(void)
 		option = get_option();
 		if (option == "add")
 		{
-			printf("sssss\n");
-			add_contact(i);
+			phonebook.add_contact(i);
 			count++;
 		}	
 		else if (option == "search")
-			display_contact(i);
+			phonebook.display_contacts(count);
+		else if (option == "exit")
+			exit(EXIT_SUCCESS);
 		if (count == 8)
 		{
 			std::cout << "max limit reached, replace oldest with new one\n";
+			//phonebook.update_contacts();
+			//phonebook.contacts[0] = phonebook.contacts[i];
 			break ;
 		}
 		i++;
