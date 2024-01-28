@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 19:25:24 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 18:22:45 by rares         ########   odam.nl         */
+/*   Updated: 2024/01/28 14:10:39 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ static std::string get_option(void)
 	return (option);
 }
 
-
-
-// static void	display_contact(int i)
-// {
-// 	std::cout << "DISPLAY CONTACT...\n";
-// }
-
 static void welcome_message(void)
 {
 	std::cout << "\nWelcome to my basic phonebook entry program\n";
@@ -46,7 +39,6 @@ static void welcome_message(void)
 	\n2. search-> display a specific contact\
 	\n3. exit-> exit program'\n";
 }
-
 
 
 int	main(void)
@@ -64,17 +56,15 @@ int	main(void)
 		{
 			phonebook.add_contact(i++);
 			count++;
-			std::cout << "Count: " << count << std::endl;
-
 		}	
 		else if (option == "search")
-			phonebook.display_contacts(count);
+			phonebook.display_contact_list(count);
 		else if (option == "exit")
 			exit(EXIT_SUCCESS);
 		if (count == 8)
 		{
 			std::cout << "max limit reached, replace oldest with new one\n";
-			phonebook.update_contacts(i);
+			//phonebook.update_contacts(i);
 			//phonebook.contacts[0] = phonebook.contacts[i];
 			break ;
 		}

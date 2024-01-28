@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 18:24:47 by rares         ########   odam.nl         */
+/*   Updated: 2024/01/28 14:07:21 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,47 @@ void PhoneBook::add_contact(int i)
 	contacts[i].set_darkest_secret(field);
 }
 
-void PhoneBook::update_contacts(int	pos)
+void PhoneBook::update_contacts(int	i)
 {
-	for (int i = 0; 
+	for (int j = 0; j < 8
 }
 
-void PhoneBook::display_contacts(int count)
+void PhoneBook::display_contact(int count)
 {
-	std::cout << "Count: " << count << std::endl;
+	int	index = 0;
+	while (true)
+	{	
+		if (count == 1)
+			std::cout << "\nEnter 0 to display the full contact\n";
+		else
+		{
+			std::cout << "Enter between index 0 and " << count - 1
+				<<" to display the full contact\n";	
+		}
+		std::cin >> index;
+		if (index  < 0 || index > count - 1)
+		{
+			std::cout << "Index out of range\n";
+			index = 0;
+			continue ;
+		}
+		break ;
+	}
+	std::cout << "\nFirst Name: ";
+	std::cout << contacts[index].get_first_name(false) << std::endl;
+	std::cout << "Last Name: ";
+	std::cout << contacts[index].get_last_name(false) << std::endl;
+	std::cout << "Nickname: ";
+	std::cout << contacts[index].get_nickname(false) << std::endl;
+	std::cout << "Phone Number: ";
+	std::cout << contacts[index].get_phone_number(false) << std::endl;
+	std::cout << "Darkest Secret: ";
+	std::cout << contacts[index].get_darkest_secret(false) << std::endl << std::endl;
+}
+
+
+void PhoneBook::display_contact_list(int count)
+{
 	for (int i = 0; i < count; i++)
 	{
 		std::cout << std::setw(10) << std::right << i << "|";
@@ -52,5 +85,5 @@ void PhoneBook::display_contacts(int count)
 		std::cout << std::setw(10) << std::right << contacts[i].get_last_name(true) << "|";
 		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true) << std::endl;		
 	}
-	
+	display_contact(count);
 }

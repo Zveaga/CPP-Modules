@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 18:22:38 by rares         ########   odam.nl         */
+/*   Updated: 2024/01/28 13:44:01 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class PhoneBook
 	public:
 		void add_contact(int i);
 		void update_contacts(int i);
-		void display_contacts(int count);
+		void display_contact_list(int count);
+		void display_contact(int count);
 		
 
 
