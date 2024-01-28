@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:37 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 12:56:37 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/27 17:33:53 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ class Contact
 		void set_nickname(std::string _nickname);
 		void set_phone_number(std::string _phone_number);
 		void set_darkest_secret(std::string _darkest_secret);
-		std::string get_first_name(void);
-		std::string get_last_name(void);
-		std::string get_nickname(void);
-		std::string get_phone_number(void);
-		std::string get_darkest_secret(void);		
+		std::string get_first_name(bool truncate);
+		std::string get_last_name(bool truncate);
+		std::string get_nickname(bool truncate);
+		std::string get_phone_number(bool truncate);
+		std::string get_darkest_secret(bool truncate);		
 };
 
 #endif

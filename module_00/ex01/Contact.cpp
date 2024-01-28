@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:47 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 12:56:41 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/27 17:44:18 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,42 @@ void Contact::set_darkest_secret(std::string _darkest_secret)
 	darkest_secret = _darkest_secret;
 }
 
-std::string Contact::get_first_name(void)
-{
-	return (first_name);
+std::string Contact::get_first_name(bool truncate)
+{	
+	if (truncate == true && first_name.length() > 10)
+		return (first_name.substr(0, 9) + ".");
+	else
+		return (first_name);
 }
 
-std::string Contact::get_last_name(void)
+std::string Contact::get_last_name(bool truncate)
 {
-	return (last_name);
+	if (truncate == true && last_name.length() > 10)
+		return (last_name.substr(0, 9) + ".");
+	else
+		return (last_name);
 }
 
-std::string Contact::get_nickname(void)
+std::string Contact::get_nickname(bool truncate)
 {
-	return (nickname);
+	if (truncate == true && nickname.length() > 10)
+		return (nickname.substr(0, 9) + ".");
+	else
+		return (nickname);
 }
 
-std::string Contact::get_phone_number(void)
+std::string Contact::get_phone_number(bool truncate)
 {
-	return (phone_number);
+	if (truncate == true && phone_number.length() > 10)
+		return (phone_number.substr(0, 9) + ".");
+	else
+		return (phone_number);
 }
 
-std::string Contact::get_darkest_secret(void)
+std::string Contact::get_darkest_secret(bool truncate)
 {
-	return (darkest_secret);
+	if (truncate == true && darkest_secret.length() > 10)
+		return (darkest_secret.substr(0, 9) + ".");
+	else
+		return (darkest_secret);
 }
-
