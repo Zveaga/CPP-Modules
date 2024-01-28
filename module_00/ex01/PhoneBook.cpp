@@ -6,17 +6,22 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 14:07:21 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/28 15:14:39 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PhoneBook.hpp"
 
+PhoneBook::PhoneBook()
+{
+	oldest_contact = 0;
+}
+
 void PhoneBook::add_contact(int i)
 {
 	std::string	field;
 	
-	std::cout << "Enter first name: ";
+	std::cout << "\nEnter first name: ";
 	std::cin >> field;
 	contacts[i].set_first_name(field);
 	
@@ -39,7 +44,10 @@ void PhoneBook::add_contact(int i)
 
 void PhoneBook::update_contacts(int	i)
 {
-	for (int j = 0; j < 8
+	contacts[oldest_contact] = contacts[i];
+	oldest_contact++;
+	if (oldest_contact == 7)
+		oldest_contact = 0;
 }
 
 void PhoneBook::display_contact(int count)

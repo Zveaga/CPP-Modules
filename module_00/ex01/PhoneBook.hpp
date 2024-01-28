@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 13:44:01 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/28 14:55:30 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@
 class PhoneBook
 {	
 	private:
+		int	oldest_contact;
 		std::array<Contact, 8> contacts;
+		
 	public:
+		PhoneBook();
 		void add_contact(int i);
 		void update_contacts(int i);
 		void display_contact_list(int count);
 		void display_contact(int count);
+		
 		
 
 

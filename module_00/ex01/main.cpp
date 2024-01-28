@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 19:25:24 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 14:10:39 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/28 15:14:46 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static std::string get_option(void)
 	
 	while (true)
 	{
-		std::cout << "Enter option (add/search/exit): ";
+		std::cout << "\nEnter option (add/search/exit): ";
 		std::cin >> option;
 		if (option != "add" && option != "search" && option != "exit")
 		{
@@ -61,23 +61,11 @@ int	main(void)
 			phonebook.display_contact_list(count);
 		else if (option == "exit")
 			exit(EXIT_SUCCESS);
-		if (count == 8)
+		if (count == 3)
 		{
-			std::cout << "max limit reached, replace oldest with new one\n";
-			//phonebook.update_contacts(i);
-			//phonebook.contacts[0] = phonebook.contacts[i];
-			break ;
+			std::cout << "Max limit reached, replacing oldest with newest\n";
+			phonebook.update_contacts(--i);
+			continue ;
 		}
 	}
-	
-	//std::cout << "First Name:\n";
-	
-
-	
-
-	//std::cin >> first_name;
-	//phonebook.contacts[0].set_first_name(first_name);
-	//phonebook.contacts[0].get_first_name();
-	//test.set_first_name("Rares");
-	// test.get_first_name();
 }
