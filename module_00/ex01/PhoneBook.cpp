@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 15:14:39 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/29 13:16:06 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,6 @@ void PhoneBook::add_contact(int i)
 	contacts[i].set_darkest_secret(field);
 }
 
-void PhoneBook::update_contacts(int	i)
-{
-	contacts[oldest_contact] = contacts[i];
-	oldest_contact++;
-	if (oldest_contact == 7)
-		oldest_contact = 0;
-}
-
 void PhoneBook::display_contact(int count)
 {
 	int	index = 0;
@@ -63,8 +55,10 @@ void PhoneBook::display_contact(int count)
 				<<" to display the full contact\n";	
 		}
 		std::cin >> index;
-		if (index  < 0 || index > count - 1)
+		if (std::cin.fail() || index < 0 || index > count - 1)
 		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Index out of range\n";
 			index = 0;
 			continue ;
@@ -83,15 +77,19 @@ void PhoneBook::display_contact(int count)
 	std::cout << contacts[index].get_darkest_secret(false) << std::endl << std::endl;
 }
 
-
 void PhoneBook::display_contact_list(int count)
 {
+	if (count == 0)
+	{
+		std::cout << "\nThere are no contacts to display!\n";
+		return ;	
+	}
 	for (int i = 0; i < count; i++)
 	{
 		std::cout << std::setw(10) << std::right << i << "|";
 		std::cout << std::setw(10) << std::right << contacts[i].get_first_name(true) << "|";
 		std::cout << std::setw(10) << std::right << contacts[i].get_last_name(true) << "|";
-		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true) << std::endl;		
+		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true) << std::endl;
 	}
 	display_contact(count);
 }

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 19:25:24 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 15:14:46 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/29 13:00:48 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,18 @@ static std::string get_option(void)
 
 static void welcome_message(void)
 {
-	std::cout << "\nWelcome to my basic phonebook entry program\n";
+	std::cout << "\nWelcome to my basic phonebook entry program!\n";
 	std::cout << "\nYou can choose between these 3 options:\
 	\n1. add-> save a new contact\
 	\n2. search-> display a specific contact\
-	\n3. exit-> exit program'\n";
+	\n3. exit-> exit program\n";
 }
 
 
 int	main(void)
 {
 	int i = 0;
+	int	oldest = 0;
 	int count = 0;
 	std::string option;
 	PhoneBook phonebook;	
@@ -54,18 +55,23 @@ int	main(void)
 		option = get_option();
 		if (option == "add")
 		{
+			if (i == 8)
+			{
+				i = oldest;
+				oldest++;
+				if (oldest == 7)
+				{
+					i = 0;	
+					oldest = 0;
+				}
+			}
 			phonebook.add_contact(i++);
-			count++;
+			if (count < 8)
+				count++;
 		}	
 		else if (option == "search")
 			phonebook.display_contact_list(count);
 		else if (option == "exit")
 			exit(EXIT_SUCCESS);
-		if (count == 3)
-		{
-			std::cout << "Max limit reached, replacing oldest with newest\n";
-			phonebook.update_contacts(--i);
-			continue ;
-		}
 	}
 }

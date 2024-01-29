@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:37 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/27 17:33:53 by rares         ########   odam.nl         */
+/*   Updated: 2024/01/29 12:59:07 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 # include<iostream>
-// # include<string>
 
 class Contact
 {

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/28 14:55:30 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/29 12:59:03 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <array>
 #include <iomanip>
 #include <string>
+#include <limits>
 
 class PhoneBook
 {	
@@ -30,10 +31,6 @@ class PhoneBook
 		void update_contacts(int i);
 		void display_contact_list(int count);
 		void display_contact(int count);
-		
-		
-
-
 };
 
 
