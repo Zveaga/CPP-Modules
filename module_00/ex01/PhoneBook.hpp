@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/29 12:59:03 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/29 18:34:56 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ class PhoneBook
 		void display_contact_list(int count);
 		void display_contact(int count);
 };
-
 
 #endif
