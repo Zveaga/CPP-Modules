@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/29 18:58:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/30 17:27:36 by coxer         ########   odam.nl         */
+/*   Created: 2024/01/30 18:29:46 by coxer         #+#    #+#                 */
+/*   Updated: 2024/01/30 18:47:29 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-
-class Zombie
+int main(void)
 {
-	private:
-		std::string name;
-	public:
-		Zombie(std::string name);
-		void announce(void);
-		void randomChump(std::string name);
-		Zombie* newZombie(std::string name);
-		~Zombie();
+	Zombie zombie;
 
-		//Zombie(std::string name) : name(name) {};
-		
-};
-
-#endif
+	Zombie *zombie_horde = zombie.zombieHorde(10, "Horde");
+	
+	// for (int i = 0; i < 10; i++)
+	// 	delete(zombie_horde[i]);
+}

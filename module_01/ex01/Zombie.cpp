@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/29 18:58:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/30 17:27:36 by coxer         ########   odam.nl         */
+/*   Created: 2024/01/29 19:10:03 by coxer         #+#    #+#                 */
+/*   Updated: 2024/01/30 18:37:10 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-
-class Zombie
+void Zombie::announce(void)
 {
-	private:
-		std::string name;
-	public:
-		Zombie(std::string name);
-		void announce(void);
-		void randomChump(std::string name);
-		Zombie* newZombie(std::string name);
-		~Zombie();
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-		//Zombie(std::string name) : name(name) {};
-		
-};
+Zombie::Zombie(std::string name)
+{
+	this->name = name;
+	announce();
+}
 
-#endif
+Zombie::Zombie()
+{
+	this->name = "Constructor Zombie";
+	announce();
+}
+
+Zombie::~Zombie()
+{
+	std::cout << "Destructor called for: " << name << std::endl;
+}
