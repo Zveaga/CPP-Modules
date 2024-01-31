@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/29 18:58:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/31 15:22:56 by coxer         ########   odam.nl         */
+/*   Created: 2024/01/31 15:21:27 by coxer         #+#    #+#                 */
+/*   Updated: 2024/01/31 18:29:07 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-#include <string>
-#include <iomanip>
-#include <iostream>
+#include<iostream>
+#include<string>
 
-class Zombie
+class Weapon
 {
 	private:
-		std::string name;
+		std::string type;
 	public:
-		// Zombie &operator=(const Zombie &zombie);
-		Zombie();
-		Zombie(const std::string name);
-		void announce(void);
-		Zombie *zombieHorde(int N, const std::string name);
-		void setName(const std::string name);
-		~Zombie();
+		Weapon(std::string type);
+		const std::string &getType() const;
+		void setType(const std::string type);
+		
+			
 };
 
 #endif

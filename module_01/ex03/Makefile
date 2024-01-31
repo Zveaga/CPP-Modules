@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/01/31 15:14:31 by coxer         ########   odam.nl          #
+#    Created: 2024/01/31 15:14:08 by coxer         #+#    #+#                  #
+#    Updated: 2024/01/31 15:14:09 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,19 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = megaphone
+NAME = unneccessary_violence
 
-SRC = megaphone.cpp
+SRC = \
+main.cpp \
+Weapon.cpp \
+HumanA.cpp \
+HumanB.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++
+CC = g++ -std=c++98
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror 
 
 all: $(NAME)
 
