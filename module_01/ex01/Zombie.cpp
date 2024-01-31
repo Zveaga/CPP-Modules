@@ -6,30 +6,42 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/29 19:10:03 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/30 18:37:10 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/31 14:36:33 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+
+// Zombie &Zombie::operator=(const Zombie &zombie)
+// {
+// 	if (this != &zombie)
+// 		name = zombie.name;
+// 	return (*this);
+// }	
 
 void Zombie::announce(void)
 {
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(const std::string name)
 {
 	this->name = name;
-	announce();
 }
 
 Zombie::Zombie()
 {
-	this->name = "Constructor Zombie";
-	announce();
+	this->name = "BASIC";
+	std::cout << "Basic constructor called\n";	
 }
 
 Zombie::~Zombie()
 {
 	std::cout << "Destructor called for: " << name << std::endl;
+}
+
+void Zombie::setName(const std::string name)
+{
+	this->name = name;
 }

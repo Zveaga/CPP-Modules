@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/29 18:58:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/30 18:36:21 by coxer         ########   odam.nl         */
+/*   Updated: 2024/01/31 14:45:43 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@
 #include <iomanip>
 #include <iostream>
 
+#define N 10
+
 class Zombie
 {
 	private:
 		std::string name;
 	public:
+		// Zombie &operator=(const Zombie &zombie);
 		Zombie();
-		Zombie(std::string);
+		Zombie(const std::string name);
 		void announce(void);
-		void randomChump(std::string name);
-		Zombie* newZombie(std::string name);
-		Zombie *zombieHorde(int N, std::string name);
+		Zombie *zombieHorde(int N, const std::string name);
+		void setName(const std::string name);
 		~Zombie();
 };
 
