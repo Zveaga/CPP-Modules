@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:37 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/29 12:59:07 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/01 17:52:13 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Contact
 {
 	private:
-		std::string	first_name;
+		std::string	first_namez;
 		std::string last_name;
 		std::string nickname;
 		std::string phone_number;
