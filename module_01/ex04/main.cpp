@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/01 17:50:56 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/02/05 12:55:59 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 int main(int argc, char **argv)
 {
-	std::string filename;
-	std::string s1;
-	std::string s2;
+	std::string filename, s1, s2;
 
 	if (argc != 4)
 		return (std::cerr << "Program must have 3 arguments\n", 1);
@@ -27,15 +25,18 @@ int main(int argc, char **argv)
 	if (s1.empty())
 		return (std::cerr << "First argument cannot be empty\n", 1);		
 	s2 = argv[3];
-	std::fstream File; // construct the stream object
-	File.open(filename, std::fstream::in); //open the file
+	
+	// construct the input stream object //
+	std::ifstream File;
+	File.open(filename);
 	if (!File)
 		return (std::cerr << "Error while opening the file\n", 1);
 		
-	std::fstream newFile;
-	newFile.open("test.replace", std::fstream::out);
+	// construct the output stream object //
+	std::ofstream newFile;
+	newFile.open("test.replace");
 	if (!newFile)
-		return (std::cerr << "Error while opening the file\n", 1);
+		return (std::cerr << "Error while opening the file\n", File.close(), 1);
 
 	std::string line;
 	while (std::getline(File, line))
@@ -43,12 +44,10 @@ int main(int argc, char **argv)
 		std::size_t start = 0;
 		while ((start = line.find(s1)) != std::string::npos)
 		{
-
-			//std::cout << start << std::endl;
-			line.replace(start, s1.length(), s2);	// replace s1 with s2
+			line.replace(start, s1.length(), s2);
 			start += s2.length();
 		}
-		std::cout << line << std::endl;
+		newFile << line << std::endl;
 	}
 	File.close();
 	newFile.close();
