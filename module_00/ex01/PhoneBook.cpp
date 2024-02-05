@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/29 18:43:50 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/05 13:51:06 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,46 +17,74 @@ PhoneBook::PhoneBook()
 	oldest_contact = 0;
 }
 
-void PhoneBook::add_contact(int i)
+void PhoneBook::add_first_name(int i)
 {
 	std::string	field;
 	
+	std::cout << "Enter first name: ";
+	std::getline(std::cin, field);
+	if (field.empty())
+		add_first_name(i);
+	else
+		contacts[i].set_first_name(field);
+}
+
+void PhoneBook::add_last_name(int i)
+{
+	std::string	field;
+	
+	std::cout << "Enter last name: ";
+	std::getline(std::cin, field);
+	if (field.empty())
+		add_last_name(i);
+	else
+		contacts[i].set_last_name(field);
+}
+
+void PhoneBook::add_nickname(int i)
+{
+	std::string	field;
+	
+	std::cout << "Enter nickname: ";
+	std::getline(std::cin, field);
+	if (field.empty())
+		add_nickname(i);
+	else
+		contacts[i].set_nickname(field);
+}
+
+void PhoneBook::add_phone_number(int i)
+{
+	std::string	field;
+	
+	std::cout << "Enter phone number: ";
+	std::getline(std::cin, field);
+	if (field.empty())
+		add_phone_number(i);
+	else
+		contacts[i].set_phone_number(field);
+}
+
+void PhoneBook::add_darkest_secret(int i)
+{
+	std::string	field;
+	
+	std::cout << "Enter darkest secret: ";
+	std::getline(std::cin, field);
+	if (field.empty())
+		add_darkest_secret(i);
+	else
+		contacts[i].set_darkest_secret(field);
+}
+
+void PhoneBook::add_contact(int i)
+{	
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	do {
-		std::cout << "\nEnter first name: ";
-		std::getline(std::cin, field);
-		if (field.empty())
-			std::cout << "\nField cannot be empty!\n";
-	}  while (field.empty());
-	contacts[i].set_first_name(field);
-	do {
-		std::cout << "Enter last name: ";
-		std::getline(std::cin, field);
-		if (field.empty())
-			std::cout << "\nField cannot be empty!\n";
-	} while (field.empty());
-	contacts[i].set_last_name(field);
-	do {
-		std::cout << "Enter nickname: ";
-		std::getline(std::cin, field);
-		if (field.empty())
-			std::cout << "\nField cannot be empty!\n";
-	} while (field.empty());
-	contacts[i].set_nickname(field);
-	do {
-		std::cout << "Enter phone number: ";
-		std::getline(std::cin, field);
-		if (field.empty())
-			std::cout << "\nField cannot be empty!\n";
-	} while (field.empty());
-	contacts[i].set_phone_number(field);
-	do {
-		std::cout << "Enter your darkest secret: ";
-		std::getline(std::cin, field);
-		if (field.empty())
-			std::cout << "\nField cannot be empty!\n";
-	} while (field.empty());
-	contacts[i].set_darkest_secret(field);
+	add_first_name(i);
+	add_last_name(i);
+	add_nickname(i);
+	add_phone_number(i);
+	add_darkest_secret(i);	
 }
 
 void PhoneBook::display_contact(int count)
@@ -106,7 +134,7 @@ void PhoneBook::display_contact_list(int count)
 		std::cout << std::setw(10) << std::right << i << "|";
 		std::cout << std::setw(10) << std::right << contacts[i].get_first_name(true) << "|";
 		std::cout << std::setw(10) << std::right << contacts[i].get_last_name(true) << "|";
-		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true) << std::endl;
+		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true)  << "|" <<  std::endl;
 	}
 	display_contact(count);
 }
