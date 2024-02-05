@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:22 by coxer         #+#    #+#                  #
-#    Updated: 2024/01/31 15:14:23 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/05 13:07:18 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRC = \
 main.cpp \
 Zombie.cpp \
 zombieHorde.cpp \
-newZombie.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
