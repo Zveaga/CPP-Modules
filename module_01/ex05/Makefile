@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:08 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/05 15:50:29 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/06 16:03:00 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = harl
+NAME = sed_losers
 
 SRC = \
 main.cpp \
