@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/08 19:33:01 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/12 11:02:45 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int main(void)
 	Fixed c;	//--> basic constructor called
 	
 	c = b;		//--> copy assignment operator called
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/08 19:36:46 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/12 11:05:36 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ const int Fixed::fractional_bits = 8;
 
 Fixed::Fixed()
 {
+	fixed_value = 0;
 	std::cout << "Default constructor called\n";
 }
 
@@ -38,3 +39,14 @@ Fixed &Fixed::operator=(const Fixed &other)
 	return (*this);
 }
 
+int Fixed::getRawBits(void) 
+{
+	std::cout << "getRawBits member function called\n";
+	return (fixed_value);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	std::cout << "getRawBits member function called\n";
+	fixed_value = raw;
+}

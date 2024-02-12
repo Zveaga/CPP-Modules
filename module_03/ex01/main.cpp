@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Fixed.hpp                                          :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/08 12:46:41 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/12 11:03:36 by coxer         ########   odam.nl         */
+/*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
+/*   Updated: 2024/02/08 19:33:01 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
+#include"Fixed.hpp"
 
-class Fixed {
-	private:
-		int 				fixed_value;
-		static const int	fractional_bits;
-	public:
-		Fixed();
-		Fixed(const Fixed &other);
-		Fixed &operator=(const Fixed &other);
-		int	getRawBits(void);
-		void setRawBits(int const raw);
-		~Fixed();
-};
+int main(void)
+{
+	Fixed a; 	//--> basic constructor called
+	Fixed b(a);	//--> copy constructor called
+	Fixed c;	//--> basic constructor called
+	
+	c = b;		//--> copy assignment operator called
+	
+	return (0);
+}
