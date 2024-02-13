@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/12 19:35:06 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/13 19:35:40 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int Fixed::toInt(void) const
  * --Member Function--
  * returns fixed_value
  */
-int Fixed::getRawBits(void) 
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called\n";
 	return (fixed_value);

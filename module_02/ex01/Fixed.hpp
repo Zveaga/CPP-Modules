@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:41 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/12 19:14:35 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/13 11:03:52 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Fixed {
 		Fixed(const float float_value);
 		~Fixed();
 		
-		int	getRawBits(void);
+		int	getRawBits(void) const;
 		void setRawBits(int const raw);
 		float toFloat(void) const;
 		int toInt(void) const;

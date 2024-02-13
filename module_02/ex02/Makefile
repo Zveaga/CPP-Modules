@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/08 12:49:00 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/13 09:58:54 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = 
+NAME = more_useful_fixed_point_number
 
 SRC = \
+main.cpp \
+Fixed.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

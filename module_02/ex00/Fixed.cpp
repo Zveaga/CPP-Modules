@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/12 11:05:36 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/13 11:02:57 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 	return (*this);
 }
 
-int Fixed::getRawBits(void) 
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called\n";
 	return (fixed_value);
