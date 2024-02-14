@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/13 21:13:57 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/14 10:06:49 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,6 @@ Fixed::Fixed()
 	this->fixed_value = 0;
 	//std::cout << "Default constructor called\n";
 }
-
-/**
- * --Destructor--
- */
-Fixed::~Fixed()
-{
-	//std::cout << "Destructor called\n";
-}
-
-/**
- *--Copy constructor--
- * Initializes the object using another object of the same class
- */
-Fixed::Fixed(const Fixed &object)
-{
-	this->fixed_value = object.fixed_value;
-	//std::cout << "Copy constructor called\n";
-}
-
-/**
- * --Copy assignment operator (overload)--
- * Assigns the already initialized object to another object of the same class
- */
-Fixed &Fixed::operator=(const Fixed &object)
-{
-	if (this != &object)
-		this->fixed_value = object.fixed_value;
-	//std::cout << "Copy assignment operator called\n";
-	return (*this);
-}
-
-// std::ostream& Fixed::operator<<(std::ostream& os)
-// {
-// 	os << this->toFloat();
-// 	return (os);
-// }
 
 /**
 * Int constructor
@@ -81,6 +45,26 @@ Fixed::Fixed(const float float_value)
 }
 
 /**
+ * --Destructor--
+ */
+Fixed::~Fixed()
+{
+	//std::cout << "Destructor called\n";
+}
+
+/**
+ *--Copy constructor--
+ * Initializes the object using another object of the same class
+ */
+Fixed::Fixed(const Fixed &object)
+{
+	this->fixed_value = object.fixed_value;
+	//std::cout << "Copy constructor called\n";
+}
+
+// -------Member Functions-------//
+
+/**
  * Converts fixed-point value to floating-point value
 */
 float Fixed::toFloat(void) const
@@ -89,7 +73,6 @@ float Fixed::toFloat(void) const
 }
 
 /**
- *
  *  Converts fixed-point value to integer value
 */
 int Fixed::toInt(void) const
@@ -98,7 +81,6 @@ int Fixed::toInt(void) const
 }
 
 /**
- * --Member Function--
  * returns fixed_value
  */
 int Fixed::getRawBits(void) const
@@ -108,7 +90,6 @@ int Fixed::getRawBits(void) const
 }
 
 /**
- * --Member Function--
  * sets fixed_value as raw
  */
 void Fixed::setRawBits(int const raw)
@@ -117,7 +98,6 @@ void Fixed::setRawBits(int const raw)
 	fixed_value = raw;
 }
 
-
 Fixed &Fixed::min(Fixed &object1, Fixed &object2)
 {
 	if (object1 < object2)
@@ -125,6 +105,7 @@ Fixed &Fixed::min(Fixed &object1, Fixed &object2)
 	else
 		return (object2);
 }
+
 const Fixed &Fixed::min(const Fixed &object1, const Fixed &object2)
 {
 	if (object1 < object2)
@@ -132,6 +113,7 @@ const Fixed &Fixed::min(const Fixed &object1, const Fixed &object2)
 	else
 		return (object2);
 }
+
 Fixed &Fixed::max(Fixed &object1, Fixed &object2)
 {
 	if (object1 > object2)
@@ -139,6 +121,7 @@ Fixed &Fixed::max(Fixed &object1, Fixed &object2)
 	else
 		return (object2);
 }
+
 const Fixed &Fixed::max(const Fixed &object1, const Fixed &object2)
 {
 	if (object1 > object2)
@@ -147,14 +130,65 @@ const Fixed &Fixed::max(const Fixed &object1, const Fixed &object2)
 		return (object2);
 }
 
+// -------Member Overloads-------//
+
+/**
+ * --Copy assignment operator (overload)--
+ * Assigns the already initialized object to another object of the same class
+ */
+Fixed &Fixed::operator=(const Fixed &object)
+{
+	if (this != &object)
+		this->fixed_value = object.fixed_value;
+	//std::cout << "Copy assignment operator called\n";
+	return (*this);
+}
+
+// --Increment/Decrement operators overloads-- //
+Fixed &Fixed::operator++()
+{
+	this->fixed_value += static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed temp(*this);
+	
+	this->fixed_value += static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
+	return (temp);
+}
+
+Fixed &Fixed::operator--()
+{
+	this->fixed_value -= static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
+	return(*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp(*this);
+	
+	this->fixed_value -= static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
+	return(temp);
+}
+
+
+// std::ostream& Fixed::operator<<(std::ostream& os)
+// {
+// 	os << this->toFloat();
+// 	return (os);
+// }
+
+// -------Non-Member Overloads-------//
+
 std::ostream &operator<<(std::ostream &os, const Fixed &object)
 {
 	os << object.toFloat();
 	return (os);
 }
 
-
-// --Comparison operators overload-- //
+// --Comparison operators overloads-- //
 bool operator>(const Fixed &object1, const Fixed &object2)
 {
 	return (object1.getRawBits() > object2.getRawBits());
@@ -185,7 +219,7 @@ bool operator!=(const Fixed &object1, const Fixed &object2)
 	return (object1.getRawBits() != object2.getRawBits());
 }
 
-// --Arithmetic operators overload-- //
+// --Arithmetic operators overloads-- //
 float operator+(const Fixed &object1, const Fixed &object2)
 {
 	return (object1.toFloat() + object2.toFloat());
@@ -206,32 +240,3 @@ float operator/(const Fixed &object1, const Fixed &object2)
 	return (object1.toFloat() / object2.toFloat());
 }
 
-// --Increment/Decrement operators overload-- //
-
-Fixed &Fixed::operator++()
-{
-	this->fixed_value += static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
-	return (*this);
-}
-
-Fixed Fixed::operator++(int)
-{
-	Fixed temp(*this);
-	
-	this->fixed_value += static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
-	return (temp);
-}
-
-Fixed &Fixed::operator--()
-{
-	this->fixed_value -= static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
-	return(*this);
-}
-
-Fixed Fixed::operator--(int)
-{
-	Fixed temp(*this);
-	
-	this->fixed_value -= static_cast<int>(roundf(epsilon * (1 << fractional_bits)));
-	return(temp);
-}

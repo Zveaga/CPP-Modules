@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:41 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/13 21:17:25 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/14 09:51:43 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,19 @@ class Fixed {
 		int 				fixed_value;
 		static const int	fractional_bits = 8;
 	public:
-		// --Operators overloads-- //
-		Fixed &operator=(const Fixed &object); //--> copy assignment overload
-		Fixed &operator++();
-		Fixed operator++(int);
-		Fixed &operator--();
-		Fixed operator--(int);
 		// --Constructors-- //
 		Fixed();						//--> basic constructor
 		Fixed(const Fixed &object);		//--> copy constructor
 		Fixed(const int integer_value);	//--> int constructor
 		Fixed(const float float_value);	//--> float constructor
 		~Fixed();						//--> destructor
+		// --Copy assignment overload-- //
+		Fixed &operator=(const Fixed &object);
+		// --Increment/Decrement overloads-- //
+		Fixed &operator++();
+		Fixed operator++(int);
+		Fixed &operator--();
+		Fixed operator--(int);
 		// --Member functions-- //
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
