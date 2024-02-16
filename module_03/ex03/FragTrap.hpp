@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 12:12:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 15:02:54 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/16 18:16:54 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include"ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 	public:
 		// --Conststructors-- //

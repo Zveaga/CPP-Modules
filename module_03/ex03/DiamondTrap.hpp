@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FragTrap.hpp                                       :+:    :+:            */
+/*   DiamondTrap.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/16 12:12:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 15:02:54 by coxer         ########   odam.nl         */
+/*   Created: 2024/02/16 15:06:47 by coxer         #+#    #+#                 */
+/*   Updated: 2024/02/16 18:17:39 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef DIAMOND_TRAP_HPP
+# define DIAMOND_TRAP_HPP
 
-#include"ClapTrap.hpp"
+#include"ScavTrap.hpp"
+#include"FragTrap.hpp"
 
-class FragTrap: public ClapTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {
+	private:
+		std::string name;
 	public:
 		// --Conststructors-- //
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &object);
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &object);
 		// --Overloads-- //
-		FragTrap &operator=(const FragTrap &object);
+		DiamondTrap &operator=(const DiamondTrap &object);
 		// --Destructor-- //
-		~FragTrap();	
+		~DiamondTrap();
 		// --Member Functions-- //
 		void beRepaired(unsigned int amount) override;
-		void highFiveGuys(void);
+		void attack(const std::string &target);
+		void whoAmI();		
 };
+
+
+
+
+
+
+
+
+
 
 #endif

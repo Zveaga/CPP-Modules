@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FragTrap.hpp                                       :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/16 12:12:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 15:02:54 by coxer         ########   odam.nl         */
+/*   Created: 2024/02/15 17:47:13 by coxer         #+#    #+#                 */
+/*   Updated: 2024/02/16 17:57:52 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include"ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 	public:
-		// --Conststructors-- //
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &object);
-		// --Overloads-- //
-		FragTrap &operator=(const FragTrap &object);
-		// --Destructor-- //
-		~FragTrap();	
-		// --Member Functions-- //
-		void beRepaired(unsigned int amount) override;
-		void highFiveGuys(void);
+	// --Conststructors-- //
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &object);
+	// --Destructor-- //
+		~ScavTrap();
+	// --Overloads-- //
+		ScavTrap &operator=(const ScavTrap &object);
+	// --Member Functions-- //
+		void beRepaired(unsigned int amount);
+		void guardGate();
 };
 
 #endif
