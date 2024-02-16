@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 17:47:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:10:55 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/16 13:26:19 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap()
 	std::cout << "Default ScavTrap constructor called -> '" << this->name << "' was constructed\n";
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
 {
 	this->name = name;
 	this->hitPoints = 100;

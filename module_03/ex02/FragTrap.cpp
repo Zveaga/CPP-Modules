@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.cpp                                       :+:    :+:            */
+/*   FragTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/15 17:47:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:10:55 by coxer         ########   odam.nl         */
+/*   Created: 2024/02/16 12:12:12 by coxer         #+#    #+#                 */
+/*   Updated: 2024/02/16 13:19:31 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ScavTrap.hpp"
-
+#include"FragTrap.hpp"
 
 // --Conststructors-- //
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	this->name = "Default ScavTrap";
+	this->name = "Default FragTrap";
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	std::cout << "Default ScavTrap constructor called -> '" << this->name << "' was constructed\n";
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+	std::cout << "Default FragTrap constructor called -> '" << this->name << "' was constructed\n";
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+FragTrap::FragTrap(std::string name)
 {
 	this->name = name;
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	std::cout << "Name ScavTrap constructor called -> '" << this->name << "' was constructed\n";
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+	std::cout << "Name FragTrap constructor called -> '" << this->name << "' was constructed\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap &object)
+FragTrap::FragTrap(const FragTrap &object)
 {
 	this->name = object.name;
 	this->hitPoints = object.hitPoints;
 	this->energyPoints = object.energyPoints;
 	this->attackDamage = object.attackDamage;
-	std::cout << "ScavTrap copy constructor called -> '" << this->name << "' was constructed\n";
+	std::cout << "FragTrap copy constructor called -> '" << this->name << "' was constructed\n";
 }
 
+
 // --Overloads-- //
-ScavTrap &ScavTrap::operator=(const ScavTrap &object)
+FragTrap &FragTrap::operator=(const FragTrap &object)
 {
 	if (this != &object)
 	{
@@ -50,25 +50,25 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &object)
 		this->hitPoints = object.hitPoints;
 		this->energyPoints = object.energyPoints;
 		this->attackDamage = object.attackDamage;
-		std::cout << "ScavTrap copy assignment called -> '" << this->name << "' was constructed\n";
+		std::cout << "FragTrap copy assignment called -> '" << this->name << "' was constructed\n";
 	}
 	return(*this);
 }
 
 // --Destructor-- //
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
 	std::cout << "ScavTrap destructor called -> '" <<  this->name << "' was destructed\n";
 }
 
 // --Member Functions-- //
-void ScavTrap::guardGate()
-{
-	std::cout << "ScavTrap is now in Gate Keeper mode\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
+void FragTrap::beRepaired(unsigned int amount)
 {
 	maxHitPoints = 100;
 	ClapTrap::beRepaired(amount);
+}
+
+void FragTrap::highFiveGuys(void)
+{
+	std::cout << "High Five guys!\n";
 }

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.hpp                                       :+:    :+:            */
+/*   FragTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/15 17:47:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:08:07 by coxer         ########   odam.nl         */
+/*   Created: 2024/02/16 12:12:08 by coxer         #+#    #+#                 */
+/*   Updated: 2024/02/16 13:06:35 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAG_TRAP_HPP
+# define FRAG_TRAP_HPP
 
 #include"ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class FragTrap: public ClapTrap
 {
 	public:
-	// --Conststructors-- //
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &object);
-	// --Destructor-- //
-		~ScavTrap();
-	// --Overloads-- //
-		ScavTrap &operator=(const ScavTrap &object);
-	// --Member Functions-- //
+		// --Conststructors-- //
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &object);
+		// --Overloads-- //
+		FragTrap &operator=(const FragTrap &object);
+		// --Destructor-- //
+		~FragTrap();	
+		// --Member Functions-- //
 		void beRepaired(unsigned int amount) override;
-		void guardGate();
-
-		
+		void highFiveGuys(void);
 };
 
 #endif

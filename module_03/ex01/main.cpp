@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/15 20:16:14 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/16 13:31:40 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int main(void)
 	// --Attack-- //
 	scav_trap.attack(clap_trap.getName());
 	clap_trap.takeDamage(scav_trap.getAttackDamage());
-	clap_trap.beRepaired(10);
 	clap_trap.attack(scav_trap.getName());
 	std::cout << "---------------------------" << std::endl;
 	
