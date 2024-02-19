@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/19 12:02:14 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/19 14:49:19 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ DiamondTrap.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++
+CC = g++ -Wshadow
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

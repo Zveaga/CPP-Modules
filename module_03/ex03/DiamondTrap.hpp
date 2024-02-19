@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 15:06:47 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:29:18 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 14:49:50 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include"ScavTrap.hpp"
 #include"FragTrap.hpp"
 
-class DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
 		std::string name;

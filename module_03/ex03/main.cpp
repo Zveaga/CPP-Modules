@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:45:15 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 15:03:18 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 int main(void)
 {
-	DiamondTrap diamond_trap1;
 	std::cout << "---------------------------" << std::endl;
-	//DiamondTrap diamond_trap2("diamond2");
+	// DiamondTrap diamond_trap1;
+	DiamondTrap diamond_trap1("DIAMOND");
 
 	std::cout << "---------------------------" << std::endl;
 	std::cout << "Name: " << diamond_trap1.getName() << std::endl;
