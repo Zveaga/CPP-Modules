@@ -6,19 +6,19 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 18:13:11 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:09:01 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:17:56 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 
-int ClapTrap::maxHitPoints = 10;
+int ClapTrap::maxHitPoints = 100;
 
 // --Constructors-- //	
 ClapTrap::ClapTrap()
 {
 	this->name = "Default ClapTrap";
-	this->hitPoints = 10;
+	this->hitPoints = 100;
 	this->energyPoints = 10;
 	this->attackDamage = 0;
 	std::cout << "Default ClapTrap constructor called -> '" << this->name << "' was constructed\n";

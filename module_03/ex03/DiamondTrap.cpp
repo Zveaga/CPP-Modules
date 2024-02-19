@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 15:06:45 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 18:17:18 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:57:46 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,4 @@ void DiamondTrap::whoAmI()
 void DiamondTrap::attack(const std::string &target)
 {
 	ScavTrap::attack(target);
-}
-
-void DiamondTrap::beRepaired(unsigned int amount)
-{
-	ClapTrap::beRepaired(amount);
 }

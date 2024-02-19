@@ -6,12 +6,11 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 17:47:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:10:55 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:19:31 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ScavTrap.hpp"
-
 
 // --Conststructors-- //
 ScavTrap::ScavTrap()
@@ -65,10 +64,4 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap is now in Gate Keeper mode\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	maxHitPoints = 100;
-	ClapTrap::beRepaired(amount);
 }

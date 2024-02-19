@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2024/01/31 15:14:45 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/19 12:01:14 by coxer         ########   odam.nl          #
+#    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
+#    Updated: 2024/02/15 12:01:55 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,11 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = phonebook
+NAME = clap_trap
 
 SRC = \
-PhoneBook.cpp \
-Contact.cpp \
 main.cpp \
+ClapTrap.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -32,11 +31,11 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)Program built successfully! $(RESET)\n"
 
 %.o: %.c
-	@$(CC) $(FLAGS) -c -o $@ $^
+	@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
 	rm -f $(OBJ)

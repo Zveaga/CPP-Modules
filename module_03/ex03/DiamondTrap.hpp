@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 15:06:47 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 18:17:39 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:29:18 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		// --Destructor-- //
 		~DiamondTrap();
 		// --Member Functions-- //
-		void beRepaired(unsigned int amount) override;
+		//void beRepaired(unsigned int amount) override;
 		void attack(const std::string &target);
 		void whoAmI();		
 };

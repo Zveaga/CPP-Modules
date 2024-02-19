@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 17:47:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:26:19 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:25:36 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,4 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap is now in Gate Keeper mode\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	maxHitPoints = 100;
-	ClapTrap::beRepaired(amount);
 }

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 12:12:12 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:19:31 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:25:13 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,6 @@ FragTrap &FragTrap::operator=(const FragTrap &object)
 FragTrap::~FragTrap()
 {
 	std::cout << "ScavTrap destructor called -> '" <<  this->name << "' was destructed\n";
-}
-
-// --Member Functions-- //
-void FragTrap::beRepaired(unsigned int amount)
-{
-	maxHitPoints = 100;
-	ClapTrap::beRepaired(amount);
 }
 
 void FragTrap::highFiveGuys(void)

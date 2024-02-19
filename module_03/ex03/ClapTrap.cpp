@@ -6,13 +6,13 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 18:13:11 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 15:03:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:28:28 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 
-int ClapTrap::maxHitPoints = 10;
+int ClapTrap::maxHitPoints = 100;
 
 // --Constructors-- //	
 ClapTrap::ClapTrap()

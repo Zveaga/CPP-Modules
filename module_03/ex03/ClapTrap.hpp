@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 18:13:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 18:16:56 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:26:52 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class ClapTrap
 		int getAttackDamage();
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
-		virtual void beRepaired(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
 
 #endif

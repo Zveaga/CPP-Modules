@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 17:47:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/16 13:06:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 11:25:39 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class ScavTrap: public ClapTrap
 	// --Overloads-- //
 		ScavTrap &operator=(const ScavTrap &object);
 	// --Member Functions-- //
-		void beRepaired(unsigned int amount) override;
 		void guardGate();
 };
 
