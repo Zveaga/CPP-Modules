@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 15:06:45 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 14:57:39 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/19 17:29:26 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 // --Conststructors-- //
 DiamondTrap::DiamondTrap()
 {
-	this->name = "Default DiamondTrap";
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
+	name = "Default DiamondTrap";
+	hitPoints = FragTrap::hitPoints;
+	energyPoints = ScavTrap::energyPoints;
+	attackDamage = FragTrap::attackDamage;
 	std::cout << "Default DiamondTrap constructor called -> '" << this->name << "' was constructed\n";
 }
 
