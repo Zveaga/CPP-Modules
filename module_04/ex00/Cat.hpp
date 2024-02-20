@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 18:55:14 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/20 12:27:51 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cat: public Animal
 		// --Overloads-- //
 		Cat &operator=(const Cat &object);
 		// --Member Functions-- //
-		void makeSound() const override;
+		void makeSound() const;
 };
 
 #endif

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.cpp                                            :+:    :+:            */
+/*   WrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: coxer <coxer@student.codam.nl>               +#+                     */
+/*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/02/19 16:35:42 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 14:11:01 by rares         ########   odam.nl         */
+/*   Created: 2024/02/20 12:09:51 by rares         #+#    #+#                 */
+/*   Updated: 2024/02/20 14:11:22 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Cat.hpp"
+#include"WrongCat.hpp"
 
 // --Conststructors-- //
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	this->type = "CAT";
+	this->type = "WRONG CAT";
 	std::cout << this->type << " constructed\n";
 }
-Cat::Cat(const Cat &object)
+WrongCat::WrongCat(const WrongCat &object)
 {
 	this->type = object.type;
 	std::cout << this->type << " constructed\n";
 }
 
 // --Destructor-- //
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
 	std::cout << this->type << " destructed\n";
 }
 
 // --Overloads-- //
-Cat &Cat::operator=(const Cat &object)
+WrongCat &WrongCat::operator=(const WrongCat &object)
 {
 	if (this != &object)
 	{
@@ -42,7 +42,7 @@ Cat &Cat::operator=(const Cat &object)
 }
 
 // --Member Functions-- //
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Miawww!\n";
+	std::cout << "Miaw!\n";
 }

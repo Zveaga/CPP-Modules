@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/19 18:12:05 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/20 12:09:18 by rares         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ main.cpp \
 Animal.cpp \
 Dog.cpp \
 Cat.cpp \
+WrongAnimal.cpp \
+WrongCat.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

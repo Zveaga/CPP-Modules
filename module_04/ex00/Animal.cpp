@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:40 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 19:05:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/20 14:39:17 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 Animal::Animal()
 {
-	this->type = "Basic animal";
+	this->type = "BASIC ANIMAL";
 	std::cout << this->type << " constructed\n";
 }
 Animal::Animal(const Animal &object)
@@ -48,4 +48,7 @@ std::string Animal::getType() const
 	return (this->type);
 }
 
-void Animal::makeSound() const {}
+void Animal::makeSound() const
+{
+	//std::cout << "BASIC ANIMAL makes a sound!\n";
+}

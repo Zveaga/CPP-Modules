@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 09:51:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/20 12:28:05 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog: public Animal
 		// --Overloads-- //
 		Dog &operator=(const Dog &object);
 		// --Member Functions-- //
-		void makeSound() const override;
+		void makeSound() const;
 };
 
 #endif

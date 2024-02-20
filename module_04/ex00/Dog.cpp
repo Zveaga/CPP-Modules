@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 18:55:33 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/20 14:10:56 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 Dog::Dog()
 {
-	this->type = "Dog";
+	this->type = "DOG";
 	std::cout << this->type << " constructed\n";
 }
 
@@ -45,5 +45,5 @@ Dog &Dog::operator=(const Dog &object)
 // --Member Functions-- //
 void Dog::makeSound() const
 {
-	std::cout << " barks!\n";
+	std::cout << "Woofwooof!\n";
 }

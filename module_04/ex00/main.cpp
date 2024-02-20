@@ -6,39 +6,74 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 09:56:06 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/20 14:42:45 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {
-	const Animal *meta = new Animal();
-	std::cout << "--------------------------\n";
-	const Animal *i = new Dog();
-	std::cout << "--------------------------\n";
-	const Animal *j = new Cat();
-	std::cout << "--------------------------\n";
+	std::cout << "\n============CONSTRUCTION=============\n\n";
 	
-	std::cout << i->getType();
-	i->makeSound();
-	std::cout << j->getType();
-	j->makeSound();
-	meta->makeSound();
+	const Animal *animal = new Animal();
 	std::cout << "--------------------------\n";
-	
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound(); //will output the cat sound!
-	// j->makeSound();
-	// meta->makeSound();
-	
-	delete meta;
-	delete i;
-	delete j;
+	const Animal *dog = new Dog();
 	std::cout << "--------------------------\n";
+	const Animal *cat = new Cat();
+	
+	std::cout << "\n============MAKE SOUND=============\n\n";
+	
+	std::cout << "TYPE: " << dog->getType() << std::endl;
+	dog->makeSound();
+	std::cout << std::endl;
+	std::cout << "TYPE: " << cat->getType() << std::endl;
+	cat->makeSound();
+	std::cout << std::endl;
+	animal->makeSound();
+	
+	std::cout << "\n============TEST ARRAY=============\n\n";
+	
+	const Animal *animals[] = 
+	{
+		animal,
+		dog,
+		cat,
+	};
+	for (int i = 0; i < 3; i++)
+		animals[i]->makeSound();
+	
+	std::cout << "\n============DESTRUCTION=============\n\n";
+	
+	delete animal;
+	delete dog;
+	delete cat;
+	
+	std::cout << "\n========WRONG ANIMAL & WRONG CAT=========\n\n";
+	
+	std::cout << "============CONSTRUCTION=============\n\n";
+	
+	const WrongAnimal *wrong_animal = new WrongAnimal();
+	std::cout << "--------------------------\n";
+	const WrongAnimal *wrong_cat = new WrongCat();
+	
+	std::cout << "\n============MAKE SOUND=============\n\n";
+
+	std::cout << "Type: " << wrong_cat->getType() << std::endl;
+	wrong_cat->makeSound();
+	std::cout << std::endl;
+	
+	std::cout << "Type:  " << wrong_animal->getType() << std::endl;
+	wrong_animal->makeSound();
+	
+	std::cout << "\n============DESTRUCTION=============\n\n";
+	
+	delete wrong_animal;
+	delete wrong_cat;
+	
+	std::cout << "\n======================END======================\n";
 	return (0);
 }
