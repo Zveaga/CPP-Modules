@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 17:15:54 by rares         ########   odam.nl         */
+/*   Updated: 2024/02/22 14:57:30 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Cat: public Animal
 {
 	private:
-		const Brain *brain;
+		Brain *brain;
 		
 	public:
 		// --Conststructors-- //

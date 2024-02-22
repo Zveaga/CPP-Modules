@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 17:24:59 by rares         ########   odam.nl         */
+/*   Updated: 2024/02/22 19:15:29 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
 		Animal();
 		Animal(const Animal &object);
 		// --Destructor-- //
-		~Animal();
+		virtual ~Animal();
 		// --Overloads-- //
 		Animal &operator=(const Animal &object);
 		// --Member Functions-- //

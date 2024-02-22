@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 17:11:02 by rares         ########   odam.nl         */
+/*   Updated: 2024/02/22 19:05:03 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,39 @@
 Dog::Dog()
 {
 	this->type = "DOG";
-	try 
+	this->brain = new(std::nothrow) Brain();
+	if (this->brain == nullptr)
 	{
-		this->brain = nullptr;
+		std::cout << "Memory allocation failure:\n";
+		return ;
 	}
-	catch (const std::bad_alloc &e)
-	{
-		std::cout << "Memory allocation failure: " << e.what() << std::endl;
-		return ; 
-	}
-	std::cout << this->type << " constructed\n";
+	// try 
+	// {
+	// 	this->brain = new Brain();
+	// }
+	// catch (const std::bad_alloc &e)
+	// {
+	// 	std::cout << "Memory allocation failure: " << e.what() << std::endl;
+	// 	return ; 
+	// }
+	std::cout << this->type << " constructed (basic constructor)\n";
 }
 
 Dog::Dog(const Dog &object)
 {
 	this->type = object.type;
-	std::cout << this->type << " constructed\n";
+	if (object.brain)
+	{
+		this->brain = new Brain();
+		*(this->brain) = *(object.brain);
+	}
+	std::cout << this->type << " constructed (copy constructor)\n";
 }
 
 // --Destructor-- //
 Dog::~Dog()
 {
+	delete this->brain;
 	std::cout << this->type << " destructed\n";
 }
 
@@ -45,8 +57,14 @@ Dog &Dog::operator=(const Dog &object)
 {
 	if (this != &object)
 	{
-		this->type = object.type;	
-		std::cout << this->type << " constructed\n";
+		this->type = object.type;
+		if (object.brain)
+		{	
+			delete this->brain;
+			this->brain = new Brain();
+			*(this->brain) = *(object.brain);
+		}
+		std::cout << this->type << " constructed (copy assignment operator)\n";
 	}
 	return(*this);
 }
@@ -56,3 +74,14 @@ void Dog::makeSound() const
 {
 	std::cout << "Woofwooof!\n";
 }
+
+void Dog::fillBrainIdeas() const
+{
+	this->brain->fillIdeas();
+}
+
+void Dog::outputBrainIdeas() const
+{
+	this->brain->outputIdeas();
+}
+

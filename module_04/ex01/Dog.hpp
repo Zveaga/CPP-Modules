@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 16:52:17 by rares         ########   odam.nl         */
+/*   Updated: 2024/02/22 19:04:38 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Dog: public Animal
 {
 	private:
-		const Brain *brain;
+		Brain *brain;
 	public:
 		// --Conststructors-- //
 		Dog();
@@ -30,6 +30,8 @@ class Dog: public Animal
 		Dog &operator=(const Dog &object);
 		// --Member Functions-- //
 		void makeSound() const;
+		void fillBrainIdeas() const;
+		void outputBrainIdeas() const;
 };
 
 #endif
