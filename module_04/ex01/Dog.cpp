@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/22 19:05:03 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 11:01:16 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Dog::Dog()
 	std::cout << this->type << " constructed (basic constructor)\n";
 }
 
+//-Deep Copy-//
 Dog::Dog(const Dog &object)
 {
 	this->type = object.type;
@@ -44,6 +45,16 @@ Dog::Dog(const Dog &object)
 	}
 	std::cout << this->type << " constructed (copy constructor)\n";
 }
+
+//-Shallow Copy-//
+
+// Dog::Dog(const Dog &object)
+// {
+// 	this->type = object.type;
+// 	if (object.brain)
+// 		this->brain = object.brain;  //--> both point to the same memory
+// 	std::cout << this->type << " constructed (shallow copy constructor)\n";
+// }
 
 // --Destructor-- //
 Dog::~Dog()

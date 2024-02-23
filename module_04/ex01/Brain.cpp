@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/20 16:40:43 by rares         #+#    #+#                 */
-/*   Updated: 2024/02/22 18:57:31 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 09:52:21 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Brain &Brain::operator=(const Brain &object)
 
 // --Member Functions-- //
 
-void Brain::outputIdeas()
+void Brain::outputIdeas() const
 {
 	for (int i = 0; i < 10; i++)
 		std::cout << ideas[i] << std::endl; 

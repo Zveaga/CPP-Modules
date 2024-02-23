@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/22 14:57:30 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 10:57:16 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Cat: public Animal
 		Cat &operator=(const Cat &object);
 		// --Member Functions-- //
 		void makeSound() const;
+		void fillBrainIdeas() const;
+		void outputBrainIdeas() const;
 };
 
 #endif

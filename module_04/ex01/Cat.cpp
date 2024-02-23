@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:42 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/22 16:53:56 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 10:58:04 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,14 @@ Cat &Cat::operator=(const Cat &object)
 void Cat::makeSound() const
 {
 	std::cout << "Miawww!\n";
+}
+
+void Cat::fillBrainIdeas() const
+{
+	this->brain->fillIdeas();
+}
+
+void Cat::outputBrainIdeas() const
+{
+	this->brain->outputIdeas();
 }

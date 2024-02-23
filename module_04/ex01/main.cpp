@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/22 19:18:40 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 11:01:32 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@
 int main(void)
 {
 	//------------------------INTRA TEST--------------------------//
-	// std::cout << "\n============CONSTRUCTION=============\n\n";
-	// const Animal *dog = new Dog();
-	// std::cout << "--------------------------\n";
-	// const Animal *cat = new Cat();
-	// std::cout << "\n============DESTRUCTION=============\n\n";
-	// delete dog;
-	// std::cout << "--------------------------\n";
-	// delete cat;
+	
+	std::cout << "\n============CONSTRUCTION=============\n";
+
+	std::cout << "\n---------DOGS---------\n\n";
+	const Animal *dog = new Dog();
+	std::cout << "\n---------CATS---------\n\n";
+	const Animal *cat = new Cat();
+	
+	std::cout << "\n============DESTRUCTION=============\n\n";
+	
+	delete dog;
+	std::cout << "--------------------------\n";
+	delete cat;
 	
 	//----------------------BRAIN IDEAS TESTS---------------------//
 	
@@ -33,7 +38,7 @@ int main(void)
 	
 	// const Dog dog1;
 	// std::cout << "--------------------------\n";
-	// const Dog dog2(dog1);
+	// const Dog dog2(dog1);   //--> should create a deep copy
 	// std::cout << "--------------------------\n";
 	
 	// std::cout << "\n============BRAIN IDEAS=============\n\n";
@@ -43,41 +48,40 @@ int main(void)
 	// std::cout << "\n---------DOG2---------\n\n";
 	// dog2.outputBrainIdeas();
 	
-
 	//--------------------------ARRAY TEST-----------------------//
 	
-	int size = 4;
-	std::cout << "\n============CONSTRUCTION=============\n";
+	// int size = 4;
+	// std::cout << "\n============CONSTRUCTION=============\n";
 	
-	Animal *animals[size];
-	std::cout << "\n---------DOGS---------\n\n";
+	// Animal *animals[size];
+	// std::cout << "\n---------DOGS---------\n\n";
 
-	for (int i = 0; i < size / 2; i++)
-	{
-		animals[i] = new Dog();
-		std::cout << "--------------------------\n";
+	// for (int i = 0; i < size / 2; i++)
+	// {
+	// 	animals[i] = new Dog();
+	// 	std::cout << "--------------------------\n";
 
-	}
-	std::cout << "\n---------CATS---------\n\n";
+	// }
+	// std::cout << "\n---------CATS---------\n\n";
 	
-	for (int i = size / 2; i < size; i++)
-	{
-		animals[i] = new Cat();
-		std::cout << "--------------------------\n";
-	}
+	// for (int i = size / 2; i < size; i++)
+	// {
+	// 	animals[i] = new Cat();
+	// 	std::cout << "--------------------------\n";
+	// }
 	
-	std::cout << "\n============MAKE SOUND=============\n\n";
+	// std::cout << "\n============MAKE SOUND=============\n\n";
 	
-	for (int i = 0; i < size; i++)
-		animals[i]->makeSound();
+	// for (int i = 0; i < size; i++)
+	// 	animals[i]->makeSound();
 	
-	std::cout << "\n============DESTRUCTION=============\n\n";
+	// std::cout << "\n============DESTRUCTION=============\n\n";
 	
-	for (int i = 0; i < size; i++)
-	{
-		delete animals[i];
-		std::cout << "--------------------------\n";
-	}
+	// for (int i = 0; i < size; i++)
+	// {
+	// 	delete animals[i];
+	// 	std::cout << "--------------------------\n";
+	// }
 	
 
 	//----------------------PREVIOUS TESTS------------------------//
