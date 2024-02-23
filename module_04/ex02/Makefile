@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/15 12:01:55 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/23 13:02:10 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,26 +16,31 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = clap_trap
+NAME = animal_abstract
 
 SRC = \
 main.cpp \
-ClapTrap.cpp \
+Animal.cpp \
+Dog.cpp \
+Cat.cpp \
+WrongAnimal.cpp \
+WrongCat.cpp \
+Brain.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = g++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)Program built successfully! $(RESET)\n"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $^
+	@$(CC) $(FLAGS) -c -o $@ $^
 
 clean:
 	rm -f $(OBJ)

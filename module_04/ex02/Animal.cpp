@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:40 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 11:08:41 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 12:57:44 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Animal::Animal(const Animal &object)
 }
 
 // --Destructor-- //
+// Animal::~Animal() {}
+
 Animal::~Animal()
 {
 	std::cout << this->type << " destructed\n";
