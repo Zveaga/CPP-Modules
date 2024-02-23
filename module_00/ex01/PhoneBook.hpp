@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 12:01:50 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 16:55:33 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PhoneBook
 	private:
 		int	oldest_contact;
 		Contact contacts[8];
-		
+		// std::array<Contact, 8> contacts; //--> Not allowed!
 	public:
 		PhoneBook();
 		void add_first_name(int i);

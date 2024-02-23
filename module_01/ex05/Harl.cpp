@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/05 15:50:49 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/06 16:05:12 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 17:18:34 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void Harl::complain(std::string level)
 		&Harl::warning,
 		&Harl::error,
 	};
-
+	
 	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)

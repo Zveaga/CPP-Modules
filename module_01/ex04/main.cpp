@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/05 12:55:59 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 17:10:07 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include<fstream>
 #include<string>
 
+/**
+ * Program takes 3 parameters
+ * 1. A filename
+ * 2. String1 -> will be replaced by String2
+ * 3. String2 -> will replace String1
+*/
 int main(int argc, char **argv)
 {
 	std::string filename, s1, s2;
@@ -23,7 +29,7 @@ int main(int argc, char **argv)
 	filename = argv[1];
 	s1 = argv[2];
 	if (s1.empty())
-		return (std::cerr << "First argument cannot be empty\n", 1);		
+		return (std::cerr << "Second argument cannot be empty\n", 1);		
 	s2 = argv[3];
 	
 	// construct the input stream object //

@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:22 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/05 13:07:18 by coxer         ########   odam.nl          #
+#    Updated: 2024/02/23 16:58:19 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,18 +25,18 @@ zombieHorde.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++ -std=c++98
+CC = g++
 
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)Program built successfully! $(RESET)\n"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $^
+	@$(CC) $(FLAGS) -c -o $@ $^
 
 clean:
 	rm -f $(OBJ)

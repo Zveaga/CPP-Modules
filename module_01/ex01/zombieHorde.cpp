@@ -6,13 +6,13 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/30 17:52:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 19:20:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 16:58:49 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *Zombie::andzombieHorde(int N, std::string name)
+Zombie *Zombie::zombieHorde(int N, std::string name)
 {
 	Zombie *horde = new(std::nothrow) Zombie[N];
 	if (!horde)
