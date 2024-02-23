@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 13:03:55 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/23 13:04:59 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int main(void)
 	
 	//---------------------TEST ABSTRACT CLASS--------------------//
 
-	Animal animal;
-	Animal *p_animal = new Animal();
+	// Animal animal;
+	// Animal *p_animal = new Animal();
 
 	//----------------------BRAIN IDEAS TESTS---------------------//
 	
