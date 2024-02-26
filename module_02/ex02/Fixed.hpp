@@ -6,12 +6,12 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:41 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 09:51:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/26 17:50:13 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
-#include <iomanip>
+#include<iomanip>
 #include<ostream>
 #include<cmath>
 
@@ -42,6 +42,20 @@ class Fixed {
 		static const Fixed &min(const Fixed &object1, const Fixed &object2);
 		static Fixed &max(Fixed &object1, Fixed &object2);
 		static const Fixed &max(const Fixed &object1, const Fixed &object2);
+
+		// --Comparison operators overload-- //
+		bool operator>(const Fixed &object) const;
+		bool operator<(const Fixed &object) const;
+		bool operator>=(const Fixed &object) const;
+		bool operator<=(const Fixed &object) const;
+		bool operator==(const Fixed &object) const;
+		bool operator!=(const Fixed &object) const;
+		
+		// --Arithmetic operators overload-- //
+		float operator+(const Fixed &object) const;
+		float operator-(const Fixed &object) const;
+		float operator*(const Fixed &object) const;
+		float operator/(const Fixed &object) const;
 };
 
 
@@ -49,17 +63,17 @@ class Fixed {
 std::ostream &operator<<(std::ostream &os, const Fixed &object); // --> non-member
 // std::ostream& operator<<(std::ostream& os);                      --> member
 
-// --Comparison operators overload-- //
-bool operator>(const Fixed &object1, const Fixed &object2);
-bool operator<(const Fixed &object1, const Fixed &object2);
-bool operator>=(const Fixed &object1, const Fixed &object2);
-bool operator<=(const Fixed &object1, const Fixed &object2);
-bool operator==(const Fixed &object1, const Fixed &object2);
-bool operator!=(const Fixed &object1, const Fixed &object2);
+// // --Comparison operators overload-- //
+// bool operator>(const Fixed &object1, const Fixed &object2);
+// bool operator<(const Fixed &object1, const Fixed &object2);
+// bool operator>=(const Fixed &object1, const Fixed &object2);
+// bool operator<=(const Fixed &object1, const Fixed &object2);
+// bool operator==(const Fixed &object1, const Fixed &object2);
+// bool operator!=(const Fixed &object1, const Fixed &object2);
 
-// --Arithmetic operators overload-- //
+// // --Arithmetic operators overload-- //
 
-float operator+(const Fixed &object1, const Fixed &object2);
-float operator-(const Fixed &object1, const Fixed &object2);
-float operator*(const Fixed &object1, const Fixed &object2);
-float operator/(const Fixed &object1, const Fixed &object2);
+// float operator+(const Fixed &object1, const Fixed &object2);
+// float operator-(const Fixed &object1, const Fixed &object2);
+// float operator*(const Fixed &object1, const Fixed &object2);
+// float operator/(const Fixed &object1, const Fixed &object2);

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 18:53:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/26 17:50:18 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,58 @@ Fixed Fixed::operator--(int)
 	return(temp);
 }
 
+// --Comparison operators overloads-- //
+bool Fixed::operator>(const Fixed &object) const
+{
+	return (this->getRawBits() > object.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed &object) const
+{
+	return (this->getRawBits() < object.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &object) const
+{
+	return (this->getRawBits() >= object.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &object) const
+{
+	return (this->getRawBits() <= object.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &object) const
+{
+	return (this->getRawBits() == object.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &object) const
+{
+	return (this->getRawBits() != object.getRawBits());
+}
+
+// --Arithmetic operators overloads-- //
+float Fixed::operator+(const Fixed &object) const
+{
+	return (this->toFloat() + object.toFloat());
+}
+
+float Fixed::operator-(const Fixed &object) const
+{
+	return (this->toFloat() - object.toFloat());
+}
+
+float Fixed::operator*(const Fixed &object) const
+{
+	return (this->toFloat() * object.toFloat());
+}
+
+float Fixed::operator/(const Fixed &object) const
+{
+	return (this->toFloat() / object.toFloat());
+}
+
 
 // std::ostream& Fixed::operator<<(std::ostream& os)
 // {
@@ -188,55 +240,55 @@ std::ostream &operator<<(std::ostream &os, const Fixed &object)
 	return (os);
 }
 
-// --Comparison operators overloads-- //
-bool operator>(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() > object2.getRawBits());
-}
+// // --Comparison operators overloads-- //
+// bool operator>(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() > object2.getRawBits());
+// }
 
-bool operator<(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() < object2.getRawBits());
-}
+// bool operator<(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() < object2.getRawBits());
+// }
 
-bool operator>=(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() >= object2.getRawBits());
-}
+// bool operator>=(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() >= object2.getRawBits());
+// }
 
-bool operator<=(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() <= object2.getRawBits());
-}
+// bool operator<=(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() <= object2.getRawBits());
+// }
 
-bool operator==(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() == object2.getRawBits());
-}
+// bool operator==(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() == object2.getRawBits());
+// }
 
-bool operator!=(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.getRawBits() != object2.getRawBits());
-}
+// bool operator!=(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.getRawBits() != object2.getRawBits());
+// }
 
-// --Arithmetic operators overloads-- //
-float operator+(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.toFloat() + object2.toFloat());
-}
+// // --Arithmetic operators overloads-- //
+// float operator+(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.toFloat() + object2.toFloat());
+// }
 
-float operator-(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.toFloat() - object2.toFloat());
-}
+// float operator-(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.toFloat() - object2.toFloat());
+// }
 
-float operator*(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.toFloat() * object2.toFloat());
-}
+// float operator*(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.toFloat() * object2.toFloat());
+// }
 
-float operator/(const Fixed &object1, const Fixed &object2)
-{
-	return (object1.toFloat() / object2.toFloat());
-}
+// float operator/(const Fixed &object1, const Fixed &object2)
+// {
+// 	return (object1.toFloat() / object2.toFloat());
+// }
 

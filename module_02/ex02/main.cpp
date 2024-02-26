@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 09:59:54 by coxer         ########   odam.nl         */
+/*   Updated: 2024/02/26 17:47:35 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	// -- Intra test -- //
+	std::cout << "\n============INTRA TEST=============\n\n";
 	
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
@@ -29,9 +29,11 @@ int main(void)
 	
 	std::cout << Fixed::max(a, b) << std::endl;
 	
-	// -- Own test -- //
+	
+	// std::cout << "\n============OWN TEST=============\n\n";
 	// Fixed a(35.44f);
-	// Fixed b(10.032f);
+	// Fixed const b(10.032f);
+	// std::cout << "--------------------------\n";
 	
 	// std::cout << a << std::endl;
 	// std::cout << --a << std::endl;
@@ -41,7 +43,7 @@ int main(void)
 	// std::cout << Fixed::max(a, b) << std::endl;
 	// std::cout << Fixed::min(a, b) << std::endl;
 	
-	// --Comparison overloads-- //
+	// std::cout << "\n=========COMPARISON OVERLOADS=========\n\n";
 	// if (a > b)
 	// 	std::cout << "a > b\n";
 	// if (a < b)
@@ -55,11 +57,12 @@ int main(void)
 	// if (a != b)
 	// 	std::cout << "a != b\n";
 
-	// --Arithmetic overloads-- //
+	// std::cout << "\n============ARITHMETIC OVERLOADS=============\n\n";
 	// std::cout << a + b << std::endl;
 	// std::cout << a - b << std::endl;
 	// std::cout << a * b << std::endl;
 	// std::cout << a / b << std::endl;
-
+	
+	std::cout << "--------------------------\n";
 	return (0);
 }
