@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/11 14:55:54 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/11 15:01:16 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ const void	Bureaucrat::setGrade(int grade)
 {
 	_grade = grade;	
 }
-
 
 void Bureaucrat::incrementGrade()
 {

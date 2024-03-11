@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/11 14:56:52 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/11 15:06:41 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(void)
 {
 	std::cout << "\n============CONSTRUCTION=============\n";
+	
 	std::cout << "\n------------VALID GRADE------------\n\n";
 	
 	Bureaucrat bureaucrat("CLERK", 10);
@@ -38,7 +39,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Error constructing the bureaucrat: " << e.what() << std::endl;	
+		std::cerr << "Error constructing the bureaucrat " << e.what() << std::endl;	
 	} 
 
 	std::cout << "\n============INCREMENT=============\n";
@@ -52,19 +53,25 @@ int main(void)
 	catch (const std::exception &e)
 	{
 		std::cerr << "Error while incrementing : " << e.what() << std::endl;	
+		std::cout << bureaucrat;
 	}
 	
 	std::cout << "\n============DECREMENT=============\n";
+	
 	bureaucrat.setGrade(148);
 	try
 	{
 		bureaucrat.decrementGrade();
 		bureaucrat.decrementGrade();
+		
 		bureaucrat.decrementGrade();
+		bureaucrat.decrementGrade();
+
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << "Error while decrementing : " << e.what() << std::endl;	
+		std::cout << bureaucrat;
 	}
 	
 	
@@ -72,20 +79,6 @@ int main(void)
 	
 	bureaucrat.setGrade(10);
 	std::cout << bureaucrat;
-
-	// std::cout << bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
-
-	// std::cout << "\n===========INCREMENT GRADE============\n\n";
-	// bureaucrat.incrementGrade();
-	// bureaucrat.incrementGrade();
-	
-	// std::cout << bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
-
-	// std::cout << "\n===========DECREMENT GRADE============\n\n";
-	// bureaucrat.decrementGrade();
-	// std::cout << bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
-
-	//-----------------------------------------//
 	
 	std::cout << "\n======================END======================\n";
 	//std::cout << "\n--------------------------\n";

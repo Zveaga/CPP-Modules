@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 17:37:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/11 14:55:27 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/11 15:01:01 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,4 @@ class Bureaucrat
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &object);
 
-
-
 #endif
-
-
