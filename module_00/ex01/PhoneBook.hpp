@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:33 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 16:55:33 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/14 12:22:39 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ class PhoneBook
 		void update_contacts(int i);
 		void display_contact_list(int count);
 		void display_contact(int count);
+
+		std::string getOption(void) const;
+		void welcomeMessage(void) const;
+
 };
 
 #endif

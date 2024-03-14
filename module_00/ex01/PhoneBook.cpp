@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/05 13:51:06 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/14 12:29:30 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void PhoneBook::add_contact(int i)
 	add_darkest_secret(i);	
 }
 
+
+
 void PhoneBook::display_contact(int count)
 {
 	int	index = 0;
@@ -137,4 +139,31 @@ void PhoneBook::display_contact_list(int count)
 		std::cout << std::setw(10) << std::right << contacts[i].get_nickname(true)  << "|" <<  std::endl;
 	}
 	display_contact(count);
+}
+
+std::string PhoneBook::getOption(void) const
+{
+	std::string option;
+	
+	while (true)
+	{
+		std::cout << "\nEnter option (add/search/exit): ";
+		std::cin >> option;
+		if (option != "add" && option != "search" && option != "exit")
+		{
+			std::cout << "Option is not valid.\n";
+			continue ;
+		}
+		break ;
+	}
+	return (option);
+}
+
+void PhoneBook::welcomeMessage(void) const
+{
+	std::cout << "\nWelcome to my basic phonebook entry program!\n";
+	std::cout << "\nYou can choose between these 3 options:\
+	\n- add-> save a new contact\
+	\n- search-> display a specific contact\
+	\n- exit-> exit program\n";
 }
