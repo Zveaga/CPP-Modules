@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 20:29:44 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/28 17:01:01 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void)
 		club.setType("some other type of club");
 		bob.attack();
 	}
+	
 	{
 		Weapon club = Weapon("crude spiked club");
 	

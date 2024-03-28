@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:21:27 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/01 13:50:13 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/03/28 16:28:06 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ class Weapon
 	public:
 		Weapon(std::string type);
 		const std::string &getType() const;
-		void setType(const std::string type);
-		
-			
+		void setType(const std::string type);	
 };
 
 #endif

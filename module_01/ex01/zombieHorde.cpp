@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/30 17:52:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 16:58:49 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/28 13:13:41 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Zombie *Zombie::zombieHorde(int N, std::string name)
 	std::cout << std::endl;
 	for (int i = 0; i < N; i++)
 	{
-		//horde[i] = Zombie(name);
 		horde[i].setName(name);
 		horde[i].announce();
 	}

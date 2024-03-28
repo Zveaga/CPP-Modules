@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 20:26:19 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/28 16:59:17 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void HumanB::setWeapon(Weapon &weapon)
 {
-	if (this->weapon->getType() == "imaginary weapon")
-		delete this->weapon;
+	// if (this->weapon->getType() == "basic weapon")
+	// 	delete this->weapon;
 	this->weapon = &weapon;
 }
 
 HumanB::HumanB(const std::string &name) : name(name)
 {
-	weapon = new Weapon("imaginary weapon");
+	//weapon = new Weapon("basic weapon");
 }
 
 void HumanB::attack()

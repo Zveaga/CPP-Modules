@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 12:23:26 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/14 12:29:30 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/03/28 18:02:24 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void PhoneBook::add_first_name(int i)
 	
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, field);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
 	if (field.empty())
 		add_first_name(i);
 	else
@@ -35,6 +37,8 @@ void PhoneBook::add_last_name(int i)
 	
 	std::cout << "Enter last name: ";
 	std::getline(std::cin, field);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
 	if (field.empty())
 		add_last_name(i);
 	else
@@ -47,6 +51,8 @@ void PhoneBook::add_nickname(int i)
 	
 	std::cout << "Enter nickname: ";
 	std::getline(std::cin, field);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
 	if (field.empty())
 		add_nickname(i);
 	else
@@ -59,6 +65,8 @@ void PhoneBook::add_phone_number(int i)
 	
 	std::cout << "Enter phone number: ";
 	std::getline(std::cin, field);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
 	if (field.empty())
 		add_phone_number(i);
 	else
@@ -71,6 +79,8 @@ void PhoneBook::add_darkest_secret(int i)
 	
 	std::cout << "Enter darkest secret: ";
 	std::getline(std::cin, field);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
 	if (field.empty())
 		add_darkest_secret(i);
 	else
@@ -102,6 +112,8 @@ void PhoneBook::display_contact(int count)
 				<<" to display the full contact\n-> ";	
 		}
 		std::cin >> index;
+		if (std::cin.eof())
+			exit(EXIT_SUCCESS);
 		if (std::cin.fail() || index < 0 || index > count - 1)
 		{
 			std::cin.clear();
@@ -147,9 +159,11 @@ std::string PhoneBook::getOption(void) const
 	
 	while (true)
 	{
-		std::cout << "\nEnter option (add/search/exit): ";
+		std::cout << "\nEnter option (ADD/SEARCH/EXIT): ";
 		std::cin >> option;
-		if (option != "add" && option != "search" && option != "exit")
+		if (std::cin.eof())
+			exit(EXIT_SUCCESS);
+		if (option != "ADD" && option != "SEARCH" && option != "EXIT")
 		{
 			std::cout << "Option is not valid.\n";
 			continue ;
@@ -163,7 +177,7 @@ void PhoneBook::welcomeMessage(void) const
 {
 	std::cout << "\nWelcome to my basic phonebook entry program!\n";
 	std::cout << "\nYou can choose between these 3 options:\
-	\n- add-> save a new contact\
-	\n- search-> display a specific contact\
-	\n- exit-> exit program\n";
+	\n- ADD-> save a new contact\
+	\n- SEARCH-> display a specific contact\
+	\n- EXIT-> exit program\n";
 }

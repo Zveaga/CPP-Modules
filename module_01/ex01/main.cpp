@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/30 18:29:46 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/31 14:42:40 by coxer         ########   odam.nl         */
+/*   Updated: 2024/03/28 13:09:53 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main(void)
 {
-	int	N = 10;
 	Zombie zombie;
+	int	N = 10;
 
 	Zombie *zombie_horde = zombie.zombieHorde(N, "Horde");
 

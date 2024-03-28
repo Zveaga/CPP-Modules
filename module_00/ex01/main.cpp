@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/24 19:25:24 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/14 13:34:49 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/03/28 18:04:06 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	while (true)
 	{
 		option = phonebook.getOption();
-		if (option == "add")
+		if (option == "ADD")
 		{
 			if (i == 8)
 			{
@@ -41,9 +41,9 @@ int	main(void)
 			if (count < 8)
 				count++;
 		}	
-		else if (option == "search")
+		else if (option == "SEARCH")
 			phonebook.display_contact_list(count);
-		else if (option == "exit")
+		else if (option == "EXIT")
 			exit(EXIT_SUCCESS);
 	}
 }
