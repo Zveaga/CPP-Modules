@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/02 16:11:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/02 16:29:45 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ Bureaucrat::Bureaucrat(): _name("DEFAULT"), _grade(0)
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
 	if (_grade < 1)
-		throw GradeTooHighException("grade too high");
+		throw GradeTooHighException();
 	if (_grade > 150)
-		throw GradeTooLowException("grade too low");
+		throw GradeTooLowException();
 	std::cout << _name << " constructed by custom constructor\n";
 }
 
@@ -86,7 +86,7 @@ void Bureaucrat::incrementGrade()
 {
 	_grade--;
 	if (_grade < 1)
-		throw GradeTooHighException("grade too high");
+		throw GradeTooHighException();
 	std::cout << "Value incremented\n";
 }
 
@@ -94,7 +94,7 @@ void Bureaucrat::decrementGrade()
 {
 	_grade++;
 	if (_grade > 150)
-		throw GradeTooLowException("grade too low");
+		throw GradeTooLowException();
 	std::cout << "Value decremented\n";
 }
 
