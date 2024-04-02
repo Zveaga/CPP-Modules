@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:08 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/23 17:17:45 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/02 15:57:29 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ Harl.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

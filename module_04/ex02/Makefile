@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/23 13:02:10 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/02 15:58:17 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ Brain.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 

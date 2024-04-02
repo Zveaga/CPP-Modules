@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:45 by coxer         #+#    #+#                  #
-#    Updated: 2024/02/19 12:01:14 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/02 15:56:09 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ main.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = g++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
