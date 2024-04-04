@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/04 20:18:05 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/04 20:20:42 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Error constructing the form: " << e.what() << std::endl;	
+		std::cerr << "Error signing the form: " << e.what() << std::endl;	
 	}
 	
 	std::cout << "\n------------signForm----------\n\n";
