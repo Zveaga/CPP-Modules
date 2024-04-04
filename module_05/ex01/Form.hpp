@@ -1,8 +1,11 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
+
+class Bureaucrat;
 
 class Form
 {
@@ -15,24 +18,40 @@ class Form
 	public:
 		// --Conststructors-- //
 		Form();
-		Form(const Form &object);		
+		Form(const Form &object);
+		Form(std::string name, bool is_signed, int sign_grade, int exec_grade);
 		// --Destructor-- //
 		~Form();
 		// --Overloads-- //
-		Form &operator=(const Form &object);	
+		Form &operator=(const Form &object);
+		// --Getters-- //
+		std::string getName() const;
+		bool 		getIsSigned() const;
+		int 		getSignGrade() const;
+		int 		getExecGrade() const;
+		// --Setters-- //
 		// --Member Functions-- //
-
+		void 		beSigned(const Bureaucrat &bureaucrat_obj);
 		// --Exceptions-- //
+		class GradeTooHighException : public std::exception
+		{
+			public: 
+				const char *what() const noexcept
+				{
+					return ("grade too high");
+				}
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public: 
+				const char *what() const noexcept
+				{
+					return ("grade too low");
+				}
+		};
 
 };
 
-
-
-
-
-
-
-
-
+std::ostream &operator<<(std::ostream &os, const Form &object);
 
 #endif

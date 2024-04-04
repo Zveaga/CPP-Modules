@@ -6,15 +6,18 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 17:37:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/02 16:33:38 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/04 19:01:14 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include"Form.hpp"
 #include<iostream>
 #include<exception>
+
+class Form;
 
 class Bureaucrat
 {
@@ -37,6 +40,7 @@ class Bureaucrat
 		const void 			setGrade(int grade);
 		void 				incrementGrade();
 		void 				decrementGrade();
+		void				signForm(const Form &form_obj);
 		// --Exceptions-- //
 		class GradeTooHighException: public std::exception
 		{

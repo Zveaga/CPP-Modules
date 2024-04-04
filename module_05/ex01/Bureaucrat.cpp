@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/02 16:29:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/04 20:13:15 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,16 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 	std::cout << "Value decremented\n";
 }
+
+
+void Bureaucrat::signForm(const Form &form_obj)
+{
+	if (form_obj.getIsSigned() == true)
+		std::cout << _name << " signed " << form_obj.getName() << std::endl;
+	else
+		std::cout << _name << " couldn't sign " << form_obj.getName() << " because grade is not high enough!\n";
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &object)
 {

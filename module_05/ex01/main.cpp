@@ -6,83 +6,52 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/02 16:29:16 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/04 20:18:05 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Bureaucrat.hpp"
+#include"Form.hpp"
+
+class Form;
 
 int main(void)
 {
 	std::cout << "\n============CONSTRUCTION=============\n";
 	
-	std::cout << "\n------------VALID GRADE----------\n\n";
-	
-	Bureaucrat bureaucrat("CLERK", 10);
-	
-	std::cout << "\n-----------GRADE TOO LOW---------\n\n";
-	
-	try
-	{
-		Bureaucrat manager("MANAGER", 151);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << "Error constructing the bureaucrat: " << e.what() << std::endl;
-	}
-	
-	std::cout << "\n-----------GRADE TOO HIGH----------\n\n";
-	
-	try
-	{
-		Bureaucrat director("DIRECTOR", 0);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << "Error constructing the bureaucrat: " << e.what() << std::endl;	
-	} 
+	std::cout << "\n------------Bureaucrat----------\n\n";	
 
-	std::cout << "\n============INCREMENT=============\n\n";
-	
-	bureaucrat.setGrade(2);
+	Bureaucrat bureaucrat("CLERK", 5);
 	std::cout << bureaucrat;
+	
+	std::cout << "\n------------Form basic----------\n\n";
+	
+	Form form;
+	std::cout << form;
+	
+	std::cout << "\n------------Form custom----------\n\n";
+	
+	Form form1("FORM_1", false, 10, 20);
+	std::cout << form1;
+	
+	
+	std::cout << "\n========FUNCTION TESTS========\n";
+	
+	std::cout << "\n------------beSigned----------\n\n";
 	
 	try
 	{
-		bureaucrat.incrementGrade();
-		bureaucrat.incrementGrade();
+		form1.beSigned(bureaucrat);
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Error while incrementing : " << e.what() << std::endl;	
+		std::cerr << "Error constructing the form: " << e.what() << std::endl;	
 	}
-	std::cout << bureaucrat;
-	std::cout << "\n============DECREMENT=============\n\n";
 	
-	bureaucrat.setGrade(148);
-	std::cout << bureaucrat;
+	std::cout << "\n------------signForm----------\n\n";
 	
-	try
-	{
-		bureaucrat.decrementGrade();
-		bureaucrat.decrementGrade();
-		
-		bureaucrat.decrementGrade();
-		bureaucrat.decrementGrade();
+	bureaucrat.signForm(form1);
 
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << "Error while decrementing : " << e.what() << std::endl;	
-	}
-	
-	std::cout << bureaucrat;
-	
-	std::cout << "\n=======OPERATOR << OVERLOAD=======\n";
-	
-	bureaucrat.setGrade(10);
-	std::cout << bureaucrat;
-	
 	std::cout << "\n======================END======================\n";
 	return (0);
 }

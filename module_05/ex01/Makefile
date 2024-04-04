@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/02 16:16:33 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/04 18:56:39 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = animal_abstract
+NAME = maggots
 
 SRC = \
 main.cpp \
@@ -27,7 +27,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++11
 
 all: $(NAME)
 
