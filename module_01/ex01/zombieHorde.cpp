@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/30 17:52:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/28 13:13:41 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/05 11:57:11 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie *Zombie::zombieHorde(int N, std::string name)
 	if (!horde)
 	{
 		std::cout << "Memory allocation failure.\n";
-		return (NULL);
+		return (nullptr);
 	}
 	std::cout << std::endl;
 	for (int i = 0; i < N; i++)
@@ -29,4 +29,3 @@ Zombie *Zombie::zombieHorde(int N, std::string name)
 	std::cout << std::endl;
 	return (horde);
 }
-

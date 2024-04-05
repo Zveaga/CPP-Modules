@@ -6,19 +6,11 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/29 19:10:03 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/31 14:36:33 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 11:53:52 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-
-// Zombie &Zombie::operator=(const Zombie &zombie)
-// {
-// 	if (this != &zombie)
-// 		name = zombie.name;
-// 	return (*this);
-// }	
+#include "Zombie.hpp"	
 
 void Zombie::announce(void)
 {
