@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:46:41 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/26 17:50:13 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 17:52:23 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ class Fixed {
 		~Fixed();						//--> destructor
 		// --Copy assignment overload-- //
 		Fixed &operator=(const Fixed &object);
-		// --Increment/Decrement overloads-- //
-		Fixed &operator++();
-		Fixed operator++(int);
-		Fixed &operator--();
-		Fixed operator--(int);
 		// --Member functions-- //
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
@@ -42,38 +37,24 @@ class Fixed {
 		static const Fixed &min(const Fixed &object1, const Fixed &object2);
 		static Fixed &max(Fixed &object1, Fixed &object2);
 		static const Fixed &max(const Fixed &object1, const Fixed &object2);
-
-		// --Comparison operators overload-- //
+		// --Increment/Decrement overloads-- //
+		Fixed &operator++();
+		Fixed operator++(int);
+		Fixed &operator--();
+		Fixed operator--(int);
+		// --Comparison operators overloads-- //
 		bool operator>(const Fixed &object) const;
 		bool operator<(const Fixed &object) const;
 		bool operator>=(const Fixed &object) const;
 		bool operator<=(const Fixed &object) const;
 		bool operator==(const Fixed &object) const;
 		bool operator!=(const Fixed &object) const;
-		
-		// --Arithmetic operators overload-- //
+		// --Arithmetic operators overloads-- //
 		float operator+(const Fixed &object) const;
 		float operator-(const Fixed &object) const;
 		float operator*(const Fixed &object) const;
 		float operator/(const Fixed &object) const;
 };
 
-
 // --Overload operators (non-members)--
 std::ostream &operator<<(std::ostream &os, const Fixed &object); // --> non-member
-// std::ostream& operator<<(std::ostream& os);                      --> member
-
-// // --Comparison operators overload-- //
-// bool operator>(const Fixed &object1, const Fixed &object2);
-// bool operator<(const Fixed &object1, const Fixed &object2);
-// bool operator>=(const Fixed &object1, const Fixed &object2);
-// bool operator<=(const Fixed &object1, const Fixed &object2);
-// bool operator==(const Fixed &object1, const Fixed &object2);
-// bool operator!=(const Fixed &object1, const Fixed &object2);
-
-// // --Arithmetic operators overload-- //
-
-// float operator+(const Fixed &object1, const Fixed &object2);
-// float operator-(const Fixed &object1, const Fixed &object2);
-// float operator*(const Fixed &object1, const Fixed &object2);
-// float operator/(const Fixed &object1, const Fixed &object2);
