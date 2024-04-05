@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 17:10:07 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 14:03:00 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int main(int argc, char **argv)
 		return (std::cerr << "Second argument cannot be empty\n", 1);		
 	s2 = argv[3];
 	
+	if (s1 == s2)
+		return (std::cout << "Strings cannot be the same\n", 0); 
+	
 	// construct the input stream object //
 	std::ifstream File;
 	File.open(filename);
@@ -50,8 +53,9 @@ int main(int argc, char **argv)
 		std::size_t start = 0;
 		while ((start = line.find(s1)) != std::string::npos)
 		{
-			line.replace(start, s1.length(), s2);
-			start += s2.length();
+			line.erase(start, s1.length());
+			line.insert(start, s2);
+			start += s2.length();	
 		}
 		newFile << line << std::endl;
 	}
