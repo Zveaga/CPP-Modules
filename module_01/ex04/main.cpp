@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/05 14:03:00 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/05 14:06:14 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		
 	// construct the output stream object //
 	std::ofstream newFile;
-	newFile.open("test.replace");
+	newFile.open("replaced_test");
 	if (!newFile)
 		return (std::cerr << "Error while opening the file\n", File.close(), 1);
 
