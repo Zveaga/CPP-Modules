@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:08 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/02 15:57:29 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/05 14:29:53 by raanghel      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = harl_2.0
+NAME = harl
 
 SRC = \
 main.cpp \
