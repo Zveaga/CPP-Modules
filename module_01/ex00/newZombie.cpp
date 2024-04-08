@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/29 19:10:30 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/28 13:04:55 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/05 11:45:24 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie *Zombie::newZombie(std::string name)
 	if (!newZombie)
 	{
 		std::cout << "Memory allocation failure.\n";
-		return (NULL);
+		return (nullptr);
 	}
 	return (newZombie);
 

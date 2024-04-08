@@ -6,12 +6,12 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:21:30 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/14 20:20:52 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 12:02:58 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef HUMAN_B_HPP
+# define HUMAN_B_HPP
 
 #include"Weapon.hpp"
 

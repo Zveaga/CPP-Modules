@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/29 18:58:01 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/31 15:22:56 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 11:53:45 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Zombie
 	private:
 		std::string name;
 	public:
-		// Zombie &operator=(const Zombie &zombie);
 		Zombie();
 		Zombie(const std::string name);
 		void announce(void);

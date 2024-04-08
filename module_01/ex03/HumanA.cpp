@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/31 15:14:00 by coxer         #+#    #+#                 */
-/*   Updated: 2024/01/31 18:24:58 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/05 12:03:12 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ void HumanA::attack()
 {
 	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }
-
