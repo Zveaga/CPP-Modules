@@ -25,13 +25,13 @@ class Form
 		// --Overloads-- //
 		Form &operator=(const Form &object);
 		// --Getters-- //
-		std::string getName() const;
+		const std::string &getName() const;
 		bool 		getIsSigned() const;
 		int 		getSignGrade() const;
 		int 		getExecGrade() const;
 		// --Setters-- //
 		// --Member Functions-- //
-		void 		beSigned(const Bureaucrat &bureaucrat_obj);
+		void 		beSigned(const Bureaucrat &object);
 		// --Exceptions-- //
 		class GradeTooHighException : public std::exception
 		{

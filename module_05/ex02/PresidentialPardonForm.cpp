@@ -6,7 +6,8 @@ PresidentialPardonForm::PresidentialPardonForm()
 	std::cout <<  getName() << " form constructed by basic constructor\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target): _target(target), AForm("PARDON", false, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+	: _target(target), AForm("PARDON", false, 25, 5)
 {
 	std::cout <<  getName() << " form constructed by custom constructor\n";
 }

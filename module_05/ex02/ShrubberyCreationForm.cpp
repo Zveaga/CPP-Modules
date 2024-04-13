@@ -11,7 +11,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &object
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): _target(target), AForm("SHRUBBERY", false, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+	: AForm("SHRUBBERY", false, 145, 137), _target(target) 
 {
 	std::cout << getName() << " form constructed by custom constructor\n";
 }

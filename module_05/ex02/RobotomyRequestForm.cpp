@@ -6,7 +6,8 @@ RobotomyRequestForm::RobotomyRequestForm()
 	std::cout <<  getName() << " form constructed by basic constructor\n";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target): _target(target), AForm("ROBOTOMY", false, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
+	: _target(target), AForm("ROBOTOMY", false, 72, 45)
 {
 	std::cout <<  getName() << " form constructed by custom constructor\n";
 }
