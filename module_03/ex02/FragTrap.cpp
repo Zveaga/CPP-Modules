@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/16 12:12:12 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:25:13 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 16:39:34 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ FragTrap::FragTrap()
 	std::cout << "Default FragTrap constructor called -> '" << this->name << "' was constructed\n";
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-	this->name = name;
+	// this->name = name;
 	this->hitPoints = 100;
 	this->energyPoints = 100;
 	this->attackDamage = 30;

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 15:03:18 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 17:28:55 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(void)
 	// diamond_trap2.beRepaired(10);
 	// diamond_trap2.attack(diamond_trap1.getName());
 	// std::cout << "---------------------------" << std::endl;
-	// diamond_trap2.whoAmI();
+	diamond_trap1.whoAmI();
 	// std::cout << "---------------------------" << std::endl;
 
 	return (0);
