@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/15 17:47:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:19:31 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 11:36:59 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	this->name = name;
+	// this->name = name;
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;

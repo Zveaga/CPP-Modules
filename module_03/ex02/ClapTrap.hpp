@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 18:13:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:21:50 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 11:49:43 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap
 {
 	protected:
-		static int maxHitPoints;
+		int maxHitPoints;
 		std::string name;
 		int hitPoints;
 		int energyPoints;

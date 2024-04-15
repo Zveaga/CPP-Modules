@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/08 12:45:18 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:18:43 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 11:47:41 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,11 @@
 int main(void)
 {
 	std::cout << "---------------------------" << std::endl;
-	ClapTrap clap_trap("FIRST");
+	ClapTrap clap_trap("CLAP_TRAP");
 	
 	std::cout << "---------------------------" << std::endl;
-	ScavTrap scav_trap("SECOND");
+	ScavTrap scav_trap("SCAV_TRAP");
 	
-	std::cout << "---------------------------" << std::endl;
-	// ScavTrap scav_trap2;
-
-	// std::cout << "---------------------------" << std::endl;
-	// ScavTrap scav_trap3(scav_trap2);
-
-	// std::cout << "---------------------------" << std::endl;
-	// ScavTrap scav_trap4;
-
-	// std::cout << "---------------------------" << std::endl;
-	// scav_trap4 = scav_trap2;
-	// std::cout << "---------------------------" << std::endl;
-		
 	std::cout << "---------------------------" << std::endl;	
 	// --Attack-- //
 	scav_trap.attack(clap_trap.getName());
@@ -48,6 +35,8 @@ int main(void)
 	
 	// --Repair-- //
 	scav_trap.beRepaired(10);
+	scav_trap.beRepaired(60);
+	scav_trap.beRepaired(60);
 	scav_trap.beRepaired(60);
 	std::cout << "---------------------------" << std::endl;
 	

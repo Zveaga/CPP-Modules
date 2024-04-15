@@ -6,18 +6,18 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/14 18:13:11 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/19 11:24:35 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/15 11:49:22 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 
-int ClapTrap::maxHitPoints = 100;
+// int ClapTrap::maxHitPoints = 100;
 
 // --Constructors-- //	
 ClapTrap::ClapTrap()
 {
-	int	maxHitPoints;
+	this->maxHitPoints = 100;
 	this->name = "Default ClapTrap";
 	this->hitPoints = 10;
 	this->energyPoints = 10;
@@ -27,6 +27,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
+	this->maxHitPoints = 100;
 	this->name = name;
 	this->hitPoints = 10;
 	this->energyPoints = 10;
@@ -36,6 +37,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap &object)
 {
+	this->maxHitPoints = object.maxHitPoints;
 	this->name = object.name;
 	this->hitPoints = object.hitPoints;
 	this->energyPoints = object.energyPoints;
@@ -48,6 +50,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &object)
 {
 	if (this != &object)
 	{
+		this->maxHitPoints = object.maxHitPoints;
 		this->name = object.name;
 		this->hitPoints = object.hitPoints;
 		this->energyPoints = object.energyPoints;
