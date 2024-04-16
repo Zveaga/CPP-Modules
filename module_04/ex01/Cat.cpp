@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:42 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 10:58:04 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 14:47:20 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,13 @@
 // --Conststructors-- //
 Cat::Cat()
 {
-	this->type = "CAT";
+	this->type = "Cat";
 	this->brain = new(std::nothrow) Brain();
 	if (this->brain == nullptr)
 	{
 		std::cout << "Memory allocation failure:\n";
-		return ;
+		exit(EXIT_FAILURE);
 	}
-	// try
-	// {
-	// 	this->brain = new Brain();
-	// 	//throw std::bad_alloc();
-	// }
-	// catch (const std::bad_alloc &e)
-	// {
-	// 	std::cout << "Memory allocation failure: " << e.what() << std::endl;
-	// 	return ;
-	// }
 	std::cout << this->type << " constructed (basic constructor)\n";
 }
 Cat::Cat(const Cat &object)
@@ -84,3 +74,9 @@ void Cat::outputBrainIdeas() const
 {
 	this->brain->outputIdeas();
 }
+
+Brain *Cat::getBrain() const
+{
+	return (brain);
+}
+

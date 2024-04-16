@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 14:10:56 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/16 12:50:10 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 Dog::Dog()
 {
-	this->type = "DOG";
+	this->type = "Dog";
 	std::cout << this->type << " constructed\n";
 }
 

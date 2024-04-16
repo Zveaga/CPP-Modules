@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:40 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 12:57:44 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 15:24:06 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void Animal::set_type(std::string type)
 	this->type = type;
 }
 
-void Animal::makeSound() const
-{
-	//std::cout << "BASIC ANIMAL makes a sound!\n";
-}
+// void Animal::makeSound() const
+// {
+// 	std::cout << "AAAAAAAAAA!\n";
+// }

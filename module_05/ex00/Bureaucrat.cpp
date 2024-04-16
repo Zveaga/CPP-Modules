@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/02 16:29:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 14:55:50 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // --CUSTOM EXCEPTIONS-- //
 //===========GradeTooHighException===========//
-//Bureaucrat::GradeTooHighException::GradeTooHighException(const char *message): _message(message){}
+// Bureaucrat::GradeTooHighException::GradeTooHighException(const char *message): _message(message){}
 // const char *Bureaucrat::GradeTooHighException::what()
 // {
 // 	return (_message);

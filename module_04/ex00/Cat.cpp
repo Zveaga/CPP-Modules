@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:42 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/20 14:11:01 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/16 12:50:05 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 Cat::Cat()
 {
-	this->type = "CAT";
+	this->type = "Cat";
 	std::cout << this->type << " constructed\n";
 }
 Cat::Cat(const Cat &object)

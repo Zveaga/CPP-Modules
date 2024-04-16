@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/20 12:09:58 by rares         #+#    #+#                 */
-/*   Updated: 2024/02/20 14:17:14 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/16 13:07:44 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 WrongAnimal::WrongAnimal()
 {
-	this->type = "WRONG BASIC ANIMAL";
+	this->type = "Wrong Basic Animal";
 	std::cout << this->type << " constructed\n";
 }
 WrongAnimal::WrongAnimal(const WrongAnimal &object)

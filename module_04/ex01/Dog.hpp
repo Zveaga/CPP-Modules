@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:08 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 09:57:48 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 14:47:27 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Dog: public Animal
 		void makeSound() const;
 		void fillBrainIdeas() const;
 		void outputBrainIdeas() const;
+		Brain *getBrain() const;
 };
 
 #endif

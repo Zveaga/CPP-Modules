@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/20 12:09:51 by rares         #+#    #+#                 */
-/*   Updated: 2024/02/20 14:11:22 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/16 13:07:34 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 WrongCat::WrongCat()
 {
-	this->type = "WRONG CAT";
+	this->type = "Wrong Cat";
 	std::cout << this->type << " constructed\n";
 }
 WrongCat::WrongCat(const WrongCat &object)
@@ -44,5 +44,5 @@ WrongCat &WrongCat::operator=(const WrongCat &object)
 // --Member Functions-- //
 void WrongCat::makeSound() const
 {
-	std::cout << "Miaw!\n";
+	std::cout << "Miaww!\n";
 }

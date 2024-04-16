@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:39:02 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 12:57:25 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 15:23:43 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Animal
 	protected:
 		std::string type;
 	public:
-		Animal();
 		// --Conststructors-- //
+		Animal();
 		Animal(const Animal &object);
 		// --Destructor-- //
 		virtual ~Animal() = 0;  //--> makes the class abstract
@@ -30,7 +30,7 @@ class Animal
 		// --Member Functions-- //
 		std::string getType() const;
 		void set_type(std::string type);
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 };
 
 #endif

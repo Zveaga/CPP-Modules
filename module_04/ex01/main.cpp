@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 11:01:32 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 15:07:08 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,42 @@ int main(void)
 	// std::cout << "--------------------------\n";
 	
 	// std::cout << "\n============BRAIN IDEAS=============\n\n";
-	// dog1.fillBrainIdeas();
 	// std::cout << "\n---------DOG1---------\n\n";
+	// dog1.fillBrainIdeas();
 	// dog1.outputBrainIdeas();
 	// std::cout << "\n---------DOG2---------\n\n";
+	// dog2.fillBrainIdeas();
 	// dog2.outputBrainIdeas();
 	
+	//--------------------------DEEP COPY TEST-----------------------//
+	// std::cout << "-----------DOG1------------\n";
+	// const Dog dog1;
+	// std::cout << "\n---------DOG2---------\n\n";
+	// const Dog dog2 = dog1;
+	// std::cout << "\n---------DOG3---------\n\n";
+	// const Dog dog3(dog2);
+
+	// std::cout << "-----------Brain addresses------------\n";
+	// std::cout << "Dog 1 brain's address: " << dog1.getBrain() << "\n";
+	// std::cout << "Dog 2 brain's address: " << dog2.getBrain() << "\n";
+	// std::cout << "Dog 3 brain's address: " << dog3.getBrain() << "\n";
+	
+
 	//--------------------------ARRAY TEST-----------------------//
 	
-	// int size = 4;
+	// int size = 10;
 	// std::cout << "\n============CONSTRUCTION=============\n";
 	
 	// Animal *animals[size];
+	
 	// std::cout << "\n---------DOGS---------\n\n";
-
 	// for (int i = 0; i < size / 2; i++)
 	// {
 	// 	animals[i] = new Dog();
 	// 	std::cout << "--------------------------\n";
-
 	// }
-	// std::cout << "\n---------CATS---------\n\n";
 	
+	// std::cout << "\n---------CATS---------\n\n";
 	// for (int i = size / 2; i < size; i++)
 	// {
 	// 	animals[i] = new Cat();
@@ -82,67 +96,7 @@ int main(void)
 	// 	delete animals[i];
 	// 	std::cout << "--------------------------\n";
 	// }
-	
 
-	//----------------------PREVIOUS TESTS------------------------//
-	
-	// std::cout << "\n============CONSTRUCTION=============\n\n";
-	
-	// const Animal *animal = new Animal();
-	// std::cout << "--------------------------\n";
-	// const Animal *dog = new Dog();
-	// std::cout << "--------------------------\n";
-	// const Animal *cat = new Cat();
-	
-	// std::cout << "\n============MAKE SOUND=============\n\n";
-	
-	// std::cout << "TYPE: " << dog->getType() << std::endl;
-	// dog->makeSound();
-	// std::cout << std::endl;
-	// std::cout << "TYPE: " << cat->getType() << std::endl;
-	// cat->makeSound();
-	// std::cout << std::endl;
-	// animal->makeSound();
-	
-	// std::cout << "\n============TEST ARRAY=============\n\n";
-	
-	// const Animal *animals[] = 
-	// {
-	// 	animal,
-	// 	dog,
-	// 	cat,
-	// };
-	// for (int i = 0; i < 3; i++)
-	// 	animals[i]->makeSound();
-	
-	// std::cout << "\n============DESTRUCTION=============\n\n";
-	
-	// delete animal;
-	// delete dog;
-	// delete cat;
-	
-	// std::cout << "\n========WRONG ANIMAL & WRONG CAT=========\n\n";
-	
-	// std::cout << "============CONSTRUCTION=============\n\n";
-	
-	// const WrongAnimal *wrong_animal = new WrongAnimal();
-	// std::cout << "--------------------------\n";
-	// const WrongAnimal *wrong_cat = new WrongCat();
-	
-	// std::cout << "\n============MAKE SOUND=============\n\n";
-
-	// std::cout << "Type: " << wrong_cat->getType() << std::endl;
-	// wrong_cat->makeSound();
-	// std::cout << std::endl;
-	
-	// std::cout << "Type:  " << wrong_animal->getType() << std::endl;
-	// wrong_animal->makeSound();
-	
-	// std::cout << "\n============DESTRUCTION=============\n\n";
-	
-	// delete wrong_animal;
-	// delete wrong_cat;
-	
 	//std::cout << "\n======================END======================\n";
 	std::cout << "\n--------------------------\n";
 	return (0);

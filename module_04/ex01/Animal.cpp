@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:40 by coxer         #+#    #+#                 */
-/*   Updated: 2024/02/23 11:08:41 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 13:07:05 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // --Conststructors-- //
 Animal::Animal()
 {
-	this->type = "BASIC ANIMAL";
+	this->type = "Basic animal";
 	std::cout << this->type << " constructed (basic constructor)\n";
 }
 Animal::Animal(const Animal &object)

@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/03/06 17:06:34 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/16 15:00:03 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,13 @@
 // --Conststructors-- //
 Dog::Dog()
 {
-	this->type = "DOG";
+	this->type = "Dog";
 	this->brain = new(std::nothrow) Brain();
 	if (this->brain == nullptr)
 	{
 		std::cout << "Memory allocation failure:\n";
-		return ;
+		exit(EXIT_FAILURE);
 	}
-	// try 
-	// {
-	// 	this->brain = new Brain();
-	// }
-	// catch (const std::bad_alloc &e)
-	// {
-	// 	std::cout << "Memory allocation failure: " << e.what() << std::endl;
-	// 	return ; 
-	// }
 	std::cout << this->type << " constructed (basic constructor)\n";
 }
 
@@ -96,3 +87,7 @@ void Dog::outputBrainIdeas() const
 	this->brain->outputIdeas();
 }
 
+Brain *Dog::getBrain() const
+{
+	return (brain);
+}
