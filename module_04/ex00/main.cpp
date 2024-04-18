@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/16 13:01:41 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/18 13:36:10 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,27 @@ int main(void)
 	delete dog;
 	delete cat;
 	
-	std::cout << "\n========WRONG ANIMAL & WRONG CAT=========\n\n";
+	// std::cout << "\n========WRONG ANIMAL & WRONG CAT=========\n\n";
 	
-	std::cout << "============CONSTRUCTION=============\n\n";
+	// std::cout << "============CONSTRUCTION=============\n\n";
 	
-	const WrongAnimal *wrong_animal = new WrongAnimal();
-	std::cout << "--------------------------\n";
-	const WrongAnimal *wrong_cat = new WrongCat();
+	// const WrongAnimal *wrong_animal = new WrongAnimal();
+	// std::cout << "--------------------------\n";
+	// const WrongAnimal *wrong_cat = new WrongCat();
 	
-	std::cout << "\n============MAKE SOUND=============\n\n";
+	// std::cout << "\n============MAKE SOUND=============\n\n";
 
-	std::cout << "Type: " << wrong_cat->getType() << std::endl;
-	wrong_cat->makeSound();
-	std::cout << std::endl;
+	// std::cout << "Type: " << wrong_cat->getType() << std::endl;
+	// wrong_cat->makeSound();
+	// std::cout << std::endl;
 	
-	std::cout << "Type:  " << wrong_animal->getType() << std::endl;
-	wrong_animal->makeSound();
+	// std::cout << "Type:  " << wrong_animal->getType() << std::endl;
+	// wrong_animal->makeSound();
 	
-	std::cout << "\n============DESTRUCTION=============\n\n";
+	// std::cout << "\n============DESTRUCTION=============\n\n";
 	
-	delete wrong_animal;
-	delete wrong_cat;
+	// delete wrong_animal;
+	// delete wrong_cat;
 	
 	std::cout << "\n======================END======================\n";
 	return (0);

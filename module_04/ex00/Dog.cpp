@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/16 12:50:10 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/18 13:35:46 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Dog &Dog::operator=(const Dog &object)
 	if (this != &object)
 	{
 		this->type = object.type;	
-		std::cout << this->type << " constructed\n";
+		std::cout << this->type << " constructed (derived)\n";
 	}
 	return(*this);
 }

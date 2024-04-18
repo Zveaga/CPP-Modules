@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:40 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/16 13:07:05 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/04/18 13:46:37 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 Animal::Animal()
 {
 	this->type = "Basic animal";
-	std::cout << this->type << " constructed (basic constructor)\n";
+	std::cout << this->type << " constructed (basic constructor - base class)\n";
 }
 Animal::Animal(const Animal &object)
 {
 	this->type = object.type;
-	std::cout << this->type << " constructed (copy constructor)\n";
+	std::cout << this->type << " constructed (copy constructor - base class)\n";
 }
 
 // --Destructor-- //
 Animal::~Animal()
 {
-	std::cout << this->type << " destructed\n";
+	std::cout << this->type << " destructed (base class)\n";
 }
 
 // --Overloads-- //
@@ -37,7 +37,7 @@ Animal &Animal::operator=(const Animal &object)
 	if (this != &object)
 	{
 		this->type = object.type;	
-		std::cout << this->type << " constructed (copy assignment operator)\n";
+		std::cout << this->type << " constructed (copy assignment operator - base class)\n";
 	}
 	return(*this);
 }
