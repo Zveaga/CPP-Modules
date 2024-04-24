@@ -122,7 +122,7 @@ void AForm::beSigned(const Bureaucrat &bureaucrat_obj)
 void AForm::execute(const Bureaucrat &executor) const
 {
 	if (!_is_signed)
-		throw std::runtime_error("Form not signed!");
+		throw std::runtime_error(_name + " did't sign form!");
 	if (executor.getGrade() > _sign_grade)
 		throw GradeTooLowException();
 	executeAction();

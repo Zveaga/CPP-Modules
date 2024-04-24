@@ -55,7 +55,7 @@ void ShrubberyCreationForm::writeAsciiTrees(std::ofstream &file) const
 	      // \\\\\n \
 	-----------------\n\n";
 	
-	file << tree + tree + tree;
+	file << tree + tree + tree + tree + tree;
 }
 
 void ShrubberyCreationForm::createFile() const
