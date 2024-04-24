@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/08 21:12:25 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/24 09:50:57 by rares         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++11
+FLAGS = -Wall -Wextra -Werror -Wshadow
 
 all: $(NAME)
 
