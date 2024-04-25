@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/25 13:07:51 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/25 13:08:43 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
 	ShrubberyCreationForm shrubbery("Home");
 	std::cout << shrubbery;
 	std::cout << "\n-------------------------\n\n";	
-	RobotomyRequestForm robotomy("Office");
+	RobotomyRequestForm robotomy("Office"); 
 	std::cout << robotomy;
 	std::cout << "\n-------------------------\n\n";	
 	PresidentialPardonForm pardon("White House");
