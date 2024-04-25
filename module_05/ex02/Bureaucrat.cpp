@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/13 18:01:10 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/25 10:21:46 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,12 @@ void Bureaucrat::executeForm(const AForm &form)
 	try
 	{
 		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << "!\n";
 	}
-	catch (const std::exception &e)
+	catch (std::exception &e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;	
+		std::cout << this->getName() << " couldn't execute " << form.getName() << "! Re-throwing exception ...\n";
+		throw ; // re-throws the same exception up the stack!
 	}
 }
 

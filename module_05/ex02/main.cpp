@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/24 14:34:35 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/25 13:07:51 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,15 @@ class AForm;
 int main(void)
 {
 	std::cout << "\n============CONSTRUCTION=============\n";
-	Bureaucrat bureaucrat("Manager", 2);
+	// try
+	// {
+	// 	Bureaucrat bureaucrat("Manager", 2000);		
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << "Error constructing the object: " << e.what() << std::endl;		
+	// }
+	Bureaucrat bureaucrat("Manager", 5);
 	std::cout << "\n-------------------------\n\n";	
 	ShrubberyCreationForm shrubbery("Home");
 	std::cout << shrubbery;
@@ -39,36 +47,37 @@ int main(void)
 	robotomy.beSigned(bureaucrat);
 	pardon.beSigned(bureaucrat);
 	
-	std::cout << "\n------------signForm----------\n\n";
-
-
-	std::cout << "\n------------execute----------\n\n";
-	
+	std::cout << "\n--------------executeForm------------\n";
 	try
 	{
-		shrubbery.execute(bureaucrat);
-		std::cout << "\n-------------------------\n\n";	
-		robotomy.execute(bureaucrat);
-		std::cout << "\n-------------------------\n\n";
-		pardon.execute(bureaucrat);
+		std::cout << "\n------------Shrubbery----------\n\n";
+		bureaucrat.executeForm(shrubbery);
+		std::cout << "\n------------Robotomy----------\n\n";
+		bureaucrat.executeForm(robotomy);
+		std::cout << "\n------------Pardon----------\n\n";
+		bureaucrat.executeForm(pardon);
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << "Error executing the form object: " << e.what() << std::endl;	
+		std::cerr << "Caught exception: " << e.what() << std::endl;
 	}
 
-	std::cout << "\n------------executeForm----------\n\n";
-	bureaucrat.executeForm(shrubbery);
-	std::cout << "\n-------------------------\n\n";
-	bureaucrat.executeForm(shrubbery);
-	std::cout << "\n-------------------------\n\n";
 
-	bureaucrat.executeForm(shrubbery);
+
+	// std::cout << "\n------------execute----------\n\n";
+	// try
+	// {
+	// 	shrubbery.execute(bureaucrat);
+	// 	std::cout << "\n-------------------------\n\n";	
+	// 	robotomy.execute(bureaucrat);
+	// 	std::cout << "\n-------------------------\n\n";
+	// 	pardon.execute(bureaucrat);
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << "Error executing the form action: " << e.what() << std::endl;	
+	// }
 	
-	std::cout << "\n======================END======================\n";
-	// std::cout << "\n------------Bureaucrat----------\n\n";
-	// std::cout << "\n------------AForm basic----------\n\n";
-	// std::cout << "\n------------AForm custom----------\n\n";
-	
+	std::cout << "\n======================END======================\n";	
 	return (0);
 }

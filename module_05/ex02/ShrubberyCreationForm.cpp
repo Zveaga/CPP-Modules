@@ -69,6 +69,7 @@ void ShrubberyCreationForm::createFile() const
 	}
 	writeAsciiTrees(file);
 	file.close();
+	std::cout << "Shrubbery has been planted\n";
 }
 
 void ShrubberyCreationForm::executeAction() const

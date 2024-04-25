@@ -25,7 +25,7 @@ AForm::AForm(): _name("DEFAULT"), _is_signed(false), _sign_grade(0), _exec_grade
 
 AForm::AForm(const AForm &object): _name(object._name), _sign_grade(object._sign_grade), _exec_grade(object._exec_grade)
 {
-	std::cout << _name + "_base" << " form constructed by copy constructor (base class)\n";
+	std::cout << _name << " form constructed by copy constructor (base class)\n";
 
 }
 
@@ -113,17 +113,17 @@ void AForm::beSigned(const Bureaucrat &bureaucrat_obj)
 	if (bureaucrat_obj.getGrade() <= _sign_grade)
 	{
 		_is_signed = true;
-		std::cout << "AForm signed!\n";
+		std::cout << getName() << " signed!\n";
 	}
 	else
-		std::cout << "AForm not signed, grade not high enough.\n";
+		std::cout << getName() << " not signed: grade not high enough!\n";
 }
 
 void AForm::execute(const Bureaucrat &executor) const
 {
 	if (!_is_signed)
 		throw std::runtime_error(_name + " did't sign form!");
-	if (executor.getGrade() > _sign_grade)
+	if (executor.getGrade() > _exec_grade)
 		throw GradeTooLowException();
 	executeAction();
 }
@@ -135,7 +135,7 @@ void AForm::execute(const Bureaucrat &executor) const
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("grade too high");
+	return (" grade too high");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
