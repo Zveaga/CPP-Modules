@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/04 20:13:15 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/26 12:48:43 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,16 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &object)
 {
 	os << object.getName() << " bureaucrat's grade: " << object.getGrade() << std::endl;
 	return (os);
+}
+
+// --Exceptions-- //
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("grade too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("grade too low");
 }

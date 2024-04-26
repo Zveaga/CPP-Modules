@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/25 13:21:34 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/26 17:55:42 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // --CUSTOM EXCEPTIONS-- //
 //===========GradeTooHighException===========//
-// Bureaucrat::GradeTooHighException::GradeTooHighException(const char *message): _message(message){}
+//Bureaucrat::GradeTooHighException::GradeTooHighException(const char *message): _message(message){}
 // const char *Bureaucrat::GradeTooHighException::what()
 // {
 // 	return (_message);
@@ -72,12 +72,12 @@ const std::string Bureaucrat::getName() const
 	return (_name);
 }
 
-const int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return(_grade);
 }
 
-const void	Bureaucrat::setGrade(int grade)
+void	Bureaucrat::setGrade(int grade)
 {
 	_grade = grade;	
 }
@@ -97,6 +97,30 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 	std::cout << "Value decremented\n";
 }
+
+
+void Bureaucrat::signForm(const AForm &form_obj)
+{
+	if (form_obj.getIsSigned() == true)
+		std::cout << _name << " signed " << form_obj.getName() << std::endl;
+	else
+		std::cout << _name << " couldn't sign " << form_obj.getName() << " because grade is not high enough!\n";
+}
+
+void Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << "!\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't execute " << form.getName() << "! Re-throwing exception ...\n";
+		throw ; // re-throws the same exception up the stack!
+	}
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &object)
 {

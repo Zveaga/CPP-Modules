@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 17:37:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/13 15:55:16 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/26 12:49:13 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,13 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				const char *what() const throw()
-				{
-					return ("grade too high");
-				}
+				const char *what() const throw();
 		};
 		
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				const char *what() const throw()
-				{
-					return ("grade too low");
-				}
+				const char *what() const throw();
 		};
 };
 

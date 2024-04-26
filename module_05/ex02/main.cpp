@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/25 13:08:43 by rares         ########   odam.nl         */
+/*   Updated: 2024/04/26 13:24:28 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,17 @@ int main(void)
 	std::cout << pardon;
 
 	std::cout << "\n========FUNCTION TESTS========\n";
-	
-	std::cout << "\n------------beSigned----------\n\n";
-	shrubbery.beSigned(bureaucrat);
-	robotomy.beSigned(bureaucrat);
-	pardon.beSigned(bureaucrat);
-	
-	std::cout << "\n--------------executeForm------------\n";
 	try
 	{
+		// std::cout << "\n--------------executeForm()------------\n";
+		// bureaucrat.executeForm(shrubbery);
+		// bureaucrat.executeForm(robotomy);
+		// bureaucrat.executeForm(pardon);
+		std::cout << "\n------------beSigned()----------\n\n";
+		shrubbery.beSigned(bureaucrat);
+		robotomy.beSigned(bureaucrat);
+		pardon.beSigned(bureaucrat);
+		std::cout << "\n--------------executeForm()------------\n";
 		std::cout << "\n------------Shrubbery----------\n\n";
 		bureaucrat.executeForm(shrubbery);
 		std::cout << "\n------------Robotomy----------\n\n";

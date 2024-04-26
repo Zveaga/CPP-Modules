@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 16:42:20 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/13 16:17:11 by coxer         ########   odam.nl         */
+/*   Updated: 2024/04/26 13:06:05 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // --Conststructors-- //
 
 Form::Form()
-	: _name("DEFAULT"), _is_signed(false), _sign_grade(0), _exec_grade(0)
+	: _name("DEFAULT FORM"), _is_signed(false), _sign_grade(0), _exec_grade(0)
 {
 	std::cout << _name << " form costructed by basic constructor\n";
 }
@@ -88,14 +88,36 @@ int Form::getExecGrade() const
 
 void Form::beSigned(const Bureaucrat &bureaucrat_obj)
 {
-	if (bureaucrat_obj.getGrade() > 150)
-		throw GradeTooLowException();
 	if (bureaucrat_obj.getGrade() <= _sign_grade)
 	{
 		_is_signed = true;
 		std::cout << "Form signed!\n";
 	}
 	else
-		std::cout << "Form not signed, grade not high enough.\n";
+		throw GradeTooLowException();	
 }
 
+// void Form::beSigned(const Bureaucrat &bureaucrat_obj)
+// {
+// 	if (bureaucrat_obj.getGrade() > 150)
+// 		throw GradeTooLowException();
+// 	if (bureaucrat_obj.getGrade() <= _sign_grade)
+// 	{
+// 		_is_signed = true;
+// 		std::cout << "Form signed!\n";
+// 	}
+// 	else
+// 		std::cout << "Form not signed, grade not high enough.\n";
+// }
+
+// --Exceptions-- //
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("grade too high");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("grade too low");
+}

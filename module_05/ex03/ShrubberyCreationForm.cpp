@@ -7,8 +7,8 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &object)
 {
+	*this = object;
 	std::cout << getName() << " form constructed by copy constructor\n";
-
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
@@ -23,22 +23,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << getName() << " form destructed\n";
 }
 
-
 // --Overloads-- //
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &object)
 {
-	if (this != &object)
-	{
-	}
+	(void)object;
 	std::cout << getName() << " form constructed by copy assignment operator\n";
 	return (*this);
 }
-
-// --Setters-- //
-
-
-// --Getters-- //
-
 
 // --Member Functions-- //
 void ShrubberyCreationForm::writeAsciiTrees(std::ofstream &file) const

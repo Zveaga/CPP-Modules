@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/25 13:22:26 by rares         ########   odam.nl          #
+#    Updated: 2024/04/26 18:00:58 by rares         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,22 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = bureaucrat
+NAME = intern
 
 SRC = \
 main.cpp \
 Bureaucrat.cpp \
+AForm.cpp \
+ShrubberyCreationForm.cpp \
+PresidentialPardonForm.cpp \
+RobotomyRequestForm.cpp \
+Intern.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++11
 
 all: $(NAME)
 
@@ -34,7 +39,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)Program built successfully! $(RESET)\n"
 
-%.o: %.c
+%.o: %.cpp
 	@$(CC) $(FLAGS) -c -o $@ $^
 
 clean:

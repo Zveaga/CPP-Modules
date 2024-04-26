@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include"AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+// #include "ShrubberyCreationForm.hpp"
+// #include "RobotomyRequestForm.hpp"
+// #include "PresidentialPardonForm.hpp"
 
 // --Conststructors-- //
 
@@ -47,6 +47,7 @@ AForm::~AForm()
 AForm &AForm::operator=(const AForm &object)
 {
 	// no need to copy const values!!
+	(void)object;
 	return (*this);
 }
 
