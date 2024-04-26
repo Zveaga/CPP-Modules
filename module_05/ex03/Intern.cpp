@@ -72,10 +72,10 @@ AForm *Intern::makeForm(const std::string name, const std::string target)
 		if (names[i] == name)
 		{
 			p_form = p_forms[i](target);
-			std::cout << "INTERN creates " << name << " form!\n";
+			std::cout << "\nINTERN creates " << name << " form! Target: " << target <<  "\n";
 			return (p_form);
 		}
 	}
-	std::cout << "INTERN failed to create " << name << " form!\n";
+	std::cout << "\nINTERN failed to create " << name << " form! Target: " << target <<  "\n";
 	return (nullptr);
 }
