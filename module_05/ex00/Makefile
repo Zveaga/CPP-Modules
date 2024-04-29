@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/25 13:22:26 by rares         ########   odam.nl          #
+#    Updated: 2024/04/29 15:18:26 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)Program built successfully! $(RESET)\n"
 
-%.o: %.c
+%.o: %.cpp
 	@$(CC) $(FLAGS) -c -o $@ $^
 
 clean:

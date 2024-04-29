@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/29 15:18:33 by coxer         ########   odam.nl          #
+#    Updated: 2024/04/29 15:19:54 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,18 +16,17 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = maggots
+NAME = convert_scalar_types
 
 SRC = \
 main.cpp \
-Bureaucrat.cpp \
-Form.cpp \
+ScalarConverter.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++11
+FLAGS = -Wall -Wextra -Werror -std=c++11
 
 all: $(NAME)
 
