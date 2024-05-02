@@ -41,11 +41,6 @@ enum class LiteralType
 	NON_DISPLAYABLE,
 };
 
-bool isInt(const std::string &value)
-{
-
-}
-
 bool isChar(const std::string &value)
 {
 	if (value.length() == 1 && !std::isdigit(value[0]))
@@ -55,25 +50,116 @@ bool isChar(const std::string &value)
 	return (false);
 }
 
+bool isDisplayable(char ch)
+{
+	return (ch >= 32 && ch <= 126);
+}
+
+bool isInt(const std::string &value)
+{
+	size_t pos = 0;
+	try
+	{
+		std::stoi(value, &pos);
+		if (pos == value.length())
+			return (true);
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cout << "Invalid argument: " << e.what() << "\n";
+	}
+	catch (const std::out_of_range &e)
+	{
+		std::cout << "Out of range: " << e.what() << "\n";
+	}
+	return (false);
+}
+
+bool isFloat(const std::string &value)
+{
+	size_t pos = 0;
+	try
+	{
+		std::stof(value, &pos);
+		if (pos == value.length())
+			return (true);
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cout << "Invalid argument: " << e.what() << "\n";
+	}
+	catch (const std::out_of_range &e)
+	{
+		std::cout << "Out of range: " << e.what() << "\n";
+	}
+	return (false);
+}
+
+bool isDouble(const std::string &value)
+{
+	size_t pos = 0;
+	try
+	{
+		std::stod(value, &pos);
+		if (pos == value.length())
+			return (true);
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cout << "Invalid argument: " << e.what() << "\n";
+	}
+	catch (const std::out_of_range &e)
+	{
+		std::cout << "Out of range: " << e.what() << "\n";
+	}
+	return (false);
+}
+
 LiteralType detectType(const std::string &value)
 {
 	if (isChar(value))
 	{
-		if ((value[0] >= 0 && value[0] <= 31) || value[0] == 127)
+		if (!isDisplayable(value[0]))
 			return (LiteralType::NON_DISPLAYABLE);
 		return (LiteralType::CHAR);
 	}
-	try
-	{
-
-	}
+	if (isInt(value))
+		return (LiteralType::INT);
+	if (isFloat(value))
+		return (LiteralType::FLOAT);
+	if (isDouble(value))
+		return (LiteralType::DOUBLE);
+	return (LiteralType::IMPOSSIBLE);
 }
 
 // --Member Functions-- //
 
 void ScalarConverter::convert(const std::string value)
 {
-	std::cout << "Original type: " << typeid(value).name() << "\n";
+
+	LiteralType type = detectType(value);
+	switch (type)
+	{
+		case LiteralType::CHAR:
+			std::cout << "Type: CHAR\n";
+			break ;
+		case LiteralType::INT:
+			std::cout << "Type: INT\n";
+			break ;
+		case LiteralType::FLOAT:
+			std::cout << "Type: FLOAT\n";
+			break ;
+		case LiteralType::DOUBLE:
+			std::cout << "Type: DOUBLE\n";
+			break ;
+		case LiteralType::IMPOSSIBLE:
+			std::cout << "Type: IMPOSSIBLE\n";
+			break ;
+		case LiteralType::NON_DISPLAYABLE:
+			std::cout << "Type: CHAR NON-DISPLAYABLE\n";
+			break ;
+	}
+	// std::cout << "Original type: " << typeid(value).name() << "\n";
 	// char	asChar;
 	// int		asInt;
 	// float	asFloat;
