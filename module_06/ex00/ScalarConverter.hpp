@@ -2,6 +2,8 @@
 # define SCALAR_CONVERTER_HPP
 
 #include <iostream>
+#include <string>
+#include <cctype>
 
 class ScalarConverter
 {
@@ -13,9 +15,9 @@ class ScalarConverter
 		// --Destructor-- //
 		~ScalarConverter();
 		// --Overloads-- //
-		ScalarConverter(const ScalarConverter &object);
+		ScalarConverter &operator=(const ScalarConverter &object);
 		// --Member Functions-- //
-		static void convert(const std::string &literal);
+		static void convert(const std::string value);
 };
 
 
