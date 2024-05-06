@@ -56,42 +56,77 @@ bool isInt(const std::string &value)
 	return (true);
 }
 
-
 bool isFloat(const std::string &value)
 {
-	if (value.empty())
+	if (value.empty() || value.back() != 'f')
 		return (false);
-	size_t pos = 0;
-	try
+	size_t i = 0;
+	if (value[i] == '-' || value[i] == '+')
+		i++;
+	bool hasDecimal = false;
+	for (; i < value.length() - 1; ++i)
 	{
-		std::stof(value, &pos);
-		if (pos == value.length() - 1 && (value.back() == 'f' || value.back() == 'F'))
-			return (true);
-		return (false);
+		if (value[i] == '.' && !hasDecimal)
+			i++;
+		if (!std::isdigit(value[i]))
+			return (false);
 	}
-	catch (...)
-	{
-		return (false);
-	}
+	return (true);
 }
 
 bool isDouble(const std::string &value)
 {
-	if (value.empty())
+	if (value.empty() || value.back() == 'f')
 		return (false);
-	size_t pos = 0;
-	try
+	size_t i = 0;
+	if (value[i] == '-' || value[i] == '+')
+		i++;
+	bool hasDecimal = false;
+	for (; i < value.length() - 1; ++i)
 	{
-		std::stod(value, &pos);
-		if (pos == value.length() && (value.back() != 'f' || value.back() != 'F'))
-			return (true);
-		return (false);
+		if (value[i] == '.' && !hasDecimal)
+			i++;
+		if (!std::isdigit(value[i]))
+			return (false);
 	}
-	catch (...)
-	{
-		return (false);
-	}
+	return (true);
 }
+
+// bool isFloat(const std::string &value)
+// {
+// 	if (value.empty())
+// 		return (false);
+// 	size_t pos = 0;
+// 	try
+// 	{
+// 		std::stof(value, &pos);
+// 		if (pos == value.length() - 1 && (value.back() == 'f' || value.back() == 'F'))
+// 			return (true);
+// 		return (false);
+// 	}
+// 	catch (...)
+// 	{
+// 		return (false);
+// 	}
+// }
+
+// bool isDouble(const std::string &value)
+// {
+// 	if (value.empty())
+// 		return (false);
+// 	size_t pos = 0;
+// 	try
+// 	{
+// 		std::stod(value, &pos);
+// 		if (pos == value.length() && (value.back() != 'f' || value.back() != 'F'))
+// 			return (true);
+// 		return (false);
+// 	}
+// 	catch (...)
+// 	{
+// 		return (false);
+// 	}
+// }
 
 
 void detectType(const std::string &value)
