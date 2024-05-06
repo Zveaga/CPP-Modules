@@ -45,6 +45,8 @@ bool isInt(const std::string &value)
 {
 	if (value.empty())
 		return (false);
+	if (value.length() == 1 && value[0] == '0')
+		return (true);
 	size_t i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
@@ -63,10 +65,10 @@ bool isFloat(const std::string &value)
 	size_t i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
-	bool hasDecimal = false;
+	bool has_decimal = false;
 	for (; i < value.length() - 1; ++i)
 	{
-		if (value[i] == '.' && !hasDecimal)
+		if (value[i] == '.' && !has_decimal)
 			i++;
 		if (!std::isdigit(value[i]))
 			return (false);
@@ -81,10 +83,10 @@ bool isDouble(const std::string &value)
 	size_t i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
-	bool hasDecimal = false;
-	for (; i < value.length() - 1; ++i)
+	bool has_decimal = false;
+	for (; i < value.length(); ++i)
 	{
-		if (value[i] == '.' && !hasDecimal)
+		if (value[i] == '.' && !has_decimal)
 			i++;
 		if (!std::isdigit(value[i]))
 			return (false);
@@ -92,70 +94,24 @@ bool isDouble(const std::string &value)
 	return (true);
 }
 
-// bool isFloat(const std::string &value)
-// {
-// 	if (value.empty())
-// 		return (false);
-// 	size_t pos = 0;
-// 	try
-// 	{
-// 		std::stof(value, &pos);
-// 		if (pos == value.length() - 1 && (value.back() == 'f' || value.back() == 'F'))
-// 			return (true);
-// 		return (false);
-// 	}
-// 	catch (...)
-// 	{
-// 		return (false);
-// 	}
-// }
-
-// bool isDouble(const std::string &value)
-// {
-// 	if (value.empty())
-// 		return (false);
-// 	size_t pos = 0;
-// 	try
-// 	{
-// 		std::stod(value, &pos);
-// 		if (pos == value.length() && (value.back() != 'f' || value.back() != 'F'))
-// 			return (true);
-// 		return (false);
-// 	}
-// 	catch (...)
-// 	{
-// 		return (false);
-// 	}
-// }
-
-
-void detectType(const std::string &value)
+void convertToChar(const std::string &value)
 {
-	if (isChar(value))
+	int i_value = static_cast<int>(value[0]);
+	if (!std::isprint(value[0]))
+		std::cout << "char: Non displayable\n";
+	else if (i_value < 0 || i_value > 127)
 	{
-		std::cout << "CHAR\n";
-		return ;
-	}
-	else if (isInt(value))
-	{
-		std::cout <<  "INT\n";
-		return ;
-	}
-	else if (isFloat(value))
-	{
-		std::cout <<  "FLOAT\n";
-		return ;
-	}
-	else if (isDouble(value))
-	{
-		std::cout <<  "DOUBLE\n";
-		return ;
+		std::cout << "char: impossible\n";
 	}
 	else
 	{
-		std::cout <<  "IMPOSSIBLE\n";
-		return ;
+		char as_char = static_cast<char>(value[0]);
+		std::cout << "char: " << as_char << "\n";
 	}
+
+	std::cout << "int: " << i_value << "\n";
+	std::cout << "float: " << i_value << ".0f\n";
+	std::cout << "float: " << i_value << ".0\n";
 }
 
 
@@ -163,41 +119,64 @@ void detectType(const std::string &value)
 
 void ScalarConverter::convert(const std::string value)
 {
-	detectType(value);
-
-	// char	asChar;
-	// int		asInt;
-	// float	asFloat;
-	// double	asDouble;
-
-	// LiteralType type = detectType(value);
-	// switch (type)
-	// {
-	// 	case LiteralType::CHAR:
-	// 		std::cout << "Type: CHAR\n";
-	// 		break ;
-	// 	case LiteralType::INT:
-	// 		std::cout << "Type: INT\n";
-	// 		break ;
-	// 	case LiteralType::FLOAT:
-	// 		std::cout << "Type: FLOAT\n";
-	// 		break ;
-	// 	case LiteralType::DOUBLE:
-	// 		std::cout << "Type: DOUBLE\n";
-	// 		break ;
-	// 	case LiteralType::IMPOSSIBLE:
-	// 		std::cout << "Type: IMPOSSIBLE\n";
-	// 		break ;
-	// 	case LiteralType::NON_DISPLAYABLE:
-	// 		std::cout << "Type: CHAR NON-DISPLAYABLE\n";
-	// 		break ;
-	// }
-	// std::cout
-	// 		<< "char: " << asChar << "\n"
-	// 		<< "int: " << asInt << "\n"
-	// 		<< "float : " << asFloat << "\n"
-	// 		<< "double: " << asDouble << "\n";
+	if (isChar(value))
+	{
+		std::cout << "CHAR\n\n";
+		convertToChar(value);
+		// return ;
+	}
+	else if (isInt(value))
+	{
+		std::cout <<  "INT\n\n";
+		// return ;
+	}
+	else if (isFloat(value))
+	{
+		std::cout <<  "FLOAT\n\n";
+		// return ;
+	}
+	else if (isDouble(value))
+	{
+		std::cout <<  "DOUBLE\n\n";
+		// return ;
+	}
+	else
+	{
+		std::cout <<  "IMPOSSIBLE\n\n";
+		return ;
+	}
 }
+
+
+
+// void detectType(const std::string &value)
+// {
+// 	if (isChar(value))
+// 	{
+// 		std::cout << "CHAR\n";
+// 		return ;
+// 	}
+// 	else if (isInt(value))
+// 	{
+// 		std::cout <<  "INT\n";
+// 		return ;
+// 	}
+// 	else if (isFloat(value))
+// 	{
+// 		std::cout <<  "FLOAT\n";
+// 		return ;
+// 	}
+// 	else if (isDouble(value))
+// 	{
+// 		std::cout <<  "DOUBLE\n";
+// 		return ;
+// 	}
+// 	else
+// 	{
+// 		std::cout <<  "IMPOSSIBLE\n";
+// 		return ;
+// 	}
+// }
 
 // LiteralType detectType(const std::string &value)
 // {
