@@ -35,7 +35,6 @@ bool isChar(const std::string &value)
 {
 	if (value.empty() || value.length() != 1 || std::isdigit(value[0]))
 		return (false);
-
 	int i_value = static_cast<int>(value[0]);
 	if (i_value < 0 || i_value > 127)
 		return (false);
@@ -44,59 +43,84 @@ bool isChar(const std::string &value)
 
 bool isInt(const std::string &value)
 {
-	
+	if (value.empty())
+		return (false);
+	size_t i = 0;
+	if (value[i] == '-' || value[i] == '+')
+		i++;
+	for (; i < value.length(); ++i)
+	{
+		if (!std::isdigit(value[i]))
+			return (false);
+	}
+	return (true);
 }
+
 
 bool isFloat(const std::string &value)
 {
-	
+	if (value.empty())
+		return (false);
+	size_t pos = 0;
+	try
+	{
+		std::stof(value, &pos);
+		if (pos == value.length() - 1 && (value.back() == 'f' || value.back() == 'F'))
+			return (true);
+		return (false);
+	}
+	catch (...)
+	{
+		return (false);
+	}
 }
 
 bool isDouble(const std::string &value)
 {
-	
+	if (value.empty())
+		return (false);
+	size_t pos = 0;
+	try
+	{
+		std::stod(value, &pos);
+		if (pos == value.length() && (value.back() != 'f' || value.back() != 'F'))
+			return (true);
+		return (false);
+	}
+	catch (...)
+	{
+		return (false);
+	}
 }
 
 
 void detectType(const std::string &value)
 {
-	// try
-	// {
-		if (isChar(value))
-		{
-			std::cout << "CHAR\n";
-			return ;
-			// return (LiteralType::CHAR);
-		}
-		else if (isInt(value))
-		{
-			std::cout <<  "INT\n";
-			return ;
-			// return (LiteralType::INT);
-		}
-		else if (isFloat(value))
-		{
-			std::cout <<  "FLOAT\n";
-			return ;
-			// return (LiteralType::FLOAT);
-		}
-		else if (isDouble(value))
-		{
-			std::cout <<  "DOUBLE\n";
-			return ;
-
-			// return (LiteralType::DOUBLE);
-		}
-	// }
-	// catch (const std::invalid_argument &e)
-	// {
-	// 	std::cout << "Invalid argument(DOUBLE): " << e.what() << "\n";
-	// }
-	// catch (const std::out_of_range &e)
-	// {
-	// 	std::cout << "Out of range(DOUBLE): " << e.what() << "\n";
-	// }
-	// return (LiteralType::IMPOSSIBLE);
+	if (isChar(value))
+	{
+		std::cout << "CHAR\n";
+		return ;
+	}
+	else if (isInt(value))
+	{
+		std::cout <<  "INT\n";
+		return ;
+	}
+	else if (isFloat(value))
+	{
+		std::cout <<  "FLOAT\n";
+		return ;
+	}
+	else if (isDouble(value))
+	{
+		std::cout <<  "DOUBLE\n";
+		return ;
+	}
+	else
+	{
+		std::cout <<  "IMPOSSIBLE\n";
+		return ;
+	}
 }
 
 
