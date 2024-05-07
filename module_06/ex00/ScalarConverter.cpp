@@ -65,11 +65,16 @@ bool isFloat(const std::string &value)
 	size_t i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
-	bool has_decimal = false;
+	size_t	dot_count = 0;
 	for (; i < value.length() - 1; ++i)
 	{
-		if (value[i] == '.' && !has_decimal)
+		if (value[i] == '.' && dot_count < 1)
+		{
 			i++;
+			dot_count++;
+			if (dot_count > 1)
+				return (false);
+		}
 		if (!std::isdigit(value[i]))
 			return (false);
 	}
@@ -80,21 +85,26 @@ bool isDouble(const std::string &value)
 {
 	if (value.empty() || value.back() == 'f')
 		return (false);
-	size_t i = 0;
+	size_t 	i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
-	bool has_decimal = false;
+	size_t	dot_count = 0;
 	for (; i < value.length(); ++i)
 	{
-		if (value[i] == '.' && !has_decimal)
+		if (value[i] == '.' && dot_count < 1)
+		{
 			i++;
+			dot_count++;
+			if (dot_count > 1)
+				return (false);
+		}
 		if (!std::isdigit(value[i]))
 			return (false);
 	}
 	return (true);
 }
 
-void convertToChar(const std::string &value)
+void convertChar(const std::string &value)
 {
 	int i_value = static_cast<int>(value[0]);
 	if (!std::isprint(value[0]))
@@ -114,6 +124,217 @@ void convertToChar(const std::string &value)
 	std::cout << "float: " << i_value << ".0\n";
 }
 
+void charCheck(int i)
+{
+	if (i < 0 || i > 127)
+			std::cout << "char: impossible\n";
+	else if (!std::isprint(i))
+			std::cout << "char: Non displayable\n";
+}
+
+// void convertInt(const std::string &value)
+// {
+// 	int					i;
+// 	std::stringstream	stream(value);
+
+// 	stream >> i;
+// 	if (stream.fail())
+// 	{
+// 		std::cout << "Stream failed\n";
+// 		return ;
+// 	}
+// 	// std::cout << value << "\n";
+// 	// try
+// 	// {
+// 	// 	i = static_cast<int>(std::stoi(value));
+// 	// 	charCheck(i);
+// 	// 	std::cout << "int: " << i << "\n";
+// 	// }
+// 	// catch (...)
+// 	// {
+// 	// 	charCheck(i);
+// 	// 	std::cout << "int: impossible (out of bounds)\n";
+// 	// }
+
+// 	// std::cout <<
+// 	// if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+// 	// 	std::cout << "int: impossible\n";
+	
+// }
+
+bool hasTrailingZeros(const std::string &value, size_t pos)
+{
+	size_t len = value.length();
+	if (value.back() == 'f')
+		len = value.length() - 1;
+	
+	// std::cout << "len: " << len << "\n";
+	// std::cout << "pos: " << pos << "\n";
+	for (size_t i = pos + 1; i < len; i++)
+	{
+		// std::cout << "value[i]: " << value[i] << "\n";
+		if (value[i] != '0')
+			return (false);
+	}
+	return (true);
+}
+
+int countTrailingZeros(const std::string &value, size_t pos)
+{
+	size_t len = 0;
+	if (value.back() == 'f')
+		len = value.length() - 1;
+	else
+		len = value.length();
+	size_t count = 0;
+	for (size_t i = pos + 1; i < len; i++)
+		count++;
+	//std::cout << "\nCOUNT: " << count << "\n";
+	return (count);
+}
+
+void printFloat(const std::string &value, float f)
+{
+	size_t pos = value.find_first_of('.');
+	if (pos == std::string::npos)
+	{
+
+		// std::cout << "pos: " << pos << "f\n";
+		std::cout << "float: " << f << "f\n";
+	}
+	else
+	{
+		// std::cout << "value[pos] = " << value[pos] << "\n";
+		if (hasTrailingZeros(value, pos))
+		{
+			std::cout << "float: " << std::fixed << std::setprecision((countTrailingZeros(value, pos))) << f << "f\n";	
+			// std::cout.copyfmt(std::ostream(nullptr));
+		}
+		else
+			std::cout << "float: " << f << "f\n";
+	}
+}
+
+
+void printDouble(const std::string &value, double d)
+{
+	size_t pos = value.find_first_of(value, '.');
+	if (pos == std::string::npos)
+		std::cout << "double: " << d << "\n";
+	else
+		std::cout << "double: " << d << "\n";
+}
+
+void stringToInt(const std::string &value)
+{
+	int i;
+	try
+	{
+		i = static_cast<int>(std::stoi(value));
+		std::cout << "int: " << i << "\n";
+	}
+	catch (...)
+	{
+		std::cout << "int: impossible (out of bounds)\n";
+		// throw 1;
+	}
+}
+
+void stringToFloat(const std::string &value)
+{
+	try
+	{
+		float f = static_cast<float>(std::stof(value));
+		printFloat(value, f);
+		// std::cout << "float: " << f << ".0f\n";
+	}
+	catch (...)
+	{
+		std::cout << "float: impossible (out of bounds)\n";
+		// throw 2;
+	}
+}
+
+void stringToDouble(const std::string &value)
+{
+	try
+	{
+		double d = static_cast<double>(std::stod(value));
+		printDouble(value, d);
+		// std::cout << "double: " << d << ".0\n";
+	}
+	catch (...)
+	{
+		std::cout << "double: impossible (out of bounds)\n";
+		// throw 3;
+	}
+}
+
+void convertInt(const std::string &value)
+{
+	int i;
+	// std::cout << value << "\n";
+	try
+	{
+		i = static_cast<int>(std::stoi(value));
+		charCheck(i);
+		std::cout << "int: " << i << "\n";
+	}
+	catch (...)
+	{
+		charCheck(i);
+		std::cout << "int: impossible (out of bounds)\n";
+	}
+	stringToFloat(value);
+	stringToDouble(value);
+	// if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+	// 	std::cout << "int: impossible\n";
+}
+
+
+void convertFloat(const std::string &value)
+{
+	float	f;
+	
+	try
+	{
+		f = static_cast<float>(std::stof(value));
+		// std::cout << "float: " << f << "\n";
+		charCheck(f);
+		stringToInt(value);
+		printFloat(value, f);
+		// std::cout << "float: " << f << ".0f\n";
+	}
+	catch (...)
+	{
+		charCheck(f);
+		stringToInt(value);
+		std::cout << "float: impossible (out of bounds)\n";
+	}
+	stringToDouble(value);
+}
+
+void convertDouble(const std::string &value)
+{
+	double	d;
+	
+	try
+	{
+		d = static_cast<double>(std::stod(value));
+		charCheck(d);
+		stringToInt(value);
+		stringToFloat(value);
+		printDouble(value, d);
+		// std::cout << "double: " << d << "\n";
+	}
+	catch (...)
+	{
+		charCheck(d);
+		stringToInt(value);
+		stringToFloat(value);
+		std::cout << "double: impossible (out of bounds)\n";
+	}
+}
 
 // --Member Functions-- //
 
@@ -122,22 +343,25 @@ void ScalarConverter::convert(const std::string value)
 	if (isChar(value))
 	{
 		std::cout << "CHAR\n\n";
-		convertToChar(value);
+		convertChar(value);
 		// return ;
 	}
 	else if (isInt(value))
 	{
 		std::cout <<  "INT\n\n";
+		convertInt(value);
 		// return ;
 	}
 	else if (isFloat(value))
 	{
 		std::cout <<  "FLOAT\n\n";
+		convertFloat(value);
 		// return ;
 	}
 	else if (isDouble(value))
 	{
 		std::cout <<  "DOUBLE\n\n";
+		convertDouble(value);
 		// return ;
 	}
 	else
@@ -147,7 +371,43 @@ void ScalarConverter::convert(const std::string value)
 	}
 }
 
+// void convertInt(const std::string &value)
+// {
+// 	int i;
+// 	// std::cout << value << "\n";
+// 	try
+// 	{
+// 		i = static_cast<int>(std::stoi(value));
+// 		charCheck(i);
+// 		std::cout << "int: " << i << "\n";
+// 	}
+// 	catch (...)
+// 	{
+// 		charCheck(i);
+// 		std::cout << "int: impossible (out of bounds)\n";
+// 	}
 
+// 	try
+// 	{
+// 		float i = static_cast<float>(std::stof(value));
+// 		std::cout << "float: " << i << ".0f\n";
+// 	}
+// 	catch (...)
+// 	{
+// 		std::cout << "float: impossible (out of bounds)\n";
+// 	}
+// 	try
+// 	{
+// 		double i = static_cast<double>(std::stod(value));
+// 		std::cout << "double: " << i << ".0\n";
+// 	}
+// 	catch (...)
+// 	{
+// 		std::cout << "double: impossible (out of bounds)\n";
+// 	}
+// 	// if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+// 	// 	std::cout << "int: impossible\n";
+// }
 
 // void detectType(const std::string &value)
 // {
