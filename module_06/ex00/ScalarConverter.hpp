@@ -1,6 +1,8 @@
 #ifndef SCALAR_CONVERTER_HPP
 # define SCALAR_CONVERTER_HPP
 
+#include "ConvertTypes.hpp"
+
 #include <iostream>
 #include <iomanip>
 #include <string>

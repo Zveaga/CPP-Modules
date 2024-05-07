@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/04/29 15:19:54 by coxer         ########   odam.nl          #
+#    Updated: 2024/05/07 19:55:48 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME = convert_scalar_types
 SRC = \
 main.cpp \
 ScalarConverter.cpp \
+ConvertTypes.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
