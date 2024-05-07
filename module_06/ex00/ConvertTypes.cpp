@@ -173,9 +173,14 @@ void printPseudo(const std::string &value)
 
 // --TYPE CONVERSION FUNCTIONS-- //
 
-void stringToChar(auto i)
+void stringToChar(const std::string &value, int i)
 {
-	if (i < 0 || i > 127)
+	size_t pos = value.find_first_of('.');
+	if (pos != std::string::npos && !hasTrailingZeros(value, pos))
+	{
+		std::cout << "char: impossible\n";
+	}
+	else if (i < 0 || i > 127)
 			std::cout << "char: impossible\n";
 	else if (!std::isprint(i))
 			std::cout << "char: Non displayable\n";
@@ -185,6 +190,20 @@ void stringToChar(auto i)
 		std::cout << "char: " << c << "\n";
 	}
 }
+
+// void stringToChar(auto i)
+// {
+// 	std::stringstream stream()
+// 	if (i < 0 || i > 127)
+// 			std::cout << "char: impossible\n";
+// 	else if (!std::isprint(i))
+// 			std::cout << "char: Non displayable\n";
+// 	else
+// 	{
+// 		char c = static_cast<char>(i);
+// 		std::cout << "char: " << c << "\n";
+// 	}
+// }
 
 void stringToInt(const std::string &value)
 {
@@ -252,12 +271,12 @@ void convertInt(const std::string &value)
 	try
 	{
 		i = static_cast<int>(std::stoi(value));
-		stringToChar(i);
+		stringToChar(value, i);
 		std::cout << "int: " << i << "\n";
 	}
 	catch (...)
 	{
-		stringToChar(i);
+		stringToChar(value, i);
 		std::cout << "int: impossible (out of bounds)\n";
 	}
 	stringToFloat(value);
@@ -272,13 +291,13 @@ void convertFloat(const std::string &value)
 	try
 	{
 		f = static_cast<float>(std::stof(value));
-		stringToChar(f);
+		stringToChar(value, f);
 		stringToInt(value);
 		printFloat(value, f);
 	}
 	catch (...)
 	{
-		stringToChar(f);
+		stringToChar(value, f);
 		stringToInt(value);
 		std::cout << "float: impossible (out of bounds)\n";
 	}
@@ -292,14 +311,14 @@ void convertDouble(const std::string &value)
 	try
 	{
 		d = static_cast<double>(std::stod(value));
-		stringToChar(d);
+		stringToChar(value, d);
 		stringToInt(value);
 		stringToFloat(value);
 		printDouble(value, d);
 	}
 	catch (...)
 	{
-		stringToChar(d);
+		stringToChar(value, d);
 		stringToInt(value);
 		stringToFloat(value);
 		std::cout << "double: impossible (out of bounds)\n";
