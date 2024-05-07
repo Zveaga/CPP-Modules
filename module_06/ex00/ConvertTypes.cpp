@@ -2,6 +2,22 @@
 
 // --TYPE DETECTION FUNCTIONS--//
 
+bool isPseudo(const std::string &value)
+{
+	if (value == "-inff"
+		|| value == "+inff"
+		|| value == "inff"
+		|| value == "-inf"
+		|| value == "+inf"
+		|| value == "inf"
+		|| value == "nan"
+		|| value == "nanf")
+	{
+		return (true);
+	}
+	return (false);
+}
+
 bool isChar(const std::string &value)
 {
 	if (value.empty() || value.length() != 1 || std::isdigit(value[0]))
@@ -130,9 +146,34 @@ void printDouble(const std::string &value, double d)
 		std::cout << "double: " << d << "\n";
 }
 
+void printPseudo(const std::string &value)
+{
+	if (value == "nan" || value == "nanf")
+	{
+		std::cout << "char: impossible\n";
+		std::cout << "int: impossible\n";
+		std::cout << "float: nanf\n";
+		std::cout << "double: nan\n";
+	}
+	else if (value == "-inff" || value == "-inf")
+	{
+		std::cout << "char: impossible\n";
+		std::cout << "int: impossible\n";
+		std::cout << "float: -inff\n";
+		std::cout << "double: -inf\n";
+	}
+	else if (value == "+inff" || value == "+inf" || value == "inff" || value == "inf")
+	{
+		std::cout << "char: impossible\n";
+		std::cout << "int: impossible\n";
+		std::cout << "float: inff\n";
+		std::cout << "double: inf\n";
+	}
+}
+
 // --TYPE CONVERSION FUNCTIONS-- //
 
-void stringToChar(int i)
+void stringToChar(auto i)
 {
 	if (i < 0 || i > 127)
 			std::cout << "char: impossible\n";

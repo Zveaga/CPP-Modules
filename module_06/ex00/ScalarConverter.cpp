@@ -29,29 +29,34 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &object)
 // --Member Functions-- //
 void ScalarConverter::convert(const std::string value)
 {
-	if (isChar(value))
+	if (isPseudo(value))
 	{
-		std::cout << "CHAR\n\n";
+		std::cout << "\nPSEUDO\n\n";
+		printPseudo(value);
+	}
+	else if (isChar(value))
+	{
+		std::cout << "\nCHAR\n\n";
 		convertChar(value);
 	}
 	else if (isInt(value))
 	{
-		std::cout <<  "INT\n\n";
+		std::cout <<  "\nINT\n\n";
 		convertInt(value);
 	}
 	else if (isFloat(value))
 	{
-		std::cout <<  "FLOAT\n\n";
+		std::cout <<  "\nFLOAT\n\n";
 		convertFloat(value);
 	}
 	else if (isDouble(value))
 	{
-		std::cout <<  "DOUBLE\n\n";
+		std::cout <<  "\nDOUBLE\n\n";
 		convertDouble(value);
 	}
 	else
 	{
-		std::cout <<  "TYPE NOT RECOGNIZED\n";
+		std::cout <<  "\nTYPE NOT RECOGNIZED\n";
 	}
 }
 

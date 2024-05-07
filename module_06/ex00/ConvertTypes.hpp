@@ -8,17 +8,18 @@
 #include <limits>
 #include <sstream>
 
-
+bool	isPseudo(const std::string &value);
 bool 	isChar(const std::string &value);
 bool 	isInt(const std::string &value);
 bool 	isFloat(const std::string &value);
 bool 	isDouble(const std::string &value);
 void 	convertChar(const std::string &value);
-void 	stringToChar(int i);
+void 	stringToChar(auto i);
 bool 	hasTrailingZeros(const std::string &value, size_t pos);
 int 	countTrailingZeros(const std::string &value, size_t pos);
 void 	printFloat(const std::string &value, float f);
 void 	printDouble(const std::string &value, double d);
+void	printPseudo(const std::string &value);
 void 	stringToInt(const std::string &value);
 void 	stringToFloat(const std::string &value);
 void 	stringToDouble(const std::string &value);
