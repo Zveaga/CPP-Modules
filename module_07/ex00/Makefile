@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/05/13 18:19:59 by rares         ########   odam.nl          #
+#    Updated: 2024/05/13 19:18:15 by rares         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,10 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = convert_scalar_types
+NAME = templates
 
 SRC = \
 main.cpp \
-ScalarConverter.cpp \
-ConvertTypes.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
