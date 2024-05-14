@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/13 19:21:26 by rares         #+#    #+#                 */
-/*   Updated: 2024/05/13 19:59:01 by rares         ########   odam.nl         */
+/*   Updated: 2024/05/14 20:23:11 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 #include <iostream>
 
-template <typename T>
-void countArrayElem(T i)
+template <typename T, typename L>
+void printArrayElem(T *arrayAddress, L arrayLength)
 {
-	if (!i)
+	if (!arrayAddress)
 		return ;
-	for 
+	for (L i; i < arrayLength; ++i)
+		std::cout << arrayAddress[i] << "\n";
 }
 
-template <typename T, typename U, typename Y>
-void iter(T arrayAddress, U arrayLength, Y functionToCall)
+template <typename T, typename L>
+void iter(T *arrayAddress, L arrayLength, void (*functionToCall)(T*, L))
 {
-	std::cout << "'iter' function called\n";
 	std::cout << "arrayAddress: " << arrayAddress << "\n";
 	std::cout << "arrayLength: " << arrayLength << "\n";
-	// std::cout << "functionToCall: " << arrayAddress << "\n";
+	functionToCall(arrayAddress, arrayLength);
 }
 
 #endif
