@@ -53,10 +53,21 @@ Array<T>::Array(unsigned int n): m_size(n)
 template<typename T>
 Array<T>::Array(const Array<T> &obj): m_size(obj.m_size)
 {
-	m_array = (m_size > 0) ? new T[m_size] : nullptr;
-	if (m_array)
-		
-	std::cout << "Constructed COPY constructor\n";
+	try
+	{
+		m_array = (m_size > 0) ? new T[m_size] : nullptr;
+		if (m_array)
+		{
+			for (int i = 0; i < m_size; ++i)
+				m_array[i] = obj.m_array[i];
+		}
+		std::cout << "Constructed by COPY constructor\n";
+	}
+	catch (const std::bad_alloc &e)
+	{
+		std::cerr << "Memory allocation failure: " << e.what() << "\n";
+		//handle failure!
+	}
 }
 
 template<typename T>
@@ -72,13 +83,21 @@ Array<T>&Array<T>::operator=(const Array<T> &obj)
 {
 	if (this != obj)
 	{
+		delete m_array;
 		try
 		{
-			m_array = new T
+			m_array = (m_size > 0) ? new Array[m_size] : nullptr;
+			if (m_array)
+			{
+				for (unsigned int i = 0; i < m_size; ++i)
+					m_array[i] = obj.m_array[i];
+			}
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "Memory allocation failure: " << e.what() << "\n";
+			//handle failure!
+
 		}
 		
 	}

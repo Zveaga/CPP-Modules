@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/05/22 18:59:47 by coxer         ########   odam.nl         */
+/*   Updated: 2024/05/22 20:37:52 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ int main(void)
 	
 	std::cout << "\n---------Int---------\n\n";
 	// Array <int> intArray;
-	Array <int> intArray(10);
+	Array <int> intArray(5);
 	std::cout << "Array size: " << intArray.size() << "\n";
+
+	std::cout << "\n---------Copy Constructor---------\n\n";
+	std::cout << "\n---------Copy Constructor---------\n\n"; 
+
 	// std::cout << "\n--------Double---------\n\n";
 	// Array <double> doubleArray;
 
