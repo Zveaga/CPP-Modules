@@ -17,8 +17,7 @@ class Array
 		~Array();
 		Array &operator=(const Array &obj);
 		size_t size();
-
-
+		void printAddress();
 };
 
 template<typename T>
@@ -38,9 +37,9 @@ Array<T>::Array(unsigned int n): m_size(n)
 		{
 			// new (&m_array[i]) T();
 			m_array[i] = 10;
-			std::cout << m_array[i] << "\n";
+			//std::cout << m_array[i] << "\n";
 		}
-		std::cout << "\nArray address: " << m_array << "\n";
+		// std::cout << "\nArray address: " << m_array << "\n";
 		std::cout << "Constructed by INT constructor\n";
 	}
 	catch(const std::bad_alloc &e)
@@ -58,7 +57,7 @@ Array<T>::Array(const Array<T> &obj): m_size(obj.m_size)
 		m_array = (m_size > 0) ? new T[m_size] : nullptr;
 		if (m_array)
 		{
-			for (int i = 0; i < m_size; ++i)
+			for (unsigned int i = 0; i < m_size; ++i)
 				m_array[i] = obj.m_array[i];
 		}
 		std::cout << "Constructed by COPY constructor\n";
@@ -81,12 +80,12 @@ Array<T>::~Array()
 template<typename T>
 Array<T>&Array<T>::operator=(const Array<T> &obj)
 {
-	if (this != obj)
+	if (this != &obj)
 	{
 		delete m_array;
 		try
 		{
-			m_array = (m_size > 0) ? new Array[m_size] : nullptr;
+			m_array = (m_size > 0) ? new T[m_size] : nullptr;
 			if (m_array)
 			{
 				for (unsigned int i = 0; i < m_size; ++i)
@@ -103,6 +102,7 @@ Array<T>&Array<T>::operator=(const Array<T> &obj)
 	}
 
 	std::cout << "Constructed by COPY ASSIGNMENT OPERATOR\n";
+	return (*this);
 }
 
 template<typename T>
@@ -113,6 +113,12 @@ size_t Array<T>::size()
 	for (unsigned int i = 0; i < m_size; ++i)
 		count++;
 	return (count);
+}
+
+template<typename T>
+void Array<T>::printAddress()
+{
+	std::cout << "Array address: " << m_array << "\n";
 }
 
 #endif
