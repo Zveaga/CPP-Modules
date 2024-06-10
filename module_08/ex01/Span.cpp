@@ -44,6 +44,38 @@ void Span::addNumber(unsigned int num)
 	std::cout << "---------------------\n";
 }
 
+int genRandomNr()
+{
+	std::random_device random;
+	std::mt19937 gen(random());
+	std::uniform_int_distribution<> dis(-10000, 10000);
+	return (dis(gen));
+}
+
+void Span::addNumbers(size_t nElem)
+{
+	if (nElem > m_maxNums)
+		throw std::range_error("Max limit reached, cannot add number");
+	std::generate_n(std::inserter(m_nums, m_nums.begin()), nElem, genRandomNr);
+	// m_nums.push_back(num);
+	// std::cout << "Number added\n";
+	printNums();
+	std::cout << "---------------------\n";
+}
+
+
+
+// void Span::addNumbers(size_t nElem)
+// {
+// 	if (nElem > m_maxNums)
+// 		throw std::range_error("Max limit reached, cannot add numbers");
+	
+// 	for (std::set<int>::iterator it = m_nums.begin();  
+// 	// std::cout << "Number added\n";
+// 	printNums();
+// 	std::cout << "---------------------\n";
+// }
+
 size_t Span::shortestSpan()
 {
 	checkIfSpanPossible();

@@ -1,9 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 #include <exception>
+#include <vector>
 #include <set>
+#include <algorithm>
+#include <random>
 
 class Span
 {
@@ -25,7 +27,9 @@ class Span
 		// --Getters-- //
 		// --Member Functions-- //
 		void 			addNumber(unsigned int num);
-		void 			addNumbers(size_t containerSize);
+		void 			addNumbers(size_t nElem);
+		// void 			addNumbers(std::set<int>::iterator start, size_t nElem);
+
 		size_t 			shortestSpan();
 		size_t 			longestSpan();
 		// --Exceptions-- //
