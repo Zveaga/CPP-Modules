@@ -6,11 +6,12 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/06/07 16:35:19 by coxer         ########   odam.nl         */
+/*   Updated: 2024/06/07 16:36:57 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Array.hpp"
+
 
 int main(void)
 {	
