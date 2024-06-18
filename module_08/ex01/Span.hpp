@@ -34,4 +34,3 @@ class Span
 		size_t 			shortestSpan();
 		size_t 			longestSpan();
 };
-
