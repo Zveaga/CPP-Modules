@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/06/10 15:28:58 by coxer         ########   odam.nl          #
+#    Updated: 2024/06/18 20:16:00 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ NAME = iterable_stack
 
 SRC = \
 main.cpp \
-MutantStack.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
