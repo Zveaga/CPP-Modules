@@ -13,7 +13,7 @@ Span::Span(const Span &obj) :
 
 // --Destructor-- //
 Span::~Span() {}
-
+	
 // --Overloads-- //
 Span &Span::operator=(const Span &obj)
 {
