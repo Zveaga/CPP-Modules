@@ -28,10 +28,10 @@ class MutantStack
         void            	push(const T  &val);
         void            	push(T  &&val);
 		void				pop();
-		void				swap(MutantStack &obj) noexcept;	
-		
+		void				swap(MutantStack &obj) noexcept;
 		template <class... Args>
 		void 				emplace(Args&&... args);
+		void				printStack();
         // reference &top();
 		// --Exceptions-- //
 
@@ -84,43 +84,51 @@ size_t MutantStack<T, Container>::size() const
 template <class T, class Container>
 T &MutantStack<T, Container>::top()
 {
-    
+    return (m_stack.back());
 }
 
 template <class T, class Container>
 const T	&MutantStack<T, Container>::top() const
 {
-    
+    return (m_stack.back());
 }
 
 template <class T, class Container>
 void MutantStack<T, Container>::push(const T  &val)
 {
-    return (m_stack.push_back(val));
+    m_stack.push_back(val);
 }
 
 template <class T, class Container>
 void MutantStack<T, Container>::push(T  &&val)
 {
-    return (m_stack.push_back(std::move(val)));
+	m_stack.push_back(std::move(val));
     
 }
 
 template <class T, class Container>
 void MutantStack<T, Container>::pop()
 {
-    return (m_stack.pop_back());
+    m_stack.pop_back();
 }
 
 template <class T, class Container>
-void MutantStack<T, Container>::swap(MutantStack &x) noexcept
+void MutantStack<T, Container>::swap(MutantStack &obj) noexcept
 {
-    
+    std::swap(m_stack, obj.m_stack);
 }	
 
 template <class T, class Container>
 template <class... Args>
 void MutantStack<T, Container>::emplace(Args&&... args)
 {
-    
+    m_stack.emplace_back(args...);
+}
+
+template <class T, class Container>
+void MutantStack<T, Container>::printStack()
+{
+	for (const auto nr : m_stack)
+		std::cout << nr << " ";
+	std::cout << '\n';
 }
