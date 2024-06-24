@@ -21,9 +21,10 @@ class MutantStack
         Container			m_stack;
 
     public:
-        // --Member Types-- //
-		class iterator;	
-		class const_iterator;	
+        // --Member Types of Iterator nested class-- //
+		class iterator;
+		iterator begin();
+		iterator end();
         // --Conststructors-- //
         MutantStack();
         MutantStack(const MutantStack &obj);
@@ -51,6 +52,28 @@ class MutantStack
 		// --Exceptions-- //
 
 };
+
+
+template<class T, class Container>
+class MutantStack<T, Container>::iterator
+{
+	private:
+		typename Container::iterator current;
+	public:
+		// --Conststructors-- //
+		iterator();
+		iterator(const iterator &obj);
+		// --Destructor-- //
+		~iterator();
+		// --Overloads-- //
+		iterator& operator=(const iterator &obj);
+		T& operator*();
+		iterator &operator++();
+		iterator operator++(int);
+		bool operator!=(const iterator &obj) const;
+		// --Member Functions-- //
+
+}
 
 
 // --Conststructors-- //
