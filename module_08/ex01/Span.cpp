@@ -64,6 +64,7 @@ size_t Span::shortestSpan()
 {
 	checkIfSpanPossible();
 	std::set<int>::iterator it = m_nums.begin();
+	// std::set<int>::iterator it = std::begin(m_nums);
 	++it;
 	size_t span = *it - *(--it);
 	return (span);

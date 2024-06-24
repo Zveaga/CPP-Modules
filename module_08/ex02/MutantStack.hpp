@@ -3,13 +3,27 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <vector>
+// #include <iterator>
+
+/** 
+ * Needed for iterator implementaion:
+ * 1. begin point
+ * 2. end point
+ * 3. operator++ | operator--
+ * 4. operator*
+*/
 
 template <class T, class Container = std::deque<T>>
 class MutantStack
 {
     private:
         Container			m_stack;
+
     public:
+        // --Member Types-- //
+		class iterator;	
+		class const_iterator;	
         // --Conststructors-- //
         MutantStack();
         MutantStack(const MutantStack &obj);
@@ -17,6 +31,7 @@ class MutantStack
         ~MutantStack();
         // --Overloads-- //
         MutantStack &operator=(const MutantStack &obj);
+
 		// --Setters-- //
 		// --Getters-- //
         Container           getStack();
