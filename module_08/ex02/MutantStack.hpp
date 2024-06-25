@@ -58,7 +58,7 @@ template<class T, class Container>
 class MutantStack<T, Container>::iterator
 {
 	private:
-		typename Container::iterator current;
+		typename Container::iterator m_current;
 	public:
 		// --Conststructors-- //
 		iterator();
@@ -66,16 +66,16 @@ class MutantStack<T, Container>::iterator
 		// --Destructor-- //
 		~iterator();
 		// --Overloads-- //
-		iterator& operator=(const iterator &obj);
-		T& operator*();
-		iterator &operator++();
-		iterator operator++(int);
-		bool operator!=(const iterator &obj) const;
+		bool 		operator!=(const iterator &obj) const;
+		T& 			operator*();
+		iterator&	operator=(const iterator &obj);
+		iterator&	operator++();
+		iterator	operator++(int);
 		// --Member Functions-- //
 
 };
 
-// -------------MUTANT STACK------------- //
+// ================MUTANT STACK================ //
 // --Conststructors-- //
 
 template <class T, class Container>
@@ -104,7 +104,6 @@ Container MutantStack<T, Container>::getStack()
 {
 	return (m_stack);
 }
-
 
 // --Member Functions-- //
 template <class T, class Container>
@@ -173,16 +172,48 @@ void MutantStack<T, Container>::printStack()
 
 
 
-// -------------ITERATOR CLASS------------- //
-
+// ================ITERATOR CLASS================ //
 // --Conststructors-- //
-
+template <class T, class Container>
+MutantStack<T, Container>::iterator::iterator() : m_current() {}
 
 // --Destructor-- //
-
+template <class T, class Container>
+MutantStack<T, Container>::iterator::~iterator() {}
 
 // --Overloads-- //
+template <class T, class Container>
+bool MutantStack<T, Container>::iterator::operator!=(const iterator &obj) const
+{
+	return (m_current != obj.m_current);
+}
 
+template <class T, class Container>
+T& MutantStack<T, Container>::iterator::operator*()
+{
+	return (*m_current);
+}
 
-// --Member Functions-- //
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator& MutantStack<T, Container>::iterator::operator=(const iterator &obj)
+{
+	if (*this != obj)
+		m_current = obj.m_current;
+	return (*this);
+}
+
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator& MutantStack<T, Container>::iterator::operator++()
+{
+	++m_current;
+	return (*this);
+}
+
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::iterator::operator++(int)
+{
+	iterator temp = *this;
+	++m_current;
+	return (temp);
+}
 
