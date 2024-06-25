@@ -73,9 +73,9 @@ class MutantStack<T, Container>::iterator
 		bool operator!=(const iterator &obj) const;
 		// --Member Functions-- //
 
-}
+};
 
-
+// -------------MUTANT STACK------------- //
 // --Conststructors-- //
 
 template <class T, class Container>
@@ -170,3 +170,19 @@ void MutantStack<T, Container>::printStack()
 		std::cout << nr << " ";
 	std::cout << '\n';
 }
+
+
+
+// -------------ITERATOR CLASS------------- //
+
+// --Conststructors-- //
+
+
+// --Destructor-- //
+
+
+// --Overloads-- //
+
+
+// --Member Functions-- //
+
