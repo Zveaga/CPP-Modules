@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/06/24 14:14:45 by coxer         ########   odam.nl         */
+/*   Updated: 2024/06/25 19:33:04 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ int main(void)
 	std::cout << "STACK2: ";
 	stack2.printStack();
 
+	std::cout << "\n========TEST ITERATORS========";
+	
+	MutantStack<int> mstack;
+	for (size_t i = 0; i < 10; ++i)
+		mstack.push(i);
+	MutantStack<int>::iterator it = stack1.begin();
+	MutantStack<int>::iterator ite = stack1.end();
+	// ++it;
+	// --it;
+	
+	while (it != ite)
+		std::cout << *it << ' '; 
+	
+		
 	std::cout << "\n--------------------------\n";
 	std::cout << "\n========END========\n";
 	return (0);

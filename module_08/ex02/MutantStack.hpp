@@ -58,8 +58,8 @@ template<class T, class Container>
 class MutantStack<T, Container>::iterator
 {
 	private:
-		typename Container::iterator m_current;
 	public:
+		typename Container::iterator m_current;
 		// --Conststructors-- //
 		iterator();
 		iterator(const iterator &obj);
@@ -76,8 +76,27 @@ class MutantStack<T, Container>::iterator
 };
 
 // ================MUTANT STACK================ //
-// --Conststructors-- //
 
+// --Member Types of Iterator nested class-- //
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin()
+{
+	iterator it;
+	it.m_current = std::begin(m_stack);
+	return it;
+}
+
+
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end()
+{
+	iterator it;
+	it.m_current = std::end(m_stack);
+	return (it);
+}
+
+
+// --Conststructors-- //
 template <class T, class Container>
 MutantStack<T, Container>::MutantStack() {}
 
