@@ -58,19 +58,24 @@ template<class T, class Container>
 class MutantStack<T, Container>::iterator
 {
 	private:
-	public:
 		typename Container::iterator m_current;
+	public:
 		// --Conststructors-- //
 		iterator();
+		iterator(typename Container::iterator current);
 		iterator(const iterator &obj);
 		// --Destructor-- //
 		~iterator();
 		// --Overloads-- //
 		bool 		operator!=(const iterator &obj) const;
+		bool		operator<(const iterator &obj) const;
+		bool		operator>(const iterator &obj) const;
 		T& 			operator*();
 		iterator&	operator=(const iterator &obj);
 		iterator&	operator++();
 		iterator	operator++(int);
+		iterator&	operator--();
+		iterator	operator--(int);
 		// --Member Functions-- //
 
 };
@@ -81,27 +86,27 @@ class MutantStack<T, Container>::iterator
 template <class T, class Container>
 typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin()
 {
-	iterator it;
-	it.m_current = std::begin(m_stack);
-	return it;
+	// iterator it;
+	// it.m_current = std::begin(m_stack);
+	// return (it);
+	// a temp object is returned
+	return (iterator(std::begin(m_stack)));
 }
 
 
 template <class T, class Container>
 typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end()
 {
-	iterator it;
-	it.m_current = std::end(m_stack);
-	return (it);
+	return (iterator(std::end(m_stack)));
 }
-
 
 // --Conststructors-- //
 template <class T, class Container>
-MutantStack<T, Container>::MutantStack() {}
+MutantStack<T, Container>::MutantStack(): m_stack() {}
 
 template <class T, class Container>
-MutantStack<T, Container>::MutantStack(const MutantStack &obj) : m_stack(obj->m_stack) {}
+MutantStack<T, Container>::MutantStack(const MutantStack &obj)
+	: m_stack(obj->m_stack) {}
 
 // --Destructor-- //
 template <class T, class Container>
@@ -184,8 +189,8 @@ void MutantStack<T, Container>::emplace(Args&&... args)
 template <class T, class Container>
 void MutantStack<T, Container>::printStack()
 {
-	for (const auto nr : m_stack)
-		std::cout << nr << " ";
+	for (const auto &elem : m_stack)
+		std::cout << elem << " ";
 	std::cout << '\n';
 }
 
@@ -194,7 +199,16 @@ void MutantStack<T, Container>::printStack()
 // ================ITERATOR CLASS================ //
 // --Conststructors-- //
 template <class T, class Container>
-MutantStack<T, Container>::iterator::iterator() : m_current() {}
+MutantStack<T, Container>::iterator::iterator()
+	: m_current() {}
+
+template <class T, class Container>
+MutantStack<T, Container>::iterator::iterator(const iterator &obj)
+	: m_current(obj.m_current) {}
+
+template <class T, class Container>
+MutantStack<T, Container>::iterator::iterator(typename Container::iterator current)
+	: m_current(current) {}
 
 // --Destructor-- //
 template <class T, class Container>
@@ -205,6 +219,18 @@ template <class T, class Container>
 bool MutantStack<T, Container>::iterator::operator!=(const iterator &obj) const
 {
 	return (m_current != obj.m_current);
+}
+
+template <class T, class Container>
+bool MutantStack<T, Container>::iterator::operator<(const iterator &obj) const
+{
+	return (m_current < obj.m_current);
+}
+
+template <class T, class Container>
+bool MutantStack<T, Container>::iterator::operator>(const iterator &obj) const
+{
+	return (m_current > obj.m_current);
 }
 
 template <class T, class Container>
@@ -236,3 +262,17 @@ typename MutantStack<T, Container>::iterator MutantStack<T, Container>::iterator
 	return (temp);
 }
 
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator& MutantStack<T, Container>::iterator::operator--()
+{
+	--m_current;
+	return (*this);
+}
+
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::iterator::operator--(int)
+{
+	iterator temp = *this;
+	--m_current;
+	return (temp);
+}

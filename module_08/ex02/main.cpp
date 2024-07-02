@@ -6,11 +6,12 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/06/25 19:33:04 by coxer         ########   odam.nl         */
+/*   Updated: 2024/07/02 16:40:55 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <list>
 
 int main(void)
 {	
@@ -51,21 +52,41 @@ int main(void)
 	std::cout << "STACK2: ";
 	stack2.printStack();
 
-	std::cout << "\n========TEST ITERATORS========";
-	
-	MutantStack<int> mstack;
+	std::cout << "\n========TEST ITERATORS========\n";
+
+	std::list<int> mstack1;
 	for (size_t i = 0; i < 10; ++i)
-		mstack.push(i);
-	MutantStack<int>::iterator it = stack1.begin();
-	MutantStack<int>::iterator ite = stack1.end();
-	// ++it;
-	// --it;
+		mstack1.push_back(i);	
+	std::list<int>::iterator _it = mstack1.begin();
+	std::list<int>::iterator _ite = mstack1.end();
+	_it++;
+	_ite--;
+	std::cout << "\nstd::list: ";
+	while (_it != _ite) 
+		std::cout << *_it++ << ' '; 
+
+	MutantStack<int> mstack2;
+	for (size_t i = 0; i < 10; ++i)
+		mstack2.push(i);	
+	MutantStack<int>::iterator it = mstack2.begin();
+	MutantStack<int>::iterator ite = mstack2.end();
+	++it;
+	--ite;
+	std::cout << "\nown stack: ";
+	while (it != ite) 
+		std::cout << *it++ << ' '; 
 	
-	while (it != ite)
-		std::cout << *it << ' '; 
+
+	std::cout << "\n========TEST OTHER TYPES========\n\n";
+
+	MutantStack<std::string, std::vector<std::string>> stackStr;
 	
-		
-	std::cout << "\n--------------------------\n";
-	std::cout << "\n========END========\n";
+	for (size_t i = 0; i < 5; ++i)
+		stackStr.push("TEST");
+	stackStr.printStack();
+	stackStr.pop();
+	stackStr.printStack();
+	
+	std::cout << "\n==============END==============\n";
 	return (0);
 }
