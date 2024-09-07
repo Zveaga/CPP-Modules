@@ -6,12 +6,13 @@
 // #include <sstream>
 #include <string>
 #include <map>
+#include <iomanip>  
 
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, int> 	m_priceHistory;
-		std::map<int, int> 			m_input;
+		std::map<std::string, float> 	m_priceHistory;
+		// std::map<int, int> 			m_input;
 	public:
 		// --Conststructors-- //
 		BitcoinExchange();
@@ -24,7 +25,7 @@ class BitcoinExchange
 		// --Getters-- //
 		// --Member Functions-- //
 		bool	parseInput();
-		bool	priceHistory();
+		bool	parseDatabse();
 		// --Exceptions-- //
 };
 

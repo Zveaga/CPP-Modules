@@ -44,7 +44,6 @@ bool checkDigit(const std::string& str)
 bool checkDate(std::string& date)
 {
 	size_t pos = date.find('-');
-
 	std::string yearStr = date.substr(0, pos);
 	pos = date.find('-', pos + 1);
 	std::string monthStr = date.substr(yearStr.length() + 1, pos - (yearStr.length() + 1));
@@ -60,9 +59,9 @@ bool checkDate(std::string& date)
 		{
 			return (false);
 		}
-		std::cout << "YEAR:  " << year << "\n";
-		std::cout << "MONTH: " << month << "\n";
-		std::cout << "DAY:   " << day << "\n\n";
+		//std::cout << "YEAR:  " << year << "\n";
+		//std::cout << "MONTH: " << month << "\n";
+		//std::cout << "DAY:   " << day << "\n\n";
 	}
 	catch (std::invalid_argument& e)
 	{
@@ -72,10 +71,25 @@ bool checkDate(std::string& date)
 	{
 		return (false);
 	}
-
-
 	return (true);
 }
+
+// bool checkValue(const std::string& valueStr)
+// {
+// 	try
+// 	{
+// 		size_t value = std::stoul(valueStr);
+// 	}
+// 		catch (std::invalid_argument& e)
+// 	{
+// 		return (false);
+// 	}
+// 	catch (std::out_of_range& e)
+// 	{
+// 		return (false);
+// 	}
+// 	return (true);
+// }
 
 bool	BitcoinExchange::parseInput()
 {
@@ -83,26 +97,22 @@ bool	BitcoinExchange::parseInput()
 	if (!file.is_open())
 		return (false);
 	std::string line;
-	std::string date;
-	std::string tempValue;
-	// int 		value;
-	size_t pos;
 	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		// std::cout << line << "\n";
-		pos = line.find('|');
+		size_t pos = line.find('|');
 		if (pos != std::string::npos)
 		{
-			date = line.substr(0, pos - 1);
-			if (!checkDate(date))
+			std::string dateStr = line.substr(0, pos - 1);
+			if (!checkDate(dateStr))
 			{
 				std::cout << "INVALID DATE\n";
 				continue ;
 			}
-			tempValue = line.substr(pos + 1);
-			//std::cout << line.substr(0, pos - 1) << " | " << line.substr(pos + 1) << "\n";
-			// m_input.emplace(line.substr(0, pos - 1), line.substr(pos + 1))
+			std::string valueStr = line.substr(pos + 1);
+			// ! CHECK THE VALUE !
+			//std::cout <<  valueStr << "\n";
 		}
 		else
 		{
@@ -110,12 +120,31 @@ bool	BitcoinExchange::parseInput()
 		}
 
 	}
-	
 	file.close();
 	return (true);
 }
 
 
+bool BitcoinExchange::parseDatabse()
+{
+	std::ifstream file("data.csv");
+	if (!file.is_open())
+		return (false);
+	std::string line;
+	std::getline(file,line);
+	while (std::getline(file,line))
+	{
+		size_t pos = line.find(',');
+		std::string dateStr = line.substr(0, pos);
+		std::string valueStr = line.substr(pos + 1);
+		m_priceHistory.emplace(dateStr, std::stof(valueStr));
+		// std::cout << dateStr << "|" << valueStr << "\n";
 
+	}
+	
+	for (auto it = m_priceHistory.begin(); it != m_priceHistory.end(); ++it)
+		std::cout << it->first << ": " << std::fixed << std::setprecision(2) << it->second << "\n";
+	return (true);
+}
 
 // --Exceptions-- //
