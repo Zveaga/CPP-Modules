@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/09/07 12:00:56 by coxer         ########   odam.nl         */
+/*   Updated: 2024/09/07 13:18:28 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int main(void)
 {	
 	std::cout << "\n============START============\n\n";
 	BitcoinExchange btc;
-	btc.parseInput();
 	btc.parseDatabse();
+	std::cout << "\n-----------------------------\n\n";
+	btc.parseInput();
 	// auto it = m
 
 
-	// std::cout << "\n-----------------------------\n\n";
 
 
 	

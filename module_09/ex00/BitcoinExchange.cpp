@@ -91,6 +91,23 @@ bool checkDate(std::string& date)
 // 	return (true);
 // }
 
+void BitcoinExchange::performExchange(const std::string& date, float value)
+{
+	auto it = m_priceHistory.lower_bound(date);
+	if (it != m_priceHistory.end() && it->first == date)		// exact match
+	{
+		std::cout << it->first << " => " << value << " = " << it->second * value << "\n";
+	}
+	else
+	{
+		if (it != m_priceHistory.begin())
+		{
+			--it;
+		}
+		std::cout << it->first << " => " << value << " = " << it->second * value << "\n";
+	}
+}
+
 bool	BitcoinExchange::parseInput()
 {
 	std::ifstream file("input.csv");
@@ -105,18 +122,22 @@ bool	BitcoinExchange::parseInput()
 		if (pos != std::string::npos)
 		{
 			std::string dateStr = line.substr(0, pos - 1);
+			std::string valueStr = line.substr(pos + 1);
 			if (!checkDate(dateStr))
 			{
 				std::cout << "INVALID DATE\n";
 				continue ;
 			}
-			std::string valueStr = line.substr(pos + 1);
+			//float value = std::stof(valueStr);
 			// ! CHECK THE VALUE !
-			//std::cout <<  valueStr << "\n";
+			// std::cout <<  value << "\n";
+
+			performExchange(dateStr, std::stof(valueStr));
+
 		}
 		else
 		{
-			std::cout << "Error: bad input => " << line << "\n\n";
+			std::cout << "Error: bad input => " << line << "\n";
 		}
 
 	}
@@ -142,9 +163,17 @@ bool BitcoinExchange::parseDatabse()
 
 	}
 	
-	for (auto it = m_priceHistory.begin(); it != m_priceHistory.end(); ++it)
-		std::cout << it->first << ": " << std::fixed << std::setprecision(2) << it->second << "\n";
+	// for (auto it = m_priceHistory.begin(); it != m_priceHistory.end(); ++it)
+	// 	std::cout << it->first << ": " << std::fixed << std::setprecision(2) << it->second << "\n";
 	return (true);
 }
+
+
+// bool BitcoinExchange::performExchange()
+// {
+
+// }
+
+
 
 // --Exceptions-- //

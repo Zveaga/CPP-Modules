@@ -26,6 +26,7 @@ class BitcoinExchange
 		// --Member Functions-- //
 		bool	parseInput();
 		bool	parseDatabse();
+		void	performExchange(const std::string& date, float value);
 		// --Exceptions-- //
 };
 
