@@ -125,7 +125,7 @@ bool	BitcoinExchange::parseInput()
 			std::string valueStr = line.substr(pos + 1);
 			if (!checkDate(dateStr))
 			{
-				std::cout << "INVALID DATE\n";
+				std::cout << "Error: bad input => " << line << "\n";
 				continue ;
 			}
 			//float value = std::stof(valueStr);
