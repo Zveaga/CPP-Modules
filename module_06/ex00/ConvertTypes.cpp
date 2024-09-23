@@ -187,23 +187,9 @@ void stringToChar(const std::string &value, int i)
 	else
 	{
 		char c = static_cast<char>(i);
-		std::cout << "char: " << c << "\n";
+		std::cout << "char: " << "'" << c << "'" << "\n";
 	}
 }
-
-// void stringToChar(auto i)
-// {
-// 	std::stringstream stream()
-// 	if (i < 0 || i > 127)
-// 			std::cout << "char: impossible\n";
-// 	else if (!std::isprint(i))
-// 			std::cout << "char: Non displayable\n";
-// 	else
-// 	{
-// 		char c = static_cast<char>(i);
-// 		std::cout << "char: " << c << "\n";
-// 	}
-// }
 
 void stringToInt(const std::string &value)
 {
@@ -281,7 +267,6 @@ void convertInt(const std::string &value)
 	}
 	stringToFloat(value);
 	stringToDouble(value);
-
 }
 
 void convertFloat(const std::string &value)
