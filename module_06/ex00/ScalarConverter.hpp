@@ -16,12 +16,12 @@ class ScalarConverter
 		// --Conststructors-- //
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &object);
-	public:
 		// --Destructor-- //
 		~ScalarConverter();
 		// --Overloads-- //
 		ScalarConverter &operator=(const ScalarConverter &object);
 		// --Member Functions-- //
+	public:
 		static void convert(const std::string value);
 };
 

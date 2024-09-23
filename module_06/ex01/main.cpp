@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/07/29 16:18:02 by coxer         ########   odam.nl         */
+/*   Updated: 2024/09/23 18:34:06 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int main(void)
 	
 	std::cout << "\n-----------------------------------------\n\n";	
 	
-	std::cout << "Value of ptr after serialization:\n\n" << std::hex << ptr << "\n";
+	std::cout << "Value of ptr after serialization as uintptr_t:   " << ptr << "\n";
+	std::cout << "Value of ptr after serialization in hexadecimal: " << std::hex << ptr << "\n";
 	
 	newData = Serializer::deserialize(ptr);
 	

@@ -6,7 +6,7 @@
 #    By: coxer <coxer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/31 15:14:30 by coxer         #+#    #+#                  #
-#    Updated: 2024/09/23 17:48:41 by coxer         ########   odam.nl          #
+#    Updated: 2024/09/23 15:48:16 by coxer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ BLUE = \033[34;01m
 RESET = \033[0m
 YELLOW = \033[33;01m
 
-NAME = serializer
+NAME = identify_type
 
 SRC = \
 main.cpp \
-Serializer.cpp \
+Base.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
