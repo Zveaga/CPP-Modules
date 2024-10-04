@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/09/23 16:06:20 by coxer         #+#    #+#                 */
-/*   Updated: 2024/09/23 16:49:52 by coxer         ########   odam.nl         */
+/*   Updated: 2024/10/04 14:14:19 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void identify(Base& p)
 {
     try
     {
-        dynamic_cast<A&>(p);
+        (void) dynamic_cast<A&>(p);
         std::cout << "A class (&)\n";
         return ;
     }
