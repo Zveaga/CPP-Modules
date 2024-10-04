@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/25 13:23:07 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 17:43:48 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
 	
 	try
 	{
-		Bureaucrat manager("MANAGER", 150);
+		Bureaucrat manager("MANAGER", 151);
 	}
 	catch (const std::exception &e)
 	{
@@ -35,7 +35,7 @@ int main(void)
 	
 	try
 	{
-		Bureaucrat director("DIRECTOR", 1);
+		Bureaucrat director("DIRECTOR", 0);
 	}
 	catch (const std::exception &e)
 	{

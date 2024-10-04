@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 19:10:16 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 15:33:45 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 	std::cout << "-------------------------\n";
 	p_form3 = intern.makeForm("presidential pardon", "oval office");
 	std::cout << "-------------------------\n";
-	p_form3 = intern.makeForm("wrong form", "``Nowhere");
+	p_form3 = intern.makeForm("wrong form", "nowhere");
 
 	
 	std::cout << "\n============DESTRUCTION=============\n";

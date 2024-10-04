@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/19 16:35:43 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 13:24:28 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 15:05:38 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ class AForm;
 int main(void)
 {
 	std::cout << "\n============CONSTRUCTION=============\n";
-	// try
-	// {
-	// 	Bureaucrat bureaucrat("Manager", 2000);		
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << "Error constructing the object: " << e.what() << std::endl;		
-	// }
 	Bureaucrat bureaucrat("Manager", 5);
 	std::cout << "\n-------------------------\n\n";	
 	ShrubberyCreationForm shrubbery("Home");
@@ -39,14 +31,10 @@ int main(void)
 	std::cout << "\n-------------------------\n\n";	
 	PresidentialPardonForm pardon("White House");
 	std::cout << pardon;
-
+	
 	std::cout << "\n========FUNCTION TESTS========\n";
 	try
 	{
-		// std::cout << "\n--------------executeForm()------------\n";
-		// bureaucrat.executeForm(shrubbery);
-		// bureaucrat.executeForm(robotomy);
-		// bureaucrat.executeForm(pardon);
 		std::cout << "\n------------beSigned()----------\n\n";
 		shrubbery.beSigned(bureaucrat);
 		robotomy.beSigned(bureaucrat);
@@ -63,22 +51,6 @@ int main(void)
 	{
 		std::cerr << "Caught exception: " << e.what() << std::endl;
 	}
-
-
-
-	// std::cout << "\n------------execute----------\n\n";
-	// try
-	// {
-	// 	shrubbery.execute(bureaucrat);
-	// 	std::cout << "\n-------------------------\n\n";	
-	// 	robotomy.execute(bureaucrat);
-	// 	std::cout << "\n-------------------------\n\n";
-	// 	pardon.execute(bureaucrat);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << "Error executing the form action: " << e.what() << std::endl;	
-	// }
 	
 	std::cout << "\n======================END======================\n";	
 	return (0);

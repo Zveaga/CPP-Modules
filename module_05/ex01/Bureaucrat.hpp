@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/06 17:37:13 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 12:49:13 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 13:58:58 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &object);	
 		// --Member Functions-- //
 		const std::string 	getName() const;
-		const int 			getGrade() const;
-		const void 			setGrade(int grade);
+		int 			getGrade() const;
+		void 			setGrade(int grade);
 		void 				incrementGrade();
 		void 				decrementGrade();
 		void				signForm(const Form &form_obj);

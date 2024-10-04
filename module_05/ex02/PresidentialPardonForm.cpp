@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   PresidentialPardonForm.cpp                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/09/09 15:43:36 by raanghel      #+#    #+#                 */
+/*   Updated: 2024/09/09 15:43:37 by raanghel      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"PresidentialPardonForm.hpp"
 
 // --Conststructors-- //
@@ -7,7 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm()
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-	: _target(target), AForm("PARDON", false, 25, 5)
+	: AForm("PARDON", false, 25, 5), _target(target)
 {
 	std::cout <<  getName() << " form constructed by custom constructor\n";
 }
@@ -47,7 +59,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::outputMessage() const
 {
-	std::cout <<  _target << "has been been pardoned by Zaphod Beeblebrox\n";	
+	std::cout <<  _target << " has been been pardoned by Zaphod Beeblebrox\n";	
 }
 
 void PresidentialPardonForm::executeAction() const

@@ -1,12 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Intern.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/09/09 15:40:42 by raanghel      #+#    #+#                 */
+/*   Updated: 2024/09/09 15:40:43 by raanghel      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"Intern.hpp"
 #include"AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
-// --pForm is a type alias to a func that returns a pointer to an AForm obj-- //
-
-using pForm = AForm* (*)(std::string);
 
 // --Conststructors-- //
 Intern::Intern()
@@ -49,6 +57,9 @@ static AForm *pardon(const std::string target)
 {
 	return (new PresidentialPardonForm(target));
 }
+
+// --pForm is a type alias to a func that returns a pointer to an AForm obj-- //
+using pForm = AForm* (*)(std::string);
 
 // --Member Functions-- //
 AForm *Intern::makeForm(const std::string name, const std::string target)

@@ -46,7 +46,7 @@ AForm::~AForm()
 
 AForm &AForm::operator=(const AForm &object)
 {
-	// no need to copy const values!!
+	(void)object;
 	return (*this);
 }
 

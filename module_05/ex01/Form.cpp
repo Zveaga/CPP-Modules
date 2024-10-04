@@ -6,14 +6,13 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 16:42:20 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 13:06:05 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 14:47:16 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Form.hpp"
 
 // --Conststructors-- //
-
 Form::Form()
 	: _name("DEFAULT FORM"), _is_signed(false), _sign_grade(0), _exec_grade(0)
 {
@@ -39,24 +38,22 @@ Form::Form(std::string name, bool is_signed, int sign_grade, int exec_grade)
 }
 
 // --Destructor-- //
-
 Form::~Form()
 {
 	std::cout << _name << " destructed\n";
 }
 
 // --Overloads-- //
-
 Form &Form::operator=(const Form &object)
 {
-	// no need to copy const values!!
+	(void)object;
 	return (*this);
 }
 
 
 std::ostream &operator<<(std::ostream &os, const Form &object)
 {
-	os << object.getName() << " info:\n-form signed: " << object.getIsSigned()
+	os << "\n" << object.getName() << " info:\n-form signed: " << object.getIsSigned()
 		<< "\n-grade required to sign form: " << object.getSignGrade()
 		<< "\n-grade requred to execute form: " << object.getExecGrade()
 		<< std::endl; 
@@ -85,7 +82,6 @@ int Form::getExecGrade() const
 }
 
 // --Member Functions-- //
-
 void Form::beSigned(const Bureaucrat &bureaucrat_obj)
 {
 	if (bureaucrat_obj.getGrade() <= _sign_grade)
@@ -97,21 +93,7 @@ void Form::beSigned(const Bureaucrat &bureaucrat_obj)
 		throw GradeTooLowException();	
 }
 
-// void Form::beSigned(const Bureaucrat &bureaucrat_obj)
-// {
-// 	if (bureaucrat_obj.getGrade() > 150)
-// 		throw GradeTooLowException();
-// 	if (bureaucrat_obj.getGrade() <= _sign_grade)
-// 	{
-// 		_is_signed = true;
-// 		std::cout << "Form signed!\n";
-// 	}
-// 	else
-// 		std::cout << "Form not signed, grade not high enough.\n";
-// }
-
 // --Exceptions-- //
-
 const char *Form::GradeTooHighException::what() const throw()
 {
 	return ("grade too high");

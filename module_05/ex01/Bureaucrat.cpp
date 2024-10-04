@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 12:48:43 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 14:33:00 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ const std::string Bureaucrat::getName() const
 	return (_name);
 }
 
-const int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return(_grade);
 }
 
-const void	Bureaucrat::setGrade(int grade)
+void	Bureaucrat::setGrade(int grade)
 {
 	_grade = grade;	
 }
@@ -102,7 +102,7 @@ void Bureaucrat::decrementGrade()
 void Bureaucrat::signForm(const Form &form_obj)
 {
 	if (form_obj.getIsSigned() == true)
-		std::cout << _name << " signed " << form_obj.getName() << std::endl;
+		std::cout << _name << " signed " << form_obj.getName() << "\n";
 	else
 		std::cout << _name << " couldn't sign " << form_obj.getName() << " because grade is not high enough!\n";
 }

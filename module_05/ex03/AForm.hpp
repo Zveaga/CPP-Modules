@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   AForm.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/09/09 15:40:22 by raanghel      #+#    #+#                 */
+/*   Updated: 2024/09/09 15:40:28 by raanghel      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef A_FORM_HPP
 # define A_FORM_HPP
 
 #include "Bureaucrat.hpp"
-// #include "ShrubberyCreationForm.hpp"
-// #include "RobotomyRequestForm.hpp"
-// #include "PresidentialPardonForm.hpp"
 #include <iostream>
 #include <string>
 

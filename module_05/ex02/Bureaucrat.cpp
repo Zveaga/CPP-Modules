@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 10:41:15 by coxer         #+#    #+#                 */
-/*   Updated: 2024/04/26 13:22:29 by rares         ########   odam.nl         */
+/*   Updated: 2024/09/09 14:49:30 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ const std::string Bureaucrat::getName() const
 	return (_name);
 }
 
-const int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return(_grade);
 }
 
-const void	Bureaucrat::setGrade(int grade)
+void	Bureaucrat::setGrade(int grade)
 {
 	_grade = grade;	
 }

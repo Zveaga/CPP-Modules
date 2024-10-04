@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/09/09 15:43:58 by raanghel      #+#    #+#                 */
+/*   Updated: 2024/09/09 15:43:59 by raanghel      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 
 // --Conststructors-- //
@@ -7,8 +19,8 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &object)
 {
+	(void)object;
 	std::cout << getName() << " form constructed by copy constructor\n";
-
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
