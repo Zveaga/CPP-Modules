@@ -22,7 +22,7 @@ class Array
 		size_t 	size() const;
 		void 	printAddress() const;
 		void	printArray() const;
-		void	fillArray(T value) const;
+		void	fillArray(T value);
 		void	tryOutOfBounds();
 };
 
@@ -107,7 +107,7 @@ Array<T>&Array<T>::operator=(const Array<T> &obj)
 template<typename T>
 T &Array<T>::operator[](size_t index)
 {
-		std::cerr << "NON CONST" << "\n";
+	// std::cerr << "NON CONST" << "\n";
 	if (index >= m_size)
 		throw std::out_of_range("Index out of range!");
 	return (m_array[index]);
@@ -116,7 +116,7 @@ T &Array<T>::operator[](size_t index)
 template<typename T>
 const T &Array<T>::operator[](size_t index) const
 {
-	std::cerr << "CONST" << "\n";
+	// std::cerr << "CONST" << "\n";
 	if (index >= m_size)
 		throw std::out_of_range("Index out of range!");
 	return (m_array[index]);
@@ -159,7 +159,7 @@ void	Array<T>::printArray() const
 }
 
 template<typename T>
-void	Array<T>::fillArray(T value) const
+void	Array<T>::fillArray(T value)
 {
 	for (size_t i = 0; i < m_size; ++i)
 		m_array[i] = value;

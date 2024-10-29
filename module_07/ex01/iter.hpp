@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/13 19:21:26 by rares         #+#    #+#                 */
-/*   Updated: 2024/05/14 20:23:11 by coxer         ########   odam.nl         */
+/*   Updated: 2024/10/23 12:58:54 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void printArrayElem(T *arrayAddress, L arrayLength)
 {
 	if (!arrayAddress)
 		return ;
-	for (L i; i < arrayLength; ++i)
+	for (L i = 0; i < arrayLength; ++i)
 		std::cout << arrayAddress[i] << "\n";
 }
 
