@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/27 16:19:29 by coxer         ########   odam.nl         */
+/*   Updated: 2024/10/30 15:58:05 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int main(int argc, char **argv)
 	}
 	
 	RPN rpn;
-	rpn.calculate(argv[1]);
+	std::string testData = "234*+56*-";
+	rpn.calculate(testData);
+
+	// rpn.calculate(std::string(argv[1]));
 
 	std::cout << "\n-----------------------------\n\n";
 	std::cout << "\n=============END=============\n";
