@@ -31,6 +31,6 @@ class Span
 		void 			addNumber(unsigned int num);
 		void 			addNumbers(size_t nElem);
 		// void 			addNumbers(std::set<int>::iterator start, size_t nElem);
-		size_t 			shortestSpan();
-		size_t 			longestSpan();
+		int 			shortestSpan();
+		int 			longestSpan();
 };

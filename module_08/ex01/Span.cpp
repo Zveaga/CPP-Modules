@@ -54,31 +54,40 @@ void Span::addNumbers(size_t nElem)
 {
 	if (nElem > m_maxNums)
 		throw std::range_error("Max limit reached, cannot add number");
-	std::generate_n(std::inserter(m_nums, m_nums.begin()), nElem, genConsecNr);
+	std::generate_n(std::inserter(m_nums, m_nums.begin()), nElem, genRandomNr);
 	// std::generate_n(std::inserter(m_nums, m_nums.begin()), nElem, [this](){ return genConsecNr(); });
 	printNums();
 	std::cout << "---------------------\n";
 }
 
-size_t Span::shortestSpan()
+int Span::shortestSpan()
 {
 	checkIfSpanPossible();
-	std::set<int>::iterator it = m_nums.begin();
-	// std::set<int>::iterator it = std::begin(m_nums);
-	++it;
-	size_t span = *it - *(--it);
-	return (span);
+	std::set<int>::iterator first = m_nums.begin();
+	std::set<int>::iterator second = std::next(first);
+	// size_t shortest = static_cast<size_t>(*second - *first);
+	int shortest = *second - *first;
+	int span;
+	while (second != m_nums.end())
+	{
+		span = *second - *first;
+		if (span < shortest)
+			shortest = span;
+		++first;
+		++second;
+	}
+	return (shortest);
 }
 
-size_t Span::longestSpan()
+int Span::longestSpan()
 {
 	checkIfSpanPossible();
 	std::set<int>::iterator it = m_nums.begin();
-	size_t first = *it;
-	//std::cout << "FIRST: " << first << "\n";
+	int first = *it;
+	// std::cout << "FIRST: " << first << "\n";
 	it = std::prev(m_nums.end());
-	size_t last = *(it);
-	//std::cout << "LAST: " << last << "\n";
+	int last = *it;
+	// std::cout << "LAST: " << last << "\n";
 	return (last - first);
 
 }
@@ -91,9 +100,8 @@ void Span::printNums()
 	std::cout << "\n";
 }
 
-
 void Span::checkIfSpanPossible()
 {
-	if (m_nums.empty() || m_nums.size() == 1)
+	if (m_nums.size() < 2)
 		throw std::length_error("Container does not have enough elements to perform span operation");
 }
