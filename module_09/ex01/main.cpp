@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/30 15:58:05 by coxer         ########   odam.nl         */
+/*   Updated: 2024/10/30 18:15:29 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@ int main(int argc, char **argv)
 	}
 	
 	RPN rpn;
-	std::string testData = "234*+56*-";
-	rpn.calculate(testData);
+	std::string testExpr = "15  * 2 / 2 * 2 4 - +";
+	if (!rpn.validateInput(testExpr)) {
+		std::cerr << "Error: Invalid input expression!\n";
+        std::exit(EXIT_FAILURE);
+	}
+	
+	std::string cleanedExpr = rpn.removeSpaces(testExpr);
+	
+	
+	rpn.calculate(cleanedExpr);
 
 	// rpn.calculate(std::string(argv[1]));
 
-	std::cout << "\n-----------------------------\n\n";
 	std::cout << "\n=============END=============\n";
 	return (0);
 }
