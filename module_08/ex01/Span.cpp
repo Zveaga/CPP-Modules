@@ -64,7 +64,6 @@ int Span::shortestSpan()
 	checkIfSpanPossible();
 	std::set<int>::iterator first = m_nums.begin();
 	std::set<int>::iterator second = std::next(first);
-	// size_t shortest = static_cast<size_t>(*second - *first);
 	int shortest = *second - *first;
 	int span;
 	while (second != m_nums.end())
@@ -83,12 +82,9 @@ int Span::longestSpan()
 	checkIfSpanPossible();
 	std::set<int>::iterator it = m_nums.begin();
 	int first = *it;
-	// std::cout << "FIRST: " << first << "\n";
 	it = std::prev(m_nums.end());
 	int last = *it;
-	// std::cout << "LAST: " << last << "\n";
 	return (last - first);
-
 }
 
 void Span::printNums()
