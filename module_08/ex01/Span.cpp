@@ -31,7 +31,6 @@ void Span::addNumber(unsigned int num)
 	if (m_nums.size() >= m_maxNums)
 		throw std::range_error("Max limit reached, cannot add number");
 	m_nums.insert(num);
-	// m_nums.push_back(num);
 	std::cout << "Number added\n";
 	printNums();
 	std::cout << "---------------------\n";

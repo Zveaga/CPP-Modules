@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/31 15:44:41 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/10/31 15:45:47 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
 {	
 	std::cout << "\n========START========\n\n";
 	
-	Span span(100000);
+	Span span(1);
 	try
 	{	
 		span.addNumber(-6);
