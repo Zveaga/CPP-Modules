@@ -3,12 +3,13 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rares <rares@student.codam.nl>               +#+                     */
+/*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/29 17:20:18 by raanghel      ########   odam.nl         */
+/*   Created: 2024/10/31 15:51:53 by raanghel      #+#    #+#                 */
+/*   Updated: 2024/10/31 15:51:56 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include"easyfind.hpp"
 
