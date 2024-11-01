@@ -22,7 +22,7 @@ class RPN
 		// --Member Functions-- //
 		std::string		removeSpaces(const std::string& str);
 		bool			validateInput(const std::string& str);
-		void			calculate(const std::string& expr);
+		bool			calculate(const std::string& expr);
 		bool			performCalculation(char sign);
 		// --Exceptions-- //
 };

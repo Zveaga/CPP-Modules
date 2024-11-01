@@ -6,17 +6,11 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/30 18:15:29 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/01 17:40:04 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"RPN.hpp"
-
-//---REVERSE POLISH NOTATION---//
-/*
-	3 - 4 + 5   -->   3 4 - 5 +	
-	(3 + 4) * (5 + 6)  -->  3 4 + 5 6 + * 
-*/
 
 int main(int argc, char **argv)
 {	
@@ -26,21 +20,17 @@ int main(int argc, char **argv)
 		std::cerr << "ERROR: Program must be ran with 1 argument!\n";
 		std::exit(EXIT_FAILURE);
 	}
-	
+	std::string expr = argv[1];
 	RPN rpn;
-	std::string testExpr = "15  * 2 / 2 * 2 4 - +";
-	if (!rpn.validateInput(testExpr)) {
-		std::cerr << "Error: Invalid input expression!\n";
+	if (!rpn.validateInput(expr)) {
+		std::cout << "\n=============END=============\n";
         std::exit(EXIT_FAILURE);
 	}
-	
-	std::string cleanedExpr = rpn.removeSpaces(testExpr);
-	
-	
-	rpn.calculate(cleanedExpr);
-
-	// rpn.calculate(std::string(argv[1]));
-
+	std::string cleanedExpr = rpn.removeSpaces(expr);
+	if (!rpn.calculate(cleanedExpr)) {
+		std::cout << "\n=============END=============\n";
+        std::exit(EXIT_FAILURE);
+	}
 	std::cout << "\n=============END=============\n";
 	return (0);
 }
