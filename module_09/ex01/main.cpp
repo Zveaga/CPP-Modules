@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/01 17:40:04 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/01 17:41:06 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main(int argc, char **argv)
 {	
-	(void) argv;
 	std::cout << "\n============START============\n\n";
 	if (argc != 2) {
 		std::cerr << "ERROR: Program must be ran with 1 argument!\n";
