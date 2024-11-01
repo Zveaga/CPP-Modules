@@ -6,16 +6,14 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/10/27 15:48:05 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/01 18:04:35 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PmergeMe.hpp"
 
-//---REVERSE POLISH NOTATION---//
 /*
-	3 - 4 + 5   -->   3 4 - 5 +	
-	(3 + 4) * (5 + 6)  -->  3 4 + 5 6 + * 
+	std::vector && std::list
 */
 
 int main(int argc, char **argv)
