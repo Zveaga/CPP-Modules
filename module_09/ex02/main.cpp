@@ -6,15 +6,11 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/01 18:04:35 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/01 20:32:32 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PmergeMe.hpp"
-
-/*
-	std::vector && std::list
-*/
 
 int main(int argc, char **argv)
 {	
@@ -25,6 +21,18 @@ int main(int argc, char **argv)
 		std::exit(EXIT_FAILURE);
 	}
 	
+	PmergeMe alg;
+	// std::vector<int> vec = {5, 2, 9, 1, 5, 6};
+    std::vector<int> vec = alg.genRandNums(1000);
+	
+	std::cout << "\n----------UNSORTED----------\n\n";
+	
+	alg.printVec(vec);
+	std::vector<int> sortedArray = alg.sortVec(vec);
+
+	std::cout << "\n----------SORTED----------\n\n";
+	alg.printVec(sortedArray);
+    std::cout << std::endl;
 	
 
 	std::cout << "\n-----------------------------\n\n";
