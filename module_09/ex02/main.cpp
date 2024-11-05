@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 14:58:00 by rares         ########   odam.nl         */
+/*   Updated: 2024/11/05 16:39:06 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 		std::cout << "ERROR! Invalid input: " << e.what() << "\n";
 		std::exit(1);
 	}
+	
 	std::vector<int> vec = alg.createContainer<std::vector<int>>(input);
 	std::list<int> list = alg.createContainer<std::list<int>>(input);
 	
