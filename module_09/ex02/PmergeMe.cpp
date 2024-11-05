@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 16:58:12 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/05 17:50:33 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ std::vector<int> PmergeMe::mergeVec(const std::vector<int>& left, const std::vec
 }
 
 std::vector<int> PmergeMe::sortVec(const std::vector<int>& vec) {
-    if (vec.size() <= 1) return vec;
-
+    if (vec.size() <= 1)
+		return vec;
     // Ford-Johnson sorting steps
     std::vector<int> pairedIndices(vec.size(), 0);
     for (size_t i = 0; i < vec.size(); i += 2) {
