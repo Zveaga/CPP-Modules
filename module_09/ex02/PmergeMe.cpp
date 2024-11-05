@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 17:50:33 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/05 18:07:00 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ std::list<int> PmergeMe::mergeList(const std::list<int>& left, const std::list<i
 }
 
 std::list<int> PmergeMe::sortList(const std::list<int>& lst) {
-    if (lst.size() <= 1) return lst;
+    if (lst.size() <= 1)
+		return lst;
 
     // Pair elements and split for recursive sorting
     std::list<int> pairedMin;
