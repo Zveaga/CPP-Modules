@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/09/08 15:22:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/11/05 16:22:26 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/05 16:30:48 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,12 +120,12 @@ void BitcoinExchange::performExchange(const std::string& date, float value)
 	}
 }
 
-bool	BitcoinExchange::parseInputAndPerformExchange()
+bool	BitcoinExchange::parseInputAndPerformExchange(const std::string& inputFile)
 {
-	std::ifstream file("input.csv");
+	std::ifstream file(inputFile);
 	if (!file.is_open())
 	{
-		std::cout << "Error: failed to open input file\n";
+		std::cout << "Error: failed to open input file!\n";
 		return (false);
 	}
 	std::string line;

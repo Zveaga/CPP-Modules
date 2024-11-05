@@ -20,7 +20,7 @@ class BitcoinExchange
 		// --Overloads-- //
 		BitcoinExchange &operator=(const BitcoinExchange &object);	
 		// --Member Functions-- //
-		bool	parseInputAndPerformExchange();
+		bool	parseInputAndPerformExchange(const std::string& inputFile);
 		bool	parseDatabse();
 		void	performExchange(const std::string& date, float value);
 };
