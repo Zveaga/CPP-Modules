@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/10/27 16:16:10 by coxer         #+#    #+#                 */
-/*   Updated: 2024/11/01 17:28:35 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/05 16:36:20 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,10 @@ bool checkInvalidChars(const std::string& expr) {
 
 bool RPN::validateInput(const std::string& expr) {
 	
-	if (expr.empty())
+	if (expr.empty()) {
+		std::cerr << "Error: Empty input\n";
 		return false;
+	}
 	if (!checkInvalidChars(expr) || !checkDoubleChars(expr) || !checkSpaces(expr))  {
 		return false;
 	}
