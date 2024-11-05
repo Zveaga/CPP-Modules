@@ -8,6 +8,7 @@
 #include <random>
 #include <sstream>
 #include <chrono>
+#include <string>
 
 class PmergeMe
 {
@@ -26,23 +27,32 @@ class PmergeMe
 		std::vector<int> 	sortVec(const std::vector<int>& left);
 		std::list<int> 		sortList(const std::list<int>& left);
 		void				printDuration(std::chrono::duration<double> durarion, const std::string& containerType, int size);
+		void				parseInput(const std::vector<std::string>& input);
 		template<class T>
 		void printContainer(const T& container, const std::string& moment) {
 			std::cout << moment << ": ";
 			for (auto it = container.begin(); it != container.end(); ++it) {
 				std::cout << *it << ' ';
 			}
-			std::cout << "\n";
+			std::cout << "\n\n";
 		};
 
+		// template<class T>
+		// T createContainer(const std::string& str) {
+		// 	std::istringstream stream(str);
+		// 	T newContainer;
+		// 	int number;
+		// 	while (stream >> number) {
+		// 		newContainer.push_back(number);
+		// 	}
+		// 	return newContainer;
+		// }
+
 		template<class T>
-		T createContainer(const std::string& str) {
-			std::istringstream stream(str);
+		T createContainer(const std::vector<std::string>& input) {
 			T newContainer;
-			int number;
-			while (stream >> number) {
-				newContainer.push_back(number);
-			}
+			for (const std::string& s : input)
+				newContainer.push_back(std::stoi(s));
 			return newContainer;
 		}
 

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/04 13:25:28 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/05 15:01:14 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ std::list<int> PmergeMe::sortList(const std::list<int>& lst) {
     return sortedLists.front();
 }
 
-
 void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::string& containerType, int size) {
 	std::cout 	<< "Time to process a range of "
 				<< size << " elements with std::"
@@ -117,6 +116,29 @@ void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::
 				<< " : " << std::fixed << std::setprecision(6)
 				<< duration.count() << " seconds\n";
 }
+
+void PmergeMe::parseInput(const std::vector<std::string>& input) {
+	for (const std::string& s : input) {
+		for (char c : s) {
+			if (!std::isdigit(c)) {
+				throw std::invalid_argument("Error: expected digits only");
+			}
+		}
+        try {
+            int n = std::stoi(s);  // Convert the token to an integer
+            if (n < 0) {
+                throw std::invalid_argument("Error: expected positive integers");
+            }
+        } catch (const std::out_of_range&) {
+            std::cerr << "Error: The number is out of range for an int" << std::endl;
+            throw;
+        } catch (const std::invalid_argument&) {
+            std::cerr << "Error: Invalid input, not a number" << std::endl;
+            throw;
+        }
+    }
+}
+
 
 
 // std::vector<int> PmergeMe::genRandNums(int size){
