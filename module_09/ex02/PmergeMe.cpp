@@ -6,16 +6,18 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 15:01:14 by rares         ########   odam.nl         */
+/*   Updated: 2024/11/05 16:58:12 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+// Helper to merge vectors based on Ford-Johnson algorithm requirements
 std::vector<int> PmergeMe::mergeVec(const std::vector<int>& left, const std::vector<int>& right) {
     std::vector<int> result;
     size_t i = 0, j = 0;
 
+    // Pairwise merging for Ford-Johnson comparison optimization
     while (i < left.size() && j < right.size()) {
         if (left[i] <= right[j]) {
             result.push_back(left[i]);
@@ -26,48 +28,42 @@ std::vector<int> PmergeMe::mergeVec(const std::vector<int>& left, const std::vec
         }
     }
 
-    // Append remaining elements
-    while (i < left.size()) {
-        result.push_back(left[i++]);
-    }
-    while (j < right.size()) {
-        result.push_back(right[j++]);
-    }
+    // Append any remaining elements
+    while (i < left.size()) result.push_back(left[i++]);
+    while (j < right.size()) result.push_back(right[j++]);
 
     return result;
 }
-	
 
 std::vector<int> PmergeMe::sortVec(const std::vector<int>& vec) {
+    if (vec.size() <= 1) return vec;
 
-	// Initialize single-element lists
-    std::vector<std::vector<int>> sortedLists(vec.size());
-    for (size_t i = 0; i < vec.size(); ++i) {
-        sortedLists[i] = {vec[i]};
-    }
-
-    // Merge sorted lists
-    while (sortedLists.size() > 1) {
-        std::vector<std::vector<int>> newSortedLists;
-        for (size_t i = 0; i < sortedLists.size(); i += 2) {
-            if (i + 1 < sortedLists.size()) {
-                newSortedLists.push_back(this->mergeVec(sortedLists[i], sortedLists[i + 1]));
-            } else {
-                newSortedLists.push_back(sortedLists[i]);
-            }
+    // Ford-Johnson sorting steps
+    std::vector<int> pairedIndices(vec.size(), 0);
+    for (size_t i = 0; i < vec.size(); i += 2) {
+        if (i + 1 < vec.size()) {
+            pairedIndices[i / 2] = std::min(vec[i], vec[i + 1]);
+            pairedIndices[vec.size() / 2 + i / 2] = std::max(vec[i], vec[i + 1]);
+        } else {
+            pairedIndices[i / 2] = vec[i];
         }
-        sortedLists = newSortedLists;
     }
 
-    return sortedLists[0];
+    // Recursive sorting on paired minimums
+    std::vector<int> minSorted = sortVec(std::vector<int>(pairedIndices.begin(), pairedIndices.begin() + vec.size() / 2));
+    std::vector<int> maxSorted = sortVec(std::vector<int>(pairedIndices.begin() + vec.size() / 2, pairedIndices.end()));
+
+    // Final merging with Ford-Johnson rules
+    return mergeVec(minSorted, maxSorted);
 }
 
-
+// Helper to merge lists based on Ford-Johnson algorithm requirements
 std::list<int> PmergeMe::mergeList(const std::list<int>& left, const std::list<int>& right) {
     std::list<int> result;
     auto it1 = left.begin();
     auto it2 = right.begin();
 
+    // Pairwise merging for Ford-Johnson comparison optimization
     while (it1 != left.end() && it2 != right.end()) {
         if (*it1 <= *it2) {
             result.push_back(*it1);
@@ -77,37 +73,47 @@ std::list<int> PmergeMe::mergeList(const std::list<int>& left, const std::list<i
             ++it2;
         }
     }
-    // Append remaining elements
+
+    // Append any remaining elements
     result.insert(result.end(), it1, left.end());
     result.insert(result.end(), it2, right.end());
     return result;
 }
 
 std::list<int> PmergeMe::sortList(const std::list<int>& lst) {
-    std::list<std::list<int>> sortedLists;
-    for (int element : lst) {
-        sortedLists.push_back({element});
-    }
+    if (lst.size() <= 1) return lst;
 
-    // Merge sorted lists
-    while (sortedLists.size() > 1) {
-        std::list<std::list<int>> newSortedLists;
-        auto it = sortedLists.begin();
-        while (it != sortedLists.end()) {
-            auto nextIt = std::next(it);
-            if (nextIt != sortedLists.end()) {
-                newSortedLists.push_back(this->mergeList(*it, *nextIt));
-                std::advance(it, 2); // Move to next pair
+    // Pair elements and split for recursive sorting
+    std::list<int> pairedMin;
+    std::list<int> pairedMax;
+    auto it = lst.begin();
+
+    while (it != lst.end()) {
+        auto nextIt = std::next(it);
+        if (nextIt != lst.end()) {
+            if (*it < *nextIt) {
+                pairedMin.push_back(*it);
+                pairedMax.push_back(*nextIt);
             } else {
-                newSortedLists.push_back(*it);
-                ++it; // Move to next single element
+                pairedMin.push_back(*nextIt);
+                pairedMax.push_back(*it);
             }
+            std::advance(it, 2);
+        } else {
+            pairedMin.push_back(*it);
+            ++it;
         }
-        sortedLists = newSortedLists;
     }
 
-    return sortedLists.front();
+    // Recursive sort of minimum and maximum lists
+    pairedMin = sortList(pairedMin);
+    pairedMax = sortList(pairedMax);
+
+    // Final merging with Ford-Johnson rules
+    return mergeList(pairedMin, pairedMax);
 }
+
+//////////////////////////////////////////////////////////////////////
 
 void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::string& containerType, int size) {
 	std::cout 	<< "Time to process a range of "
@@ -125,7 +131,7 @@ void PmergeMe::parseInput(const std::vector<std::string>& input) {
 			}
 		}
         try {
-            int n = std::stoi(s);  // Convert the token to an integer
+            int n = std::stoi(s);
             if (n < 0) {
                 throw std::invalid_argument("Error: expected positive integers");
             }
