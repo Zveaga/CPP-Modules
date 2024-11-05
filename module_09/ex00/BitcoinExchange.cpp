@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/09/08 15:22:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/09/08 15:22:15 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/05 16:05:00 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,26 @@ bool checkValue(const std::string& valueStr)
 {
 	if (valueStr.empty())
 		return (false);
+	int spaceCount = 0;
+	int dotCount = 0;
+	for (char c : valueStr)
+	{
+		if (c == ' ')
+			spaceCount++;
+		else if (c == '.')
+			dotCount++;
+	}
+	if (spaceCount != 1 || dotCount > 1 || valueStr.back() == '.')
+		return false;
+	for (char c : valueStr)
+	{
+		if (!std::isdigit(c) && c != ' ' && c != '.')
+			return false;
+	}
 	try
 	{
 		float value = std::stof(valueStr);
-		if (value > 1000)
+		if (value > 1000 || value < 0)
 			return (false);
 	}
 	catch (std::invalid_argument& e)
@@ -118,6 +134,8 @@ bool	BitcoinExchange::parseInputAndPerformExchange()
 		{
 			std::string dateStr = line.substr(0, pos - 1);
 			std::string valueStr = line.substr(pos + 1);
+			// std::cout << "Date:" << dateStr << "-\n";
+			// std::cout << "Value:" << valueStr << "-\n";
 			if (!checkDate(dateStr) || !checkValue(valueStr))
 			{
 				std::cout << "Error: bad input => " << line << "\n";
