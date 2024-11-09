@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 16:39:06 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/09 20:38:39 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	
 	alg.printContainer(vec, "BEFORE");
 	auto start = std::chrono::high_resolution_clock::now();
-	std::vector<int> sortedArray = alg.sortVec(vec);
+	std::vector<int> sortedArray = alg.sortVector(vec);
 	auto end = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> durationVec = end - start;
 	alg.printContainer(sortedArray, "AFTER");
