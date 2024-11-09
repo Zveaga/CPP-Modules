@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 16:30:05 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/09 14:06:16 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ int main(int argc, char** argv)
 	}
 	std::cout << "\n============START============\n\n";
 	BitcoinExchange btc;
-	btc.parseDatabse();
+	if (!btc.parseDatabse()) {
+		return (1);
+	}
 	std::cout << "\n-----------------------------\n\n";
-	btc.parseInputAndPerformExchange(std::string(argv[1]));
+	if (!btc.parseInputAndPerformExchange(std::string(argv[1]))) {
+		return (1);
+	}
 	std::cout << "\n=============END=============\n";
 	return (0);
 }

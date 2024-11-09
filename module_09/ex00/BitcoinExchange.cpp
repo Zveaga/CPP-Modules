@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/09/08 15:22:07 by coxer         #+#    #+#                 */
-/*   Updated: 2024/11/05 16:30:48 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/09 14:57:03 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ bool	BitcoinExchange::parseInputAndPerformExchange(const std::string& inputFile)
 	std::ifstream file(inputFile);
 	if (!file.is_open())
 	{
-		std::cout << "Error: failed to open input file!\n";
+		std::cerr << "Error: failed to open input file!\n";
 		return (false);
 	}
 	std::string line;
@@ -160,16 +160,35 @@ bool	BitcoinExchange::parseInputAndPerformExchange(const std::string& inputFile)
 bool BitcoinExchange::parseDatabse()
 {
 	std::ifstream file("data.csv");
-	if (!file.is_open())
+	if (!file.is_open()) {
+		std::cerr << "Error: failed to open data file!\n";
 		return (false);
+	}
 	std::string line;
-	std::getline(file,line);
+	
+	if (!std::getline(file,line) || line.empty()) {
+		std::cerr << "Error: data file has an invalid format!\n";
+        return (false);
+	}
+	if (!file.good()) {
+			std::cerr << "Error: data file has an invalid format!\n";
+        return (false);
+    }
 	while (std::getline(file,line))
 	{
 		size_t pos = line.find(',');
+		if (pos == std::string::npos) {
+			std::cerr << "Error: data file has an invalid format!\n";
+			return (false);
+		}
 		std::string dateStr = line.substr(0, pos);
 		std::string valueStr = line.substr(pos + 1);
-		m_data.emplace(dateStr, std::stof(valueStr));
+		try {
+			m_data.emplace(dateStr, std::stof(valueStr));	
+		} catch (const std::exception& e) {
+			std::cerr << "Error: data file has an invalid format!\n";
+			return (false);
+		}
 	}
 	return (true);
 }
