@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/09 17:32:06 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/09 17:40:46 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,21 +223,6 @@ void PmergeMe::insertListSort(std::list<int>& chainA, const std::list<int>& chai
     }
 }
 
-std::vector<int> PmergeMe::sortVector(int argc, char **argv) {
-    std::vector<std::string> input(argv + 1, argv + argc);
-    std::vector<int> vec = createContainer<std::vector<int>>(input);
-
-    std::vector<int> sortedVec = sortVec(vec);
-    return sortedVec;
-}
-
-std::list<int> PmergeMe::sortList(int argc, char **argv) {
-    std::vector<std::string> input(argv + 1, argv + argc);
-    std::list<int> lst = createContainer<std::list<int>>(input);
-
-    std::list<int> sortedList = sortList(lst);
-    return sortedList;
-}
 
 //////////////////////////////////////////////////////////////////////
 
