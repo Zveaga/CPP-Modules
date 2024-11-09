@@ -6,13 +6,12 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/01 20:12:53 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/05 18:07:00 by raanghel      ########   odam.nl         */
+/*   Updated: 2024/11/09 17:32:06 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-// Helper to merge vectors based on Ford-Johnson algorithm requirements
 std::vector<int> PmergeMe::mergeVec(const std::vector<int>& left, const std::vector<int>& right) {
     std::vector<int> result;
     size_t i = 0, j = 0;
@@ -35,29 +34,6 @@ std::vector<int> PmergeMe::mergeVec(const std::vector<int>& left, const std::vec
     return result;
 }
 
-std::vector<int> PmergeMe::sortVec(const std::vector<int>& vec) {
-    if (vec.size() <= 1)
-		return vec;
-    // Ford-Johnson sorting steps
-    std::vector<int> pairedIndices(vec.size(), 0);
-    for (size_t i = 0; i < vec.size(); i += 2) {
-        if (i + 1 < vec.size()) {
-            pairedIndices[i / 2] = std::min(vec[i], vec[i + 1]);
-            pairedIndices[vec.size() / 2 + i / 2] = std::max(vec[i], vec[i + 1]);
-        } else {
-            pairedIndices[i / 2] = vec[i];
-        }
-    }
-
-    // Recursive sorting on paired minimums
-    std::vector<int> minSorted = sortVec(std::vector<int>(pairedIndices.begin(), pairedIndices.begin() + vec.size() / 2));
-    std::vector<int> maxSorted = sortVec(std::vector<int>(pairedIndices.begin() + vec.size() / 2, pairedIndices.end()));
-
-    // Final merging with Ford-Johnson rules
-    return mergeVec(minSorted, maxSorted);
-}
-
-// Helper to merge lists based on Ford-Johnson algorithm requirements
 std::list<int> PmergeMe::mergeList(const std::list<int>& left, const std::list<int>& right) {
     std::list<int> result;
     auto it1 = left.begin();
@@ -80,9 +56,32 @@ std::list<int> PmergeMe::mergeList(const std::list<int>& left, const std::list<i
     return result;
 }
 
+std::vector<int> PmergeMe::sortVec(const std::vector<int>& vec) {
+    if (vec.size() <= 1)
+        return vec;
+
+    // Pair elements and split for recursive sorting
+    std::vector<int> minVec, maxVec;
+    for (size_t i = 0; i < vec.size(); i += 2) {
+        if (i + 1 < vec.size()) {
+            minVec.push_back(std::min(vec[i], vec[i + 1]));
+            maxVec.push_back(std::max(vec[i], vec[i + 1]));
+        } else {
+            minVec.push_back(vec[i]);
+        }
+    }
+
+    // Recursively sort the minimums and maximums
+    minVec = sortVec(minVec);
+    maxVec = sortVec(maxVec);
+
+    // Final merging with Ford-Johnson rules
+    return mergeVec(minVec, maxVec);
+}
+
 std::list<int> PmergeMe::sortList(const std::list<int>& lst) {
     if (lst.size() <= 1)
-		return lst;
+        return lst;
 
     // Pair elements and split for recursive sorting
     std::list<int> pairedMin;
@@ -106,12 +105,138 @@ std::list<int> PmergeMe::sortList(const std::list<int>& lst) {
         }
     }
 
-    // Recursive sort of minimum and maximum lists
+    // Recursively sort minimums and maximums
     pairedMin = sortList(pairedMin);
     pairedMax = sortList(pairedMax);
 
     // Final merging with Ford-Johnson rules
     return mergeList(pairedMin, pairedMax);
+}
+
+int PmergeMe::jacobS(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+
+    int prev = 0;
+    int current = 1;
+    for (int i = 2; i < n; ++i) {
+        int next = current + 2 * prev;
+        prev = current;
+        current = next;
+    }
+    return current;
+}
+
+// template<class T>
+// T PmergeMe::createContainer(const std::vector<std::string>& input) {
+//     T newContainer;
+//     for (const std::string& s : input)
+//         newContainer.push_back(std::stoi(s));
+//     return newContainer;
+// }
+
+void PmergeMe::binaryVecInsert(std::vector<int>& chainA, int start, int len, int value) {
+    if (start >= len) {
+        chainA.insert(chainA.begin() + start, value);
+        return;
+    }
+
+    int mid = start + (len - start) / 2;
+
+    if (chainA[mid] < value)
+        binaryVecInsert(chainA, mid + 1, len, value);
+    else if (chainA[mid] > value)
+        binaryVecInsert(chainA, start, mid, value);
+    else {
+        chainA.insert(chainA.begin() + mid, value);
+        return;
+    }
+}
+
+void PmergeMe::binaryListInsert(std::list<int>& chainA, int value) {
+    auto it = chainA.begin();
+    int distance = std::distance(chainA.begin(), chainA.end());
+
+    while (distance > 0) {
+        int step = distance / 2;
+        auto mid = it;
+        std::advance(mid, step);
+
+        if (*mid < value) {
+            it = mid;
+            ++it;
+            distance -= step + 1;
+        } else if (*mid > value) {
+            distance = step;
+        } else {
+            chainA.insert(mid, value);
+            return;
+        }
+    }
+    chainA.insert(it, value);
+}
+
+void PmergeMe::insertVecSort(std::vector<int>& chainA, std::vector<int>& chainB) {
+    int i = 1;
+    int n = 1;
+    int len = chainB.size();
+
+    chainA.insert(chainA.begin(), chainB.front());
+
+    while (i < len) {
+        for (int j = jacobS(n); j > 0 && j > jacobS(n - 1); --j) {
+            auto it = chainB.begin();
+            if (j >= len)
+                j = len - 1;
+            std::advance(it, j);
+            binaryVecInsert(chainA, 0, chainA.size(), *it);
+            ++i;
+        }
+        ++n;
+    }
+}
+
+void PmergeMe::insertListSort(std::list<int>& chainA, const std::list<int>& chainB) {
+    auto itA = chainA.begin();
+    auto itB = chainB.begin();
+	(void)itA;
+
+    if (itB != chainB.end())
+        chainA.insert(chainA.begin(), *itB++);
+
+    int i = 1;
+    int n = 1;
+    int len = chainB.size();
+
+    while (i < len) {
+        for (int j = jacobS(n); j > 0 && j > jacobS(n - 1); --j) {
+            auto it = chainB.begin();
+            if (j >= len)
+                j = len - 1;
+            std::advance(it, j);
+            binaryListInsert(chainA, *it);
+            ++i;
+        }
+        ++n;
+    }
+}
+
+std::vector<int> PmergeMe::sortVector(int argc, char **argv) {
+    std::vector<std::string> input(argv + 1, argv + argc);
+    std::vector<int> vec = createContainer<std::vector<int>>(input);
+
+    std::vector<int> sortedVec = sortVec(vec);
+    return sortedVec;
+}
+
+std::list<int> PmergeMe::sortList(int argc, char **argv) {
+    std::vector<std::string> input(argv + 1, argv + argc);
+    std::list<int> lst = createContainer<std::list<int>>(input);
+
+    std::list<int> sortedList = sortList(lst);
+    return sortedList;
 }
 
 //////////////////////////////////////////////////////////////////////
