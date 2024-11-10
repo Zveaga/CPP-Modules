@@ -6,7 +6,7 @@
 /*   By: coxer <coxer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/09 17:43:44 by coxer         #+#    #+#                 */
-/*   Updated: 2024/11/09 20:31:19 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/10 14:13:18 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@
 #include <chrono>
 #include <exception>
 #include <iostream>
+#include <iomanip>
 #include <list>
 #include <sstream>
 #include <string>
 #include <vector>
-
-// using durType = std::chrono::microseconds;
-// using vec = std::vector<int>;
-// using li = std::list<int>;
 
 class PmergeMe
 {
@@ -47,36 +44,54 @@ class PmergeMe
     void recursiveListInsert(std::list<int>& chainA, int value);
     void sortAndInsertListPairs(std::list<int>& chainA, const std::list<int>& chainB);
     int jacobS(int n);
-    template <typename Container>
-    Container createContainer(const std::vector<std::string>& inputStrings);
-    void printContainer(const std::vector<std::string>& container, const std::string& label);
-    void printContainer(const std::vector<int>& container, const std::string& label);
-    void printContainer(const std::list<int>& container, const std::string& label);
-    void printDuration(const std::chrono::duration<double>& duration, const std::string& type, size_t size);
+    void printDuration(std::chrono::duration<double> durarion, const std::string& containerType, int size);
+	// template <typename Container>
+    // Container createContainer(const std::vector<std::string>& inputStrings);
+    // void printContainer(const std::vector<std::string>& container, const std::string& label);
+    // void printContainer(const std::vector<int>& container, const std::string& label);
+    // void printContainer(const std::list<int>& container, const std::string& label);
+    // void printDuration(const std::chrono::duration<double>& duration, const std::string& type, size_t size);
 
 	// --Exceptions-- //
-    class NegativeValueError : public std::exception
-    {
-    public:
-        const char* what() const noexcept override;
-    };
+    // class NegativeValueError : public std::exception
+    // {
+    // 	public:
+    //     	const char* what() const noexcept override;
+    // };
     void parseInput(const std::vector<std::string>& input);
+	// --Templates-- //
+	template<class T>
+	void printContainer(const T& container, const std::string& moment) {
+		std::cout << moment << ": ";
+		for (auto it = container.begin(); it != container.end(); ++it) {
+			std::cout << *it << ' ';
+		}
+		std::cout << "\n\n";
+	};
+	template<class T>
+	T createContainer(const std::vector<std::string>& input) {
+		T newContainer;
+		for (const std::string& s : input)
+			newContainer.push_back(std::stoi(s));
+		return newContainer;
+	}
+	
 };
 
-// Template implementation
-template <typename Container>
-Container PmergeMe::createContainer(const std::vector<std::string>& inputStrings)
-{
-    Container container;
-    for (const auto& str : inputStrings)
-    {
-        int num = std::stoi(str);
-        if (num < 0)
-            throw NegativeValueError();
-        container.push_back(num);
-    }
-    return container;
-}
+// // Template implementation
+// template <typename Container>
+// Container PmergeMe::createContainer(const std::vector<std::string>& inputStrings)
+// {
+//     Container container;
+//     for (const auto& str : inputStrings)
+//     {
+//         int num = std::stoi(str);
+//         if (num < 0)
+//             throw NegativeValueError();
+//         container.push_back(num);
+//     }
+//     return container;
+// }
 
 #endif
 

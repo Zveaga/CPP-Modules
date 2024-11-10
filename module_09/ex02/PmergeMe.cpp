@@ -176,90 +176,90 @@ int PmergeMe::jacobS(int n)
     return current;
 }
 
-void PmergeMe::printContainer(const std::vector<std::string>& container, const std::string& label)
-{
-    std::cout << label << ":\t";
-    for (const auto& val : container)
-        std::cout << val << " ";
-    std::cout << "\n";
-}
+// void PmergeMe::printContainer(const std::vector<std::string>& container, const std::string& label)
+// {
+//     std::cout << label << ":\t";
+//     for (const auto& val : container)
+//         std::cout << val << " ";
+//     std::cout << "\n";
+// }
 
-void PmergeMe::printContainer(const std::vector<int>& container, const std::string& label)
-{
-    std::cout << label << ":\t";
-    for (int val : container)
-        std::cout << val << " ";
-    std::cout << "\n";
-}
+// void PmergeMe::printContainer(const std::vector<int>& container, const std::string& label)
+// {
+//     std::cout << label << ":\t";
+//     for (int val : container)
+//         std::cout << val << " ";
+//     std::cout << "\n";
+// }
 
-void PmergeMe::printContainer(const std::list<int>& container, const std::string& label)
-{
-    std::cout << label << ":\t";
-    for (int val : container)
-        std::cout << val << " ";
-    std::cout << "\n";
-}
+// void PmergeMe::printContainer(const std::list<int>& container, const std::string& label)
+// {
+//     std::cout << label << ":\t";
+//     for (int val : container)
+//         std::cout << val << " ";
+//     std::cout << "\n";
+// }
 
-void PmergeMe::printDuration(const std::chrono::duration<double>& duration, const std::string& type, size_t size)
-{
-    std::cout << "Time to process a " << size << "-element " << type << " : " << duration.count() << "s\n";
-}
+// void PmergeMe::printDuration(const std::chrono::duration<double>& duration, const std::string& type, size_t size)
+// {
+//     std::cout << "Time to process a " << size << "-element " << type << " : " << duration.count() << "s\n";
+// }
 
-void PmergeMe::parseInput(const std::vector<std::string>& input)
-{
-    for (const auto& str : input)
-    {
-        try
-        {
-            int num = std::stoi(str);
-            if (num < 0)
-                throw NegativeValueError();
-        }
-        catch (const std::exception& e)
-        {
-            throw std::invalid_argument("Invalid input: contains non-integer or negative values.");
-        }
-    }
-}
+// void PmergeMe::parseInput(const std::vector<std::string>& input)
+// {
+//     for (const auto& str : input)
+//     {
+//         try
+//         {
+//             int num = std::stoi(str);
+//             if (num < 0)
+//                 throw NegativeValueError();
+//         }
+//         catch (const std::exception& e)
+//         {
+//             throw std::invalid_argument("Invalid input: contains non-integer or negative values.");
+//         }
+//     }
+// }
 
-const char* PmergeMe::NegativeValueError::what() const noexcept
-{
-    return "Error: Negative values are not allowed.";
-}
+// const char* PmergeMe::NegativeValueError::what() const noexcept
+// {
+//     return "Error: Negative values are not allowed.";
+// }
 
 
 
 //////////////////////////////////////////////////////////////////////
 
-// void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::string& containerType, int size) {
-// 	std::cout 	<< "Time to process a range of "
-// 				<< size << " elements with std::"
-// 				<< containerType
-// 				<< " : " << std::fixed << std::setprecision(6)
-// 				<< duration.count() << " seconds\n";
-// }
+void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::string& containerType, int size) {
+	std::cout 	<< "Time to process a range of "
+				<< size << " elements with std::"
+				<< containerType
+				<< " : " << std::fixed << std::setprecision(6)
+				<< duration.count() << " seconds\n";
+}
 
-// void PmergeMe::parseInput(const std::vector<std::string>& input) {
-// 	for (const std::string& s : input) {
-// 		for (char c : s) {
-// 			if (!std::isdigit(c)) {
-// 				throw std::invalid_argument("Error: expected digits only");
-// 			}
-// 		}
-//         try {
-//             int n = std::stoi(s);
-//             if (n < 0) {
-//                 throw std::invalid_argument("Error: expected positive integers");
-//             }
-//         } catch (const std::out_of_range&) {
-//             std::cerr << "Error: The number is out of range for an int" << std::endl;
-//             throw;
-//         } catch (const std::invalid_argument&) {
-//             std::cerr << "Error: Invalid input, not a number" << std::endl;
-//             throw;
-//         }
-//     }
-// }
+void PmergeMe::parseInput(const std::vector<std::string>& input) {
+	for (const std::string& s : input) {
+		for (char c : s) {
+			if (!std::isdigit(c)) {
+				throw std::invalid_argument("expected positive integers only");
+			}
+		}
+        try {
+            int n = std::stoi(s);
+            if (n < 0) {
+                throw std::invalid_argument("expected positive integers only!");
+            }
+        } catch (const std::out_of_range&) {
+            std::cerr << "ERROR: The number is out of range for an int" << "\n";
+            throw;
+        } catch (const std::invalid_argument&) {
+            std::cerr << "ERROR: Invalid input, not a number" << "\n";
+            throw;
+        }
+    }
+}
 
 
 

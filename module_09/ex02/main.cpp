@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/09 20:38:39 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/10 14:16:58 by coxer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	try {
 		alg.parseInput(input);
 	} catch (const std::exception& e) {
-		std::cout << "ERROR! Invalid input: " << e.what() << "\n";
+		std::cout << "ERROR: " << e.what() << "\n";
 		std::exit(1);
 	}
 	
