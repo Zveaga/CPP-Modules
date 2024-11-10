@@ -63,7 +63,9 @@ void PmergeMe::splitListToPairs(std::list<int>& input, std::list<int>& largeNums
         int second = *it++;
         pairs.emplace_back(std::min(first, second), std::max(first, second));
     }
-    pairs.sort([](const auto& a, const auto& b) { return a.second < b.second; });
+    pairs.sort([](const auto& a, const auto& b) {
+		return a.second < b.second;
+	});
     for (const auto& pair : pairs) {
         largeNums.push_back(pair.second);
         smallNums.push_back(pair.first);
@@ -125,8 +127,8 @@ void PmergeMe::binaryInsertVec(std::vector<int>& largeNums, int start, int end, 
 }
 
 void PmergeMe::binaryInsertList(std::list<int>& largeNums, int value) {
-	auto it = largeNums.begin();
     int dist = std::distance(largeNums.begin(), largeNums.end());
+	auto it = largeNums.begin();
     while (dist > 0) {
         int step = dist / 2;
         auto middle = it;
