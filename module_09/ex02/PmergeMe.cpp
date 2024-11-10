@@ -5,231 +5,162 @@
 #include <list>
 #include <vector>
 
-/* ==================== CONSTRUCTOR AND ASSIGNMENT ==================== */
-
-const PmergeMe& PmergeMe::operator=(const PmergeMe& other){
-	(void)other;
+const PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
+	(void)obj;
 	return *this;
 }
 
-/* ==================== VECTOR OPERATIONS ==================== */
-
-std::vector<int> PmergeMe::sortVector(const std::vector<int>& input)
-{
-    std::vector<int> chainA, chainB, numbers = input;
-    splitToPairs(numbers, chainA, chainB);
-    sortAndInsertPairs(chainA, chainB);
-    return chainA;
+std::vector<int> PmergeMe::sortVector(std::vector<int>& input) {
+	std::vector<int> smallNums;
+    std::vector<int> largeNums;
+    splitVecToPairs(input, largeNums, smallNums);
+    sortAndInsertVecPairs(largeNums, smallNums);
+    return largeNums;
 }
 
-void PmergeMe::splitToPairs(std::vector<int>& input, std::vector<int>& chainA, std::vector<int>& chainB)
-{
+std::list<int> PmergeMe::sortList(std::list<int>& input) {
+    std::list<int> largeNums;
+	std::list<int> smallNums;
+    splitListToPairs(input, largeNums, smallNums);
+    sortAndInsertListPairs(largeNums, smallNums);
+    return largeNums;
+}
+
+void PmergeMe::splitVecToPairs(std::vector<int>& input, std::vector<int>& largeNums, std::vector<int>& smallNums) {
     std::vector<std::vector<int>> pairs;
     int extraValue = 0;
-
-    if (input.size() % 2 == 1)
-    {
+    if (input.size() % 2 == 1) {
         extraValue = input.back();
         input.pop_back();
     }
-
-    for (size_t i = 0; i < input.size(); i += 2)
-    {
+    for (size_t i = 0; i < input.size(); i += 2) {
         std::vector<int> currentPair = {input[i], input[i + 1]};
         std::sort(currentPair.begin(), currentPair.end());
         pairs.push_back(currentPair);
     }
-
-    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
-
-    for (const auto& pair : pairs)
-    {
-        chainA.push_back(pair[1]);
-        chainB.push_back(pair[0]);
+    std::sort(pairs.begin(), pairs.end(), [](const auto& a, const auto& b) {
+		return a[1] < b[1];
+	});
+    for (const auto& pair : pairs) {
+        largeNums.push_back(pair[1]);
+        smallNums.push_back(pair[0]);
     }
-
-    if (extraValue != 0)
-        chainB.push_back(extraValue);
+    if (extraValue != 0) {
+        smallNums.push_back(extraValue);
+	}
 }
 
-void PmergeMe::recursiveBinaryInsert(std::vector<int>& chainA, int start, int end, int value)
-{
-    if (start >= end)
-    {
-        chainA.insert(chainA.begin() + start, value);
-        return;
-    }
-
-    int mid = start + (end - start) / 2;
-
-    if (chainA[mid] < value)
-        recursiveBinaryInsert(chainA, mid + 1, end, value);
-    else if (chainA[mid] > value)
-        recursiveBinaryInsert(chainA, start, mid, value);
-    else
-        chainA.insert(chainA.begin() + mid, value);
-}
-
-void PmergeMe::sortAndInsertPairs(std::vector<int>& chainA, std::vector<int>& chainB)
-{
-    int index = 1, sequenceIndex = 1, len = chainB.size();
-    chainA.insert(chainA.begin(), chainB.front());
-
-    while (index < len)
-    {
-        for (int j = jacobS(sequenceIndex); j > 0 && j > jacobS(sequenceIndex - 1); --j)
-        {
-            if (j >= len)
-                j = len - 1;
-
-            recursiveBinaryInsert(chainA, 0, chainA.size(), chainB[j]);
-            ++index;
-        }
-        ++sequenceIndex;
-    }
-}
-
-/* ==================== LIST OPERATIONS ==================== */
-
-std::list<int> PmergeMe::sortList(const std::list<int>& input)
-{
-    std::list<int> chainA, chainB, numbers = input;
-    splitListToPairs(numbers, chainA, chainB);
-    sortAndInsertListPairs(chainA, chainB);
-    return chainA;
-}
-
-void PmergeMe::splitListToPairs(std::list<int>& input, std::list<int>& chainA, std::list<int>& chainB)
-{
+void PmergeMe::splitListToPairs(std::list<int>& input, std::list<int>& largeNums, std::list<int>& smallNums) {
     std::list<std::pair<int, int>> pairs;
     int extraValue = 0;
-
-    if (input.size() % 2 == 1)
-    {
+    if (input.size() % 2 == 1) {
         extraValue = input.back();
         input.pop_back();
     }
-
     auto it = input.begin();
-    while (it != input.end())
-    {
+    while (it != input.end()) {
         int first = *it++;
         int second = *it++;
         pairs.emplace_back(std::min(first, second), std::max(first, second));
     }
-
     pairs.sort([](const auto& a, const auto& b) { return a.second < b.second; });
-
-    for (const auto& pair : pairs)
-    {
-        chainA.push_back(pair.second);
-        chainB.push_back(pair.first);
+    for (const auto& pair : pairs) {
+        largeNums.push_back(pair.second);
+        smallNums.push_back(pair.first);
     }
-
-    if (extraValue != 0)
-        chainB.push_back(extraValue);
+    if (extraValue != 0) {
+        smallNums.push_back(extraValue);
+	}
 }
 
-void PmergeMe::recursiveListInsert(std::list<int>& chainA, int value)
-{
-    auto it = std::lower_bound(chainA.begin(), chainA.end(), value);
-    chainA.insert(it, value);
-}
-
-void PmergeMe::sortAndInsertListPairs(std::list<int>& chainA, const std::list<int>& chainB)
-{
-    auto itB = chainB.begin();
-    chainA.insert(chainA.begin(), *itB++);
-    int index = 1, sequenceIndex = 1, len = chainB.size();
-
-    while (index < len)
-    {
-        for (int j = jacobS(sequenceIndex); j > 0 && j > jacobS(sequenceIndex - 1); --j)
-        {
-            if (j >= len)
+void PmergeMe::sortAndInsertVecPairs(std::vector<int>& largeNums, std::vector<int>& smallNums) {
+	int len = smallNums.size();
+	int sequenceIndex = 1;
+    int index = 1;
+    largeNums.insert(largeNums.begin(), smallNums.front());
+    while (index < len) {
+        for (int j = jacobsthalSeq(sequenceIndex); j > 0 && j > jacobsthalSeq(sequenceIndex - 1); --j) {
+            if (j >= len) {
                 j = len - 1;
-
-            auto it = std::next(chainB.begin(), j);
-            recursiveListInsert(chainA, *it);
+			}
+            binaryInsertVec(largeNums, 0, largeNums.size(), smallNums[j]);
             ++index;
         }
         ++sequenceIndex;
     }
 }
 
-/* ==================== COMMON METHODS ==================== */
-
-int PmergeMe::jacobS(int n)
-{
-    if (n == 0)
-        return 0;
-    if (n == 1)
-        return 1;
-
-    int prev = 0, current = 1;
-    for (int i = 2; i < n; ++i)
-    {
-        int next = current + 2 * prev;
-        prev = current;
-        current = next;
+void PmergeMe::sortAndInsertListPairs(std::list<int>& largeNums, const std::list<int>& smallNums) {
+    auto it = smallNums.begin();
+    int index = 1;
+	int sequenceIndex = 1;
+	int len = smallNums.size();
+    largeNums.insert(largeNums.begin(), *it++);
+    while (index < len) {
+        for (int j = jacobsthalSeq(sequenceIndex); j > 0 && j > jacobsthalSeq(sequenceIndex - 1); --j) {
+            if (j >= len) {
+                j = len - 1;
+			}
+            auto it = std::next(smallNums.begin(), j);
+            binaryInsertList(largeNums, *it);
+            ++index;
+        }
+        ++sequenceIndex;
     }
-    return current;
 }
 
-// void PmergeMe::printContainer(const std::vector<std::string>& container, const std::string& label)
-// {
-//     std::cout << label << ":\t";
-//     for (const auto& val : container)
-//         std::cout << val << " ";
-//     std::cout << "\n";
-// }
+void PmergeMe::binaryInsertVec(std::vector<int>& largeNums, int start, int end, int value) {
+    if (start >= end) {
+        largeNums.insert(largeNums.begin() + start, value);
+        return ;
+    }
+    int middle = start + (end - start) / 2;
+    if (largeNums[middle] < value) {
+        binaryInsertVec(largeNums, middle + 1, end, value);
+	} else if (largeNums[middle] > value) {
+        binaryInsertVec(largeNums, start, middle, value);
+	} else {
+        largeNums.insert(largeNums.begin() + middle, value);
+	}
+}
 
-// void PmergeMe::printContainer(const std::vector<int>& container, const std::string& label)
-// {
-//     std::cout << label << ":\t";
-//     for (int val : container)
-//         std::cout << val << " ";
-//     std::cout << "\n";
-// }
+void PmergeMe::binaryInsertList(std::list<int>& largeNums, int value) {
+	auto it = largeNums.begin();
+    int dist = std::distance(largeNums.begin(), largeNums.end());
+    while (dist > 0) {
+        int step = dist / 2;
+        auto middle = it;
+        std::advance(middle, step);
+        if (*middle < value) {
+            it = middle;
+            ++it;
+            dist -= step + 1;
+        } else if (*middle > value) {
+            dist = step;
+		} else {
+            largeNums.insert(middle, value);
+            return ;
+        }
+    }
+    largeNums.insert(it, value);
+}
 
-// void PmergeMe::printContainer(const std::list<int>& container, const std::string& label)
-// {
-//     std::cout << label << ":\t";
-//     for (int val : container)
-//         std::cout << val << " ";
-//     std::cout << "\n";
-// }
-
-// void PmergeMe::printDuration(const std::chrono::duration<double>& duration, const std::string& type, size_t size)
-// {
-//     std::cout << "Time to process a " << size << "-element " << type << " : " << duration.count() << "s\n";
-// }
-
-// void PmergeMe::parseInput(const std::vector<std::string>& input)
-// {
-//     for (const auto& str : input)
-//     {
-//         try
-//         {
-//             int num = std::stoi(str);
-//             if (num < 0)
-//                 throw NegativeValueError();
-//         }
-//         catch (const std::exception& e)
-//         {
-//             throw std::invalid_argument("Invalid input: contains non-integer or negative values.");
-//         }
-//     }
-// }
-
-// const char* PmergeMe::NegativeValueError::what() const noexcept
-// {
-//     return "Error: Negative values are not allowed.";
-// }
-
-
-
-//////////////////////////////////////////////////////////////////////
+int PmergeMe::jacobsthalSeq(int n) {
+    if (n == 0) {
+        return 0;
+	}
+    if (n == 1) {
+        return 1;
+	}
+    int prev = 0;
+	int curr = 1;
+    for (int i = 2; i < n; ++i) {
+        int next = curr + 2 * prev;
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}
 
 void PmergeMe::printDuration(std::chrono::duration<double> duration, const std::string& containerType, int size) {
 	std::cout 	<< "Time to process a range of "
@@ -260,29 +191,3 @@ void PmergeMe::parseInput(const std::vector<std::string>& input) {
         }
     }
 }
-
-
-
-// std::vector<int> PmergeMe::genRandNums(int size){
-// 	// Seed with a real random value, if available
-//     std::random_device rd;
-//     // Initialize the random number generator with the seed
-//     std::mt19937 generator(rd());
-//     // Define the range for random integers, for example, between 1 and 100
-//     std::uniform_int_distribution<int> distribution(-1000, 1000);
-//     // Create a vector to store the random numbers
-//     std::vector<int> nums;
-//     // Generate 10,000 random numbers and add them to the vector
-//     for (int i = 0; i < size; ++i) {
-//         nums.push_back(distribution(generator));
-//     }
-// 	return nums;
-// }
-
-// template<class T>
-// void PmergeMe::printContainer(const T& container) {
-// 	for (auto it = container.begin(); it != container.end(); ++it) {
-// 		std::cout << *it << ' ';
-// 	}
-// 	std::cout << "\n";
-// }
