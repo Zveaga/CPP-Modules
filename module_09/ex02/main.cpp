@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 19:27:02 by rares         #+#    #+#                 */
-/*   Updated: 2024/11/10 15:51:44 by coxer         ########   odam.nl         */
+/*   Updated: 2024/11/11 16:35:10 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int main(int argc, char **argv)
 	
 	std::vector<int> vec = alg.createContainer<std::vector<int>>(input);
 	std::list<int> list = alg.createContainer<std::list<int>>(input);
+	int vecSize = vec.size();
+	int listSize = list.size();
 	
 	alg.printContainer(vec, "BEFORE");
 	
@@ -53,8 +55,8 @@ int main(int argc, char **argv)
 	alg.printContainer(sortedList, "AFTER");
 	
 	// std::cout << "\n-------------DURATION-------------\n\n";
-	alg.printDuration(durationVec, "vector", vec.size());
-	alg.printDuration(durationList, "list", list.size());
+	alg.printDuration(durationVec, "vector", vecSize);
+	alg.printDuration(durationList, "list", listSize);
 	
 	std::cout << "\n==================END===================\n";
 	return (0);
